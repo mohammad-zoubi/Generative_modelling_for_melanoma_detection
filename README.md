@@ -1,1 +1,1 @@
-# Generative_modelling
+# Generative_modelling_for_melanoma_detection
