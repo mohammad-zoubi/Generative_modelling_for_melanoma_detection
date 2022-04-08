@@ -1,0 +1,8 @@
+embeddings {
+  tensor_path: "thousand_frames.tsv"
+   sprite {
+    image_path: "sprite.jpg"
+    single_image_dim: 256
+    single_image_dim: 256
+  }
+}
