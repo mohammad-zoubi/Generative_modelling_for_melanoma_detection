@@ -8,7 +8,7 @@ w_matrix = np.load("/data/w_matrix.npy")
 eig_vec_matrix = torch.load(matrix_path)['eigvec']
 # ma = sns.color_palette("Spectral", as_cmap=True)
 fig = plt.figure(figsize=(12,12))
-fig = sns.heatmap(eig_vec_matrix[:30,:30], vmin=-0.1, vmax=1.2)
+fig = sns.heatmap(eig_vec_matrix[:512,:512], vmin=-0.1, vmax=1.2)
 fig = fig.get_figure() 
 fig.savefig("/data/Master_Thesis/semantic_factorization/heatmap_eig.jpg") 
 
