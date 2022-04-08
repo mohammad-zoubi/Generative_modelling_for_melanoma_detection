@@ -21,7 +21,7 @@ from pathlib import Path
 import random
 # from torchsummary import summary
 
-import saliency.core as saliency
+# import saliency.core as saliency
 
 def select_n_random(data, labels, n=100):
     '''

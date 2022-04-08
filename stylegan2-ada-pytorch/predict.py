@@ -18,7 +18,7 @@ from efficientnet_pytorch import EfficientNet
 import seaborn as sb
 from argparse import ArgumentParser 
 from melanoma_classifier import test
-from utils import load_model, load_isic_data, load_synthetic_data,  CustomDataset , confussion_matrix
+from utils import load_model, load_isic_data, load_synthetic_data,  CustomDataset , confussion_matrix, make_df
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from datetime import date, datetime
@@ -179,13 +179,19 @@ if __name__ == "__main__":
         # For testing with ISIC dataset
         _, test_df = load_isic_data(args.data_path)
     else: 
-        test_df = load_synthetic_data(args.data_path, "3,3")
-
-
+        test_df = load_synthetic_data(args.data_path, "20,20")
+    print(test_df)
     testing_dataset = CustomDataset(df = test_df, train = True, transforms = testing_transforms ) 
     test_loader = torch.utils.data.DataLoader(testing_dataset, batch_size=16, shuffle = False)                                                    
-    test_pred, test_gt, test_accuracy = test(model, test_loader)  
+    test_pred, test_gt, test_accuracy = test(model, test_loader)
+    # print(test_gt)
     confussion_matrix(test_gt, test_pred, test_accuracy, args.out_path)
+    testing_df = make_df(args.data_path, "20,20")
+    # test_pred = np.ciel(test_pred, dtype=int)
+
+    testing_df['predicted_labels'] = test_pred
+    print(testing_df)
+    testing_df.to_csv('/data/synth100k_mal/synth100k5_labels.csv')
 
     # Plot diagnosis 
     """ for seed_idx, seed in enumerate(args.seeds):

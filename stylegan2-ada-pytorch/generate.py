@@ -129,7 +129,7 @@ def generate_images(
         z = torch.from_numpy(z_np).to(device)
         img = G(z, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
         img = (img.permute(0, 2, 3, 1) * 127.5 + 128).clamp(0, 255).to(torch.uint8)
-        PIL.Image.fromarray(img[0].cpu().numpy(), 'RGB').save(f'{outdir}/seed{seed:04d}_{class_idx}.jpg')
+        PIL.Image.fromarray(img[0].cpu().numpy(), 'RGB').save(f'{outdir}/imgs_dirs/imgs5/seed{seed:04d}_{class_idx}.jpg')
         if neighbors:  
             print('Generating neighbors for seed {seed}...')
             z_prefix = 'seed%04d_neighbor_' % seed
@@ -143,8 +143,10 @@ def generate_images(
         
         if retrieve_embeddings:
             ws = G.mapping(z, label, truncation_psi=1)
-            txtfilename = f'{outdir}/'+os.path.basename(f'seed{seed:04d}').split('.')[0]+'.class.' + str(class_idx) +'.txt'
-            np.savetxt(txtfilename, ws[0,0].cpu().numpy(), newline=" ") # save 1st element
+            txtfilenamew = f'{outdir}/w_code_dirs/w_code5/'+os.path.basename(f'seed{seed:04d}').split('.')[0]+'.w.' + str(class_idx) +'.txt'
+            np.savetxt(txtfilenamew, ws[0,0].cpu().numpy(), newline=" ") # save 1st element
+            txtfilenamez = f'{outdir}/z_code_dirs/z_code5/'+os.path.basename(f'seed{seed:04d}').split('.')[0]+'.z.' + str(class_idx) +'.txt'
+            np.savetxt(txtfilenamez, z.cpu().numpy(), newline=" ") # save 1st element
 
 #----------------------------------------------------------------------------
 

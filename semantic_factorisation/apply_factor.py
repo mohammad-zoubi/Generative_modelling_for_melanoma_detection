@@ -35,8 +35,30 @@ Change output directory by using --output.
 def generate_images(z, label, truncation_psi, noise_mode, direction, file_name):
     img1 = G(z, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
     img2 = G(z + direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    img4 = G(z + 1.2*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    img6 = G(z + 1.4*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    img8 = G(z + 1.6*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    img10 = G(z + 1.8*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
     img3 = G(z - direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
-    return torch.cat([img3, img1, img2], 0)
+    img5 = G(z - 1.2*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    img7 = G(z - 1.4*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    img9 = G(z - 1.6*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    img11 = G(z - 1.8*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+
+    # img1 = G.synthesis(z,  noise_mode=noise_mode)
+    # img2 = G.synthesis(z + direction,  noise_mode=noise_mode)
+    # img4 = G.synthesis(z + 1.2*direction, noise_mode=noise_mode)
+    # img6 = G.synthesis(z + 1.3*direction, noise_mode=noise_mode)
+    # img8 = G.synthesis(z + 1.4*direction,  noise_mode=noise_mode)
+    # img10 = G.synthesis(z + 1.6*direction,  noise_mode=noise_mode)
+    # img3 = G.synthesis(z - direction,  noise_mode=noise_mode)
+    # img5 = G.synthesis(z - 1.2*direction, noise_mode=noise_mode)
+    # img7 = G.synthesis(z - 1.3*direction,  noise_mode=noise_mode)
+    # img9 = G.synthesis(z - 1.4*direction,  noise_mode=noise_mode)
+    # img11 = G.synthesis(z - 1.6*direction,  noise_mode=noise_mode)
+    # print(direction)
+    # img11 = G(z - 6*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    return torch.cat([img11, img9, img7, img5, img3, img1, img2, img4, img6, img8, img10], 0)
 
 def generate_image(z, label, truncation_psi, noise_mode):
     img = G(z, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
@@ -137,7 +159,7 @@ if __name__ == "__main__":
         print(f"Generate images for seed ", l)
 
         z = torch.from_numpy(np.random.RandomState(l).randn(1, G.z_dim)).to(device)
-
+        w = G.mapping(z, label, truncation_psi=truncation_psi).to(device)
         file_name = ""
         image_grid_eigvec = []
 
@@ -153,15 +175,16 @@ if __name__ == "__main__":
             current_eigvec = eigvec[:, j].unsqueeze(0)
             direction = args.degree * current_eigvec
             image_group = generate_images(z, label, truncation_psi, noise_mode, direction, file_name)
+            # image_group = generate_images(w, label, truncation_psi, noise_mode, direction, file_name)
             image_grid_eigvec.append(image_group)
 
         print("Saving image ", os.path.join(args.output, file_name))
         grid = utils.save_image(
             torch.cat(image_grid_eigvec, 0),
             os.path.join(args.output, file_name),
-            nrow = 3,
+            nrow = 11,
             normalize=True, 
-            range=(-1, 1) # change range to value_range for latest torchvision
+            value_range=(-1, 1) # change range to value_range for latest torchvision
         )
         
     if(args.vid):
@@ -205,7 +228,7 @@ if __name__ == "__main__":
                         img,
                         f"{index_folder_path}/{fcount:04}.png",
                         normalize=True,
-                        range=(-1, 1), # change range to value_range for latest torchvision
+                        value_range=(-1, 1), # change range to value_range for latest torchvision
                         nrow=1,
                     )
                     fcount+=1

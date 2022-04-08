@@ -3,9 +3,11 @@ sudo apt-get update
 sudo apt install -y python3 python3-pip
 
 sudo pip3 install mmcv-full==1.3.15 -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.8.0/index.html
-sudo pip3 install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+# sudo pip3 install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+sudo pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
 sudo pip3 install click
 sudo pip3 install pillow
+sudo pip3 install click requests tqdm pyspng ninja imageio-ffmpeg==0.4.3
 sudo pip3 install numpy
 sudo pip3 install scipy
 sudo pip3 install torch

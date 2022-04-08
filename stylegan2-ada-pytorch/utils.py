@@ -327,6 +327,31 @@ def load_synthetic_data(syn_data_path, synt_n_imgs, only_syn=False):
     train_gt = [y[int(i)] for i in id_list]
     # train_img, test_img, train_gt, test_gt = train_test_split(input_images, y, stratify=y, test_size=0.2, random_state=3)
     train_df = pd.DataFrame({'image_name': train_img, 'target': train_gt})
+    return train_df
+
+def make_df(syn_data_path, synt_n_imgs, only_syn=False):
+    #Load all images and labels from path
+    input_images = [str(f) for f in sorted(Path(syn_data_path).rglob('*')) if os.path.isfile(f)]
+    y = [0 if f.split('.jpg')[0][-1] == '0' else 1 for f in input_images]
+    
+    ind_0, ind_1 = [], []
+    for i, f in enumerate(input_images):
+        if f.split('.')[0][-1] == '0':
+            ind_0.append(i)
+        else:
+            ind_1.append(i) 
+
+    # Select number of melanomas and benign samples
+    n_b, n_m = [int(i) for i in synt_n_imgs.split(',') ] if not only_syn else [1000,1000]
+    ind_0=np.random.permutation(ind_0)[:n_b*1000]
+    ind_1=np.random.permutation(ind_1)[:n_m*1000]
+
+    id_list = np.append(ind_0, ind_1) 
+
+    train_img = [input_images[int(i)].split('/')[-1] for i in id_list]
+    train_gt = [y[int(i)] for i in id_list]
+    # train_img, test_img, train_gt, test_gt = train_test_split(input_images, y, stratify=y, test_size=0.2, random_state=3)
+    train_df = pd.DataFrame({'image_name': train_img, 'target': train_gt})
     
     return train_df 
 
