@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np 
 from tqdm import tqdm
 from collections import Counter
+from zipfile import ZipFile
+import cv2
 
 EXT_DIR = '/ISIC256/ISIC256_ORIGINAL/train_concat.csv'
 ISIC_DIR = '/ISIC256/ISIC_pool/malignant_all/ISIC_POOL_ORIGINAL.csv'
@@ -43,10 +45,78 @@ counter_isic = Counter(isic_list[0])
 # we have 570 more images in ext :-( 
 print("number of external images:", len(counter_ext))
 print("number of isic pool images:", len(counter_isic))
-print("number of total images we have now:", len((counter_isic + counter_ext))) 
-print("number of total new images in isic pool:", len((counter_ext - counter_isic))) 
+print("number of total images we have now:", (len(counter_isic + counter_ext))) 
+print("number of total new images in isic pool:", len((counter_isic - counter_ext))) 
 print("number of non overlapping images:", sum(1 for v in (counter_isic + counter_ext).values() if v == 1))
 
+
+total_images = (counter_isic + counter_ext) # dict of all images
+total_images_list = list(total_images)
+overpalpping = {}
+for i in range(len(total_images)):
+    if total_images[total_images_list[i]] == 2:
+        overpalpping[total_images_list[i]] = 1
+
+non_overlapping_ext = (total_images - counter_isic - Counter(overpalpping))
+val_list_ext = list(non_overlapping_ext.keys())
+print(len(val_list_ext))
+# loop through dict keys 
+# look for the images
+zip_path = "/ISIC256/ISIC_POOL.zip"
+PATH1 = "/ISIC256/ISIC256_train/"
+PATH2 = "/ISIC256/ISIC256_val/"
+PATH3 = "/ISIC256/ISIC_pool/malignant_all/Cropped_resized/"
+
+PATH_src1 = "/ISIC256/ISIC256_train/"
+PATH_src2 = "/ISIC256/ISIC256_val/"
+
+PATH_list1 = os.listdir(PATH_src1)
+PATH_list2 = os.listdir(PATH_src2)
+# print(PATH_list1)
+
+PATH_dest = "/ISIC256/ISIC_pool/malignant_all/Cropped_resized/valish/"
+# processed_img_zip = ZipFile(zip_path, "w")
+print("loop started...")
+c = 0
+for i in range(len(val_list_ext)):
+    image_name = str(val_list_ext[i] + '.jpg')
+    print(image_name)
+    # print(os.path.join( PATH_src1, image_name))
+    if image_name in PATH_list1:
+        path_in = os.path.join(PATH_src1, image_name)
+    elif image_name in PATH_list2:
+        path_in = os.path.join(PATH_src2, image_name)
+    else: 
+        continue
+    c +=1 
+    img = cv2.imread(path_in)
+    # print(path_in)
+    cv2.imwrite(PATH_dest +image_name , img)
+print(c)
+# zipped_path = "/ISIC256/ISIC256_ORIGINAL/train.zip"
+# folder_path = "/ISIC256/ISIC_pool/malignant_all/Cropped_resized/valish/"
+# # print(val_list_ext)
+# c = 0
+# with ZipFile(zipped_path, "r") as zip_ref:
+#     list_of_files = zip_ref.namelist()
+
+#     for i in range(len(list_of_files)):
+#         # print(list_of_files[i][-4:])
+#         if list_of_files[i][-4:] == '.jpg':
+
+#             list_of_files[i] = list_of_files[i].split('/')[1].split('.')[0]
+#             if list_of_files[i] not in val_list_ext:
+#                 continue
+#             print( list_of_files[i])
+#             # print(i)
+#             c = c + 1
+#             in_bytes = zip_ref.read(list_of_files[i])
+#             img = cv2.imdecode(np.frombuffer(in_bytes, np.uint8), cv2.IMREAD_COLOR)
+#             print(img)
+#             # cv2.imwrite(zipped_path, list_of_files[i]+'.jpg')
+#             c = c + 1
+#     zip_ref.close()
+# print(c)
 
 # # for i, row_i in isic.iterrows(): # 
 # for j in tqdm(range(0,len(ext.index))):
