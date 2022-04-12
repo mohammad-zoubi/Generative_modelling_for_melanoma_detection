@@ -273,14 +273,14 @@ if __name__ == "__main__":
     val_id = np.append(val_0, val_1)
     """
     
-    isic_train_df, validation_df = load_isic_data(args.real_data_path)
-    synt_train_df = load_synthetic_data(args.syn_data_path, args.synt_n_imgs, args.only_syn)
-    if args.only_syn:
-        train_df = synt_train_df
-    elif args.only_reals:
-        train_df = isic_train_df
-    else: 
-        train_df = pd.concat([isic_train_df, synt_train_df]) 
+    # isic_train_df, validation_df = load_isic_data(args.real_data_path)
+    train_df, validation_df = load_synth_images(args.syn_data_path, args.synt_n_imgs, args.only_syn)
+    # if args.only_syn:
+        # train_df = synt_train_df
+    # elif args.only_reals:
+        # train_df = isic_train_df
+    # else: 
+        # train_df = pd.concat([isic_train_df, synt_train_df]) 
 
     """ 
     fold=0
@@ -294,13 +294,15 @@ if __name__ == "__main__":
        train_id, val_id, test_id = create_split(args.data_path, unbalanced=args.unbalanced)
     """                   
                                    
-    # training_dataset = Synth_Dataset(source_dir = args.syn_data_path, transform = training_transforms, id_list = None, unbalanced=args.unbalanced)  # CustomDataset(df = train_df_res, img_dir = train_img_dir,  train = True, transforms = training_transforms )
+    # training_dataset = Synth_Dataset(source_dir = args.syn_data_path, transform = training_transforms, id_list = None, unbalanced=args.unbalanced)  
+    # CustomDataset(df = train_df_res, img_dir = train_img_dir,  train = True, transforms = training_transforms )
     # train_id, val_id = create_split(args.syn_data_path, unbalanced=args.unbalanced)
     training_dataset = CustomDataset(df = train_df, train = True, transforms = training_transforms )
-                        #Synth_Dataset(source_dir = args.syn_data_path, transform = training_transforms, id_list = train_id, unbalanced=args.unbalanced)  # CustomDataset(df = train_df_res, img_dir = train_img_dir,  train = True, transforms = training_transforms )
-    validation_dataset =  CustomDataset(df = validation_df, train = True, transforms = training_transforms) 
+                        # Synth_Dataset(source_dir = args.syn_data_path, transform = training_transforms, id_list = train_id, unbalanced=args.unbalanced)  
+                        # # CustomDataset(df = train_df_res, img_dir = train_img_dir,  train = True, transforms = training_transforms )
+    validation_dataset = CustomDataset(df = validation_df, train = True, transforms = training_transforms) 
 
-    #testing_dataset = Synth_Dataset(source_dir = args.data_path, transform = testing_transforms, id_list = range(len(test_gt)), input_img=test_img)
+    # validation_dataset = Synth_Dataset(source_dir = args.data_path, transform = testing_transforms, id_list = range(len(test_gt)), input_img=test_img)
     testing_dataset = CustomDataset(df = validation_df, train = True, transforms = testing_transforms ) 
                    
 
@@ -308,8 +310,9 @@ if __name__ == "__main__":
     validate_loader = torch.utils.data.DataLoader(validation_dataset, batch_size=16, num_workers=4, worker_init_fn=seed_worker, shuffle = False)
     # validate_loader_real = torch.utils.data.DataLoader(validation_dataset, batch_size=16, num_workers=4, worker_init_fn=seed_worker, shuffle = False)
     test_loader = torch.utils.data.DataLoader(testing_dataset, batch_size=16, num_workers=4, worker_init_fn=seed_worker, shuffle = False)
+     
     print(len(training_dataset), len(validation_dataset))
-    print(len(train_loader),len(validate_loader),len(test_loader))
+    print(len(train_loader),len(validate_loader))
 
     """
     # Visualizing some example images in Tensorboard
