@@ -9,6 +9,8 @@ import dnnlib
 from typing import List
 import numpy as np
 import random
+from PIL import Image
+import pandas as pd
 
 """
 Use closed_form_factorization.py first to create your factor.pt
@@ -35,15 +37,15 @@ Change output directory by using --output.
 def generate_images(z, label, truncation_psi, noise_mode, direction, file_name):
     img1 = G(z, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
     img2 = G(z + direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
-    img4 = G(z + 1.2*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
-    img6 = G(z + 1.4*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
-    img8 = G(z + 1.6*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
-    img10 = G(z + 1.8*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
-    img3 = G(z - direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
-    img5 = G(z - 1.2*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
-    img7 = G(z - 1.4*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
-    img9 = G(z - 1.6*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
-    img11 = G(z - 1.8*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    # img4 = G(z + 1.2*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    # img6 = G(z + 1.4*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    # img8 = G(z + 1.6*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    # img10 = G(z + 1.8*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    # img3 = G(z - direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    # img5 = G(z - 1.2*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    # img7 = G(z - 1.4*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    # img9 = G(z - 1.6*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    # img11 = G(z - 1.8*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
 
     # img1 = G.synthesis(z,  noise_mode=noise_mode)
     # img2 = G.synthesis(z + direction,  noise_mode=noise_mode)
@@ -58,11 +60,33 @@ def generate_images(z, label, truncation_psi, noise_mode, direction, file_name):
     # img11 = G.synthesis(z - 1.6*direction,  noise_mode=noise_mode)
     # print(direction)
     # img11 = G(z - 6*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
-    return torch.cat([img11, img9, img7, img5, img3, img1, img2, img4, img6, img8, img10], 0)
+    # return torch.cat([img11, img9, img7, img5, img3, img1, img2, img4, img6, img8, img10], 0)
+    return torch.cat([img1, img2], 0)
+
+def generate_target_index(z, label, truncation_psi, noise_mode, direction, seed, file_name):
+    moved_image =  G(z + direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    moved_image = (moved_image.permute(0, 2, 3, 1) * 127.5 + 128).clamp(0, 255).to(torch.uint8)
+    Image.fromarray(moved_image[0].cpu().numpy(), 'RGB').save(f'{file_name}/seed{seed}.jpg')
 
 def generate_image(z, label, truncation_psi, noise_mode):
     img = G(z, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
     return img
+
+def seed_list():
+    CSV_PATH = "/ISIC256/ISIC256_ORIGINAL/synth100k_mal/frames_synth100k.csv"
+    frame_df = pd.read_csv(CSV_PATH, header=None, index_col=0)
+    print(frame_df)
+    tmp_list = []
+    tmp_list.append(frame_df[1].tolist())
+
+    # print(tmp_list[0])
+    seed_name = []
+    seed_number = []
+    for i in range(1,len(tmp_list[0][:10])):
+        seed_name.append(tmp_list[0][i][:10])
+        seed_number.append(int(tmp_list[0][i][4:10]))
+    return seed_number
+    # tmp = ((str(seed_number).replace('[','').replace(']','').replace(' ','')))
 
 def line_interpolate(zs, steps):
    out = []
@@ -103,6 +127,7 @@ if __name__ == "__main__":
     parser.add_argument("--truncation", type=float, default=0.7, help="truncation factor")
     parser.add_argument("factor", type=str, help="name of the closed form factorization result factor file")
     parser.add_argument("--vid_increment", type=float, default=0.1, help="increment degree for interpolation video")
+    # parser.add_argument("--scale_factor", type=float, default=1, help="scales the direction of the move")
 
     vid_parser = parser.add_mutually_exclusive_group(required=False)
     vid_parser.add_argument('--video', dest='vid', action='store_true')
@@ -128,21 +153,23 @@ if __name__ == "__main__":
     noise_mode = "const" # default
     truncation_psi = args.truncation
 
-    latents = []
+    # latents = []
     mode = "random"
     log_str = ""
 
-    index_list_of_eigenvalues = []
+    # index_list_of_eigenvalues = []
 
-    if isinstance(seeds, int):
-        for i in range(seeds):
-            latents.append(random.randint(0,2**32-1)) # 2**32-1 is the highest seed value
-        mode = "random"
-        log_str = str(seeds) + " samples"
-    else:
-        latents = seeds
-        mode = "seeds"
-        log_str = str(seeds)
+    # if isinstance(seeds, int):
+    #     for i in range(seeds):
+    #         latents.append(random.randint(0,2**32-1)) # 2**32-1 is the highest seed value
+    #     mode = "random"
+    #     log_str = str(seeds) + " samples"
+    # else:
+    #     latents = seeds
+    #     mode = "seeds"
+    #     log_str = str(seeds)
+
+    latents = seed_list()
 
     print(f"""
     Checkpoint: {args.ckpt}
@@ -160,7 +187,7 @@ if __name__ == "__main__":
 
         z = torch.from_numpy(np.random.RandomState(l).randn(1, G.z_dim)).to(device)
         w = G.mapping(z, label, truncation_psi=truncation_psi).to(device)
-        file_name = ""
+        file_name1 = "/ISIC256/ISIC256_ORIGINAL/synth100k_mal/shifted_imgs_dir/shifted_imgs"
         image_grid_eigvec = []
 
         if len(index) ==  1 and index[0] == -1: # use all eigenvalues
@@ -176,13 +203,14 @@ if __name__ == "__main__":
             direction = args.degree * current_eigvec
             image_group = generate_images(z, label, truncation_psi, noise_mode, direction, file_name)
             # image_group = generate_images(w, label, truncation_psi, noise_mode, direction, file_name)
+            generate_target_index(z, label, truncation_psi, noise_mode, direction, l, file_name1)
             image_grid_eigvec.append(image_group)
 
-        print("Saving image ", os.path.join(args.output, file_name))
+        # print("Saving image ", os.path.join(args.output, file_name))
         grid = utils.save_image(
             torch.cat(image_grid_eigvec, 0),
             os.path.join(args.output, file_name),
-            nrow = 11,
+            nrow = 2,
             normalize=True, 
             value_range=(-1, 1) # change range to value_range for latest torchvision
         )
