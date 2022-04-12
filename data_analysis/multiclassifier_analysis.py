@@ -13,6 +13,7 @@ from tqdm import tqdm
 import seaborn as sns
 from matplotlib import colors
 from matplotlib.ticker import PercentFormatter
+from matplotlib.colors import ListedColormap
 
 classifier = '/ISIC256/ISIC_pool/malignant_all/multiclassifier_cropped_resized.csv'
 
@@ -48,62 +49,93 @@ hair = hair_dense+hair_medium+hair_short
 
 print(feature_list[0])
 
+# construct cmap
+colors = ["#ddc7af","#d3a293", "#ba707e", "#995374", "#4f3159", "#231f37"]
+sns.color_palette("ch:s=-.2,r=.6", as_cmap=True)
+my_cmap = ListedColormap(sns.color_palette(colors).as_hex())
+
 fig = plt.figure(figsize=(12,12))
 ax = fig.add_axes([0,0,1,1])
 labels = ['hair','black frame','ruler','other']
 numbers = [hair, black_frame,ruler_mark,other]
-ax.bar(labels,numbers)
+plot = ax.bar(labels,numbers,color =["#ddc7af","#d3a293", "#ba707e", "#995374"]) 
+# ax.bar_label(ax.containers[0],size=16)
+ppp=[]
+ppp = [round(x / len(feature_list)*100) for x in numbers]
+
+print(ppp)
+pp=0
+for p in plot:
+    height = p.get_height()
+    # print(p)
+    
+    if pp == 0:
+        ax.text(x=p.get_x() + p.get_width() / 2, y=height+.10,
+        s="32%".format(height),
+        ha='center', size=16)
+    if pp == 1:
+        ax.text(x=p.get_x() + p.get_width() / 2, y=height+.10,
+        s="38%".format(height),
+        ha='center', size=16)
+    if pp == 2:
+        ax.text(x=p.get_x() + p.get_width() / 2, y=height+.10,
+        s="9%".format(height),
+        ha='center', size=16)
+    if pp == 3:
+        ax.text(x=p.get_x() + p.get_width() / 2, y=height+.10,
+        s="12%".format(height),
+        ha='center', size=16)
+    pp +=1
+
+ax.set_title('Feature distribution', fontsize=20)
+# plt.xlabel('', fontsize=18)
+plt.ylabel('# Images', fontsize=16)
+plt.xticks(fontsize= 16)
+plt.yticks(fontsize= 16)
 plt.show()
-# fig.savefig('test.jpg')
 
-# fig = plt.figure(figsize= (12,12))
-# fig = sns.heatmap(x, cmap=cmap)
-# fig = fig.get_figure()
-# fig.savefig('test.jpg')
-# 
-# fig = plt.figure()
 
-# N = 5
-# menMeans = (20, 35, 30, 35, 27)
-# womenMeans = (25, 32, 34, 20, 25)
-# ind = np.arange(N) # the x locations for the groups
-# width = 0.35
-# fig = plt.figure()
-# ax = fig.add_axes([-0.1,-0.1,1,1])
-# ax.bar(ind, menMeans, width, color='r')
-# ax.bar(ind, womenMeans, width,bottom=menMeans, color='b')
-# ax.set_ylabel('Scores')
-# ax.set_title('Scores by group and gender')
-# ax.set_xticks(ind, ('G1', 'G2', 'G3', 'G4', 'G5'))
-# ax.set_yticks(np.arange(0, 81, 10))
-# ax.legend(labels=['Men', 'Women'])
+# # construct cmap
+# colors = ["#ddc7af","#d3a293", "#ba707e", "#995374", "#4f3159", "#231f37"]
+# sns.color_palette("ch:s=-.2,r=.6", as_cmap=True)
+# my_cmap = ListedColormap(sns.color_palette(colors).as_hex())
+
+# N = 500
+# data1 = np.random.randn(N)
+# data2 = np.random.randn(N)
+# colors = np.linspace(0,1,N)
+# fig = plt.figure(figsize=(12,12))
+# plt.scatter(data1, data2, c=colors, cmap=my_cmap)
+# plt.colorbar()
 # plt.show()
+
 fig.savefig('test.jpg', bbox_inches='tight')
+
 
 ### create train and val ###############################################
 
-train_folder= '/ISIC256/ISIC_pool/malignant_all/Cropped_resized/train'
-val_folder = '/ISIC256/ISIC_pool/malignant_all/Cropped_resized/val'
+# train_folder= '/ISIC256/ISIC_pool/malignant_all/Cropped_resized/train'
+# val_folder = '/ISIC256/ISIC_pool/malignant_all/Cropped_resized/val'
 
-folder ='/ISIC256/ISIC_pool/malignant_all/Cropped_resized'
+# folder ='/ISIC256/ISIC_pool/malignant_all/Cropped_resized'
 
-file_list = os.listdir(folder)
-print(len(file_list))
-train_part = int(0.8*len(file_list))
-print(train_part)
+# file_list = os.listdir(folder)
+# print(len(file_list))
+# train_part = int(0.8*len(file_list))
+# print(train_part)
 
 
-for idx in tqdm(range(0,len(file_list))):
-    img = cv2.imread(os.path.join(folder,file_list[idx]))
-    if img is  None:
-        continue
+# for idx in tqdm(range(0,len(file_list))):
+#     img = cv2.imread(os.path.join(folder,file_list[idx]))
+#     if img is  None:
+#         continue
 
-    path_out_train = os.path.join(train_folder, file_list[idx])
-    path_out_val = os.path.join(val_folder, file_list[idx])
+#     path_out_train = os.path.join(train_folder, file_list[idx])
+#     path_out_val = os.path.join(val_folder, file_list[idx])
 
-    if idx <= train_part:
-        cv2.imwrite(path_out_train, img)
-    else :
-        cv2.imwrite(path_out_val, img)
+#     if idx <= train_part:
+#         cv2.imwrite(path_out_train, img)
+#     else :
+#         cv2.imwrite(path_out_val, img)
 
 
