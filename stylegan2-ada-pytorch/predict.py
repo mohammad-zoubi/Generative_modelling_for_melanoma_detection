@@ -18,7 +18,7 @@ from efficientnet_pytorch import EfficientNet
 import seaborn as sb
 from argparse import ArgumentParser 
 from melanoma_classifier import test
-from utils import load_model, load_isic_data, load_synthetic_data,  CustomDataset , confussion_matrix, make_df
+from utils import load_model, load_isic_data, load_synthetic_data,  CustomDataset , confussion_matrix, make_df, load_isic_test
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from datetime import date, datetime
@@ -158,7 +158,7 @@ if __name__ == "__main__":
     parser.add_argument("--data_path", type=str, default='/workspace/generated-no-valset')
     parser.add_argument("--model_path", type=str, default='/workspace/stylegan2-ada-pytorch/CNN_trainings/melanoma_model_0_0.9225_16_12_train_reals+15melanoma.pth')
     parser.add_argument("--out_path", type=str, default='', help='output path for confussion matrix')
-    parser.add_argument("--dataset_source", type=str, default='SAM', help='SAM, ISIC or else')
+    parser.add_argument("--dataset_source", type=str, default='ISIC', help='SAM, ISIC or else')
     
     args = parser.parse_args()
 
@@ -177,21 +177,23 @@ if __name__ == "__main__":
         test_df = pd.DataFrame({'image_name': input_images, 'target': y})
     elif args.dataset_source == "ISIC":
         # For testing with ISIC dataset
-        _, test_df = load_isic_data(args.data_path)
+        # _, test_df = load_isic_data(args.data_path)
+        test_df = load_isic_test(args.data_path)
     else: 
         test_df = load_synthetic_data(args.data_path, "20,20")
     print(test_df)
-    testing_dataset = CustomDataset(df = test_df, train = True, transforms = testing_transforms ) 
+    testing_dataset = CustomDataset(df = test_df, train = False, transforms = testing_transforms ) 
     test_loader = torch.utils.data.DataLoader(testing_dataset, batch_size=16, shuffle = False)                                                    
     test_pred, test_gt, test_accuracy = test(model, test_loader)
     # print(test_gt)
     confussion_matrix(test_gt, test_pred, test_accuracy, args.out_path)
     testing_df = make_df(args.data_path, "20,20")
-    # test_pred = np.ciel(test_pred, dtype=int)
+    # test_pred = np.ceil(test_pred, dtype='int')
+    test_pred = torch.ceil(torch.tensor(test_pred))
 
     testing_df['predicted_labels'] = test_pred
     print(testing_df)
-    testing_df.to_csv('/data/synth100k_mal/synth100k5_labels.csv')
+    # testing_df.to_csv('/data/synth100k_mal/synth100k5_labels.csv')
 
     # Plot diagnosis 
     """ for seed_idx, seed in enumerate(args.seeds):

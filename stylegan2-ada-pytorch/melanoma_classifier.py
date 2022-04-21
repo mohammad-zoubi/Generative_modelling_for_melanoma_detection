@@ -243,7 +243,8 @@ def test(model, test_loader):
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("--syn_data_path", type=str, default='/workspace/generated-no-valset')
+    parser.add_argument("--syn_data_path_ben", type=str, default='/workspace/generated-no-valset')
+    parser.add_argument("--syn_data_path_mal", type=str, default='/workspace/generated-no-valset')
     parser.add_argument("--real_data_path", type=str, default='/workspace/melanoma_isic_dataset')
     parser.add_argument("--model", type=str, default='efficientnet-b2', choices=["efficientnet-b2", "googlenet", "resnet50"])
     parser.add_argument("--epochs", type=int, default='30')
@@ -256,7 +257,9 @@ if __name__ == "__main__":
     parser.add_argument("--synt_n_imgs",  type=str, default="0,15", help='n benign, n melanoma K synthetic images to add to the real data')
     args = parser.parse_args()
 
-    wandb.init(project="dai-healthcare" , entity='eyeforai', group='isic', tags=[args.tags], config={"model": args.model})
+    # wandb.init(project="dai-healthcare" , entity='eyeforai', group='isic', tags=[args.tags], config={"model": args.model})
+    # wandb.init(project="generative_modelling_for_melanoma_detection" , entity='chalmers', group='thesis_project', tags=[args.tags], config={"model": args.model})
+    wandb.init(project="generative_modelling_for_melanoma_detection", entity="mohamad-zoubi")
     wandb.config.update(args) 
 
     # under_sampler = RandomUnderSampler(random_state=42)
@@ -273,8 +276,10 @@ if __name__ == "__main__":
     val_id = np.append(val_0, val_1)
     """
     
-    # isic_train_df, validation_df = load_isic_data(args.real_data_path)
-    train_df, validation_df = load_synth_images(args.syn_data_path, args.synt_n_imgs, args.only_syn)
+    # test_df = load_isic_data(args.real_data_path)
+    test_df = load_isic_data(args.real_data_path)
+    validation_df = load_isic_test(args.real_data_path)
+    train_df = load_synth_images(args.syn_data_path_mal,args.syn_data_path_ben, args.synt_n_imgs, args.only_syn)
     # if args.only_syn:
         # train_df = synt_train_df
     # elif args.only_reals:
@@ -303,7 +308,7 @@ if __name__ == "__main__":
     validation_dataset = CustomDataset(df = validation_df, train = True, transforms = training_transforms) 
 
     # validation_dataset = Synth_Dataset(source_dir = args.data_path, transform = testing_transforms, id_list = range(len(test_gt)), input_img=test_img)
-    testing_dataset = CustomDataset(df = validation_df, train = True, transforms = testing_transforms ) 
+    testing_dataset = CustomDataset(df = test_df, train = True, transforms = testing_transforms ) 
                    
 
     train_loader = torch.utils.data.DataLoader(training_dataset, batch_size=32, num_workers=4, worker_init_fn=seed_worker, shuffle=True)

@@ -59,22 +59,31 @@ for i in range(len(total_images)):
 
 non_overlapping_ext = (total_images - counter_isic - Counter(overpalpping))
 val_list_ext = list(non_overlapping_ext.keys())
-print(len(val_list_ext))
+print("validation set from train external", len(val_list_ext))
 # loop through dict keys 
 # look for the images
 zip_path = "/ISIC256/ISIC_POOL.zip"
-PATH1 = "/ISIC256/ISIC256_train/"
-PATH2 = "/ISIC256/ISIC256_val/"
-PATH3 = "/ISIC256/ISIC_pool/malignant_all/Cropped_resized/"
 
 PATH_src1 = "/ISIC256/ISIC256_train/"
 PATH_src2 = "/ISIC256/ISIC256_val/"
+PATH_src3 = "/ISIC256/ISIC_pool/malignant_all/Cropped_resized/"
 
 PATH_list1 = os.listdir(PATH_src1)
 PATH_list2 = os.listdir(PATH_src2)
+PATH_list3 = os.listdir(PATH_src3)
 # print(PATH_list1)
 
 PATH_dest = "/ISIC256/ISIC_pool/malignant_all/Cropped_resized/valish/"
+PATH_dest2 = "/ISIC256/ISIC_pool/malignant_all/Cropped_resized/val/"
+list1 = os.listdir(PATH_dest)
+list2 = os.listdir(PATH_dest2)
+
+counter_ext = Counter(list1)
+counter_isic = Counter(list2)
+print("number of overlapping images:", sum(1 for v in (counter_isic + counter_ext).values() if v == 2))
+
+exit()
+
 # processed_img_zip = ZipFile(zip_path, "w")
 print("loop started...")
 c = 0
@@ -86,6 +95,8 @@ for i in range(len(val_list_ext)):
         path_in = os.path.join(PATH_src1, image_name)
     elif image_name in PATH_list2:
         path_in = os.path.join(PATH_src2, image_name)
+    elif image_name in PATH_list3:
+        path_in = os.path.join(PATH_src3, image_name)
     else: 
         continue
     c +=1 

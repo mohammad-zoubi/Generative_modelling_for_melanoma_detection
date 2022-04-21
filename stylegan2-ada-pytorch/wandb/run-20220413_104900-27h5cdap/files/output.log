@@ -1,0 +1,47 @@
+100000
+160000 40000
+5000 2500
+Downloading: "https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b2-8bb594d6.pth" to /home/moh/.cache/torch/hub/checkpoints/efficientnet-b2-8bb594d6.pth
+ 57%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                                                                                          | 20.0M/35.1M [00:01<00:00, 23.4MB/s]
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 35.1M/35.1M [00:02<00:00, 15.7MB/s]
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.
+Starts training...
+Epoch: 1/30..  Training Loss: 0.012..  Training Accuracy: 0.996.. Validation Loss: 0.003..  Validation Accuracy: 0.999 Validation AUC Score: 1.000 Validation F1 Score: 0.999 Training Time: 0:12:41
+Saving model in training_classifiers_events/test_all_melanoma/4_13/./classifier_efficientnet-b2_0.9989_2022-04-13 11:01:59.269613.pth
+Epoch: 2/30..  Training Loss: 0.003..  Training Accuracy: 0.999.. Validation Loss: 0.000..  Validation Accuracy: 1.000 Validation AUC Score: 1.000 Validation F1 Score: 1.000 Training Time: 0:12:40
+Saving model in training_classifiers_events/test_all_melanoma/4_13/./classifier_efficientnet-b2_0.9999_2022-04-13 11:14:39.497876.pth
+Epoch: 3/30..  Training Loss: 0.002..  Training Accuracy: 0.999.. Validation Loss: 0.000..  Validation Accuracy: 1.000 Validation AUC Score: 1.000 Validation F1 Score: 1.000 Training Time: 0:12:35
+Saving model in training_classifiers_events/test_all_melanoma/4_13/./classifier_efficientnet-b2_1.0000_2022-04-13 11:27:15.250347.pth
+Epoch: 4/30..  Training Loss: 0.001..  Training Accuracy: 1.000.. Validation Loss: 0.000..  Validation Accuracy: 1.000 Validation AUC Score: 1.000 Validation F1 Score: 1.000 Training Time: 0:12:32
+Epoch     4: reducing learning rate of group 0 to 1.0000e-04.
+Epoch: 5/30..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.000..  Validation Accuracy: 1.000 Validation AUC Score: 1.000 Validation F1 Score: 1.000 Training Time: 0:12:39
+Saving model in training_classifiers_events/test_all_melanoma/4_13/./classifier_efficientnet-b2_1.0000_2022-04-13 11:52:28.170260.pth
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 346, in <module>
+    model_path = train(model, train_loader, validate_loader, epochs=args.epochs, es_patience=args.es)
+  File "melanoma_classifier.py", line 86, in train
+    output = model(images)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/utils.py", line 647, in forward
+    features = self.arch(x)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/efficientnet_pytorch/model.py", line 314, in forward
+    x = self.extract_features(inputs)
+  File "/usr/local/lib/python3.8/dist-packages/efficientnet_pytorch/model.py", line 296, in extract_features
+    x = block(x, drop_connect_rate=drop_connect_rate)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/efficientnet_pytorch/model.py", line 110, in forward
+    x = self._bn1(x)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/batchnorm.py", line 167, in forward
+    return F.batch_norm(
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py", line 2281, in batch_norm
+    return torch.batch_norm(
+KeyboardInterrupt

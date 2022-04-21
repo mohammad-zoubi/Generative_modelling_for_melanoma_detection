@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 305, in <module>
+    validation_dataset = Synth_Dataset(source_dir = args.data_path, transform = testing_transforms, id_list = range(len(test_gt)), input_img=test_img)
+AttributeError: 'Namespace' object has no attribute 'data_path'

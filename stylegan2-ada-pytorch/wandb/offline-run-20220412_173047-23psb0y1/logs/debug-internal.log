@@ -1,0 +1,19 @@
+2022-04-12 17:30:48,651 INFO    MainThread:270831 [internal.py:wandb_internal():92] W&B internal server running at pid: 270831, started at: 2022-04-12 17:30:48.650000
+2022-04-12 17:30:48,652 DEBUG   HandlerThread:270831 [handler.py:handle_request():141] handle_request: run_start
+2022-04-12 17:30:48,652 INFO    WriterThread:270831 [datastore.py:open_for_write():77] open: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/offline-run-20220412_173047-23psb0y1/run-23psb0y1.wandb
+2022-04-12 17:30:48,656 DEBUG   HandlerThread:270831 [meta.py:__init__():37] meta init
+2022-04-12 17:30:48,656 DEBUG   HandlerThread:270831 [meta.py:__init__():51] meta init done
+2022-04-12 17:30:48,656 DEBUG   HandlerThread:270831 [meta.py:probe():211] probe
+2022-04-12 17:30:48,663 DEBUG   HandlerThread:270831 [meta.py:_setup_git():201] setup git
+2022-04-12 17:30:53,112 DEBUG   HandlerThread:270831 [meta.py:_setup_git():208] setup git done
+2022-04-12 17:30:53,112 DEBUG   HandlerThread:270831 [meta.py:_save_pip():55] save pip
+2022-04-12 17:30:53,115 DEBUG   HandlerThread:270831 [meta.py:_save_pip():69] save pip done
+2022-04-12 17:30:53,115 DEBUG   HandlerThread:270831 [meta.py:probe():249] probe done
+2022-04-12 17:31:16,173 DEBUG   HandlerThread:270831 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-12 17:32:10,784 WARNING MainThread:270831 [internal.py:wandb_internal():155] Internal process interrupt: 1
+2022-04-12 17:32:12,753 WARNING MainThread:270831 [internal.py:wandb_internal():155] Internal process interrupt: 2
+2022-04-12 17:32:12,753 ERROR   MainThread:270831 [internal.py:wandb_internal():158] Internal process interrupted.
+2022-04-12 17:32:13,313 INFO    WriterThread:270831 [datastore.py:close():281] close: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/offline-run-20220412_173047-23psb0y1/run-23psb0y1.wandb
+2022-04-12 17:32:13,314 INFO    HandlerThread:270831 [handler.py:finish():790] shutting down handler
+2022-04-12 17:32:13,668 INFO    SenderThread:270831 [sender.py:finish():1107] shutting down sender
+2022-04-12 17:32:13,669 INFO    MainThread:270831 [internal.py:handle_exit():82] Internal process exited

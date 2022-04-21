@@ -15,6 +15,7 @@ import datetime
 from sklearn.model_selection import StratifiedKFold, GroupKFold, train_test_split
 from sklearn.metrics import accuracy_score, roc_auc_score, confusion_matrix, f1_score
 
+from tqdm import tqdm
 from pathlib import Path
 import random
 
@@ -29,23 +30,23 @@ classes = ('benign', 'melanoma')
 # Defining transforms for the training, validation, and testing sets
 training_transforms = torchvision.transforms.Compose([#Microscope(),
                                         #AdvancedHairAugmentation(),
-                                        torchvision.transforms.RandomRotation(30),
+                                        # torchvision.transforms.RandomRotation(30),
                                         #transforms.RandomResizedCrop(256, scale=(0.8, 1.0)),
-                                        torchvision.transforms.RandomHorizontalFlip(),
-                                        torchvision.transforms.RandomVerticalFlip(),
+                                        # torchvision.transforms.RandomHorizontalFlip(),
+                                        # torchvision.transforms.RandomVerticalFlip(),
                                         #transforms.ColorJitter(brightness=32. / 255.,saturation=0.5,hue=0.01),
                                         torchvision.transforms.ToTensor(),
                                         torchvision.transforms.Normalize([0.485, 0.456, 0.406], 
                                                             [0.229, 0.224, 0.225])])
 
 validation_transforms = torchvision.transforms.Compose([torchvision.transforms.Resize(256),
-                                            torchvision.transforms.CenterCrop(256),
+                                            # torchvision.transforms.CenterCrop(256),
                                             torchvision.transforms.ToTensor(),
                                             torchvision.transforms.Normalize([0.485, 0.456, 0.406], 
                                                                 [0.229, 0.224, 0.225])])
 
 testing_transforms = torchvision.transforms.Compose([torchvision.transforms.Resize(256),
-                                        torchvision.transforms.CenterCrop(256),
+                                        # torchvision.transforms.CenterCrop(256),
                                         torchvision.transforms.ToTensor(),
                                         torchvision.transforms.Normalize([0.485, 0.456, 0.406], 
                                                             [0.229, 0.224, 0.225])])
@@ -292,17 +293,32 @@ def PreprocessImages(images):
 
 def load_isic_data(path):
     # ISIC dataset 
-    df = pd.read_csv(os.path.join(path , 'train_concat.csv'))
+    input_images = [str(f) for f in sorted(Path(path).rglob('*')) if os.path.isfile(f)]
+    y = np.ones((len(input_images))).tolist()
+
+    # df = pd.read_csv(os.path.join(path , 'train_concat.csv'))
     # test_df = pd.read_csv(os.path.join(args.data_path ,'melanoma_external_256/test.csv'))
     # test_img_dir = os.path.join(args.data_path , 'melanoma_external_256/test/test/')
-    train_img_dir = os.path.join(path ,'train/train/')
+    # train_img_dir = os.path.join(path ,'train/train/')
     
-    df['image_name'] = [os.path.join(train_img_dir, df.iloc[index]['image_name'] + '.jpg') for index in range(len(df))]
+    # df['image_name'] = [os.path.join(train_img_dir, df.iloc[index]['image_name'] + '.jpg') for index in range(len(df))]
 
-    train_split, valid_split = train_test_split (df, stratify=df.target, test_size = 0.20, random_state=42) 
-    train_df=pd.DataFrame(train_split)
-    validation_df=pd.DataFrame(valid_split)
-    return train_df, validation_df
+    # train_split, valid_split = train_test_split (df, stratify=df.target, test_size = 0.20, random_state=42) 
+    # train_df=pd.DataFrame(train_split)
+    validation_df = pd.DataFrame({'image_name': input_images, 'target': y})
+
+    # validation_df=pd.DataFrame(valid_split)
+    # return train_df, validation_df
+    return validation_df
+
+def load_isic_test(path): # own
+    # ISIC dataset     
+    input_images = [str(f) for f in sorted(Path(path).rglob('*')) if os.path.isfile(f)]
+    print(len(input_images))
+    print(np.ones((len(input_images), 1)).shape)
+    y = np.ones((len(input_images))).tolist()
+    test_df = pd.DataFrame({'image_name': input_images, 'target': y})
+    return test_df
 
 def load_synthetic_data(syn_data_path, synt_n_imgs, only_syn=False):
     #Load all images and labels from path
@@ -328,6 +344,59 @@ def load_synthetic_data(syn_data_path, synt_n_imgs, only_syn=False):
     # train_img, test_img, train_gt, test_gt = train_test_split(input_images, y, stratify=y, test_size=0.2, random_state=3)
     train_df = pd.DataFrame({'image_name': train_img, 'target': train_gt})
     return train_df
+
+def change_name(syn_data_path_file, target_class):
+    list_of_names = [str(f) for f in sorted(Path(syn_data_path_file).rglob('*.jpg')) if os.path.isfile(f)]
+    
+    for i in tqdm(range(len(list_of_names))):
+        old_name = list_of_names[i]
+        new_name = list_of_names[i][:-8] + target_class + '.jpg'
+        # os.rename(old_name, new_name)
+        # print(old_name, new_name)
+        
+
+
+def load_synth_images(syn_data_path_file_mal, syn_data_path_file_ben, synt_n_imgs, only_syn=True): # our
+    #Load all images and labels from path
+    input_images = []
+    synt_n_imgs = int(synt_n_imgs)
+    input_images_mal = [str(f) for f in sorted(Path(syn_data_path_file_mal).rglob('*.jpg')) if os.path.isfile(f)][:synt_n_imgs]
+    input_images_ben = [str(f) for f in sorted(Path(syn_data_path_file_ben).rglob('*.jpg')) if os.path.isfile(f)][:synt_n_imgs]
+    input_images = input_images_mal + input_images_ben
+    print(len(input_images))
+    # input_images_ben = [str(f) for f in sorted(Path(syn_data_path_ben_file).rglob('*.jpg')) if os.path.isfile(f)]
+    # print(input_images[0])
+    
+    y = [0 if f.split('.jpg')[0][-3:] == 'ben' else 1 for f in input_images]
+    tmp = np.asarray(y)
+    print(len(np.where(tmp == 1)[0]))
+    # print(len(input_images))
+
+    # ind_0, ind_1 = [], []
+    # for i, f in enumerate(input_images):
+    #     if f.split('.')[0][-1] == '0':
+    #         ind_0.append(i)
+    #     else:
+    #         ind_1.append(i) 
+
+    # # Select number of melanomas and benign samples
+    # n_b, n_m = [int(i) for i in synt_n_imgs.split(',') ] if not only_syn else [1000,1000]
+    # ind_0=np.random.permutation(ind_0)[:n_b*1000]
+    # ind_1=np.random.permutation(ind_1)[:n_m*1000]
+
+    # id_list = np.append(ind_0, ind_1) 
+
+    # train_img = [input_images[int(i)] for i in id_list]
+    # train_gt = [y[int(i)] for i in id_list]
+    # train_img, test_img, train_gt, test_gt = train_test_split(input_images, y, stratify=y, test_size=0.2, random_state=3)
+    df = pd.DataFrame({'image_name': input_images, 'target': y})
+    # train_split, valid_split = train_test_split(df, stratify=df.target, test_size = 0.20, random_state=42) 
+    # train_df=pd.DataFrame(train_split)
+    # validation_df=pd.DataFrame(valid_split)
+    return df
+
+# print(load_synth_images("/ISIC256/ISIC256_ORIGINAL/synth100k_mal/img_dirs/", 10000, only_syn=True))
+
 
 def make_df(syn_data_path, synt_n_imgs, only_syn=False):
     #Load all images and labels from path
@@ -524,14 +593,14 @@ class Synth_Dataset(Dataset):
         self.source_dir = source_dir
         
         if input_img is None:
-            self.input_images = [str(f) for f in sorted(Path(source_dir).rglob('*')) if os.path.isfile(f)]
+            self.input_images = [str(f) for f in sorted(Path(source_dir).rglob('*.jpg')) if os.path.isfile(f)]
         else:
             self.input_images = input_img
         
-        if unbalanced:
-            ind_0, ind_1 = create_split(source_dir, unbalanced=unbalanced)
-            ind=np.append(ind_0, ind_1)
-            self.input_images = [self.input_images[i] for i in ind]
+        # if unbalanced:
+        #     ind_0, ind_1 = create_split(source_dir, unbalanced=unbalanced)
+        #     ind=np.append(ind_0, ind_1)
+        #     self.input_images = [self.input_images[i] for i in ind]
 
         self.id_list = id_list if id_list is not None else range(len(self.input_images))
             
@@ -548,7 +617,12 @@ class Synth_Dataset(Dataset):
         image_fn = self.input_images[idx]   #f'{idx:04d}_{idx%2}'
 
         img = np.array(Image.open(image_fn))
-        target = int(image_fn.split('_')[-1].replace('.jpg',''))  
+        target_str = image_fn.split('.')[0][-3:]
+        if target_str == 'ben':
+            target = 0
+        else:
+            target=1
+        # target = int(image_fn.split('_')[-1].replace('.jpg',''))  
         
         if self.transform is not None:
             img = self.transform(img)

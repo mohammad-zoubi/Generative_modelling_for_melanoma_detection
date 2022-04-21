@@ -1,0 +1,9 @@
+845
+(845, 1)
+<class 'list'>
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 282, in <module>
+    train_df = load_synth_images(args.syn_data_path_mal,args.syn_data_path_ben, args.synt_n_imgs, args.only_syn)
+  File "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/utils.py", line 365, in load_synth_images
+    input_images_ben = input_images_ben[:synt_n_imgs]
+TypeError: slice indices must be integers or None or have an __index__ method

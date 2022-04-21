@@ -11,14 +11,18 @@ from matplotlib import pylab as P
 import cv2
 from torchvision import transforms
 from torch.utils.tensorboard import SummaryWriter
+from tensorboard.plugins import projector
 import torch
 from argparse import ArgumentParser 
 import json
 from tqdm import tqdm
 from efficientnet_pytorch import EfficientNet
-from utils import Net
+from utils import Net, load_model, CustomDataset
 from pathlib import Path
 import random
+from melanoma_classifier import test
+import pandas as pd
+
 # from torchsummary import summary
 
 # import saliency.core as saliency
@@ -49,16 +53,23 @@ testing_transforms = transforms.Compose([transforms.Resize(256),
                                                                 [0.229, 0.224, 0.225])])
 
 if args.use_cnn:
-    directories = ["/workspace/stylegan2-ada-pytorch/projector/00000"]
-    filename = "dataset.json"
+    # directories = ["/workspace/stylegan2-ada-pytorch/projector/00000"] 
+    # filename = "dataset.json" 
 
     arch = EfficientNet.from_pretrained('efficientnet-b2')
     model = Net(arch=arch, return_feats=True)  
     # summary(model, (3, 256, 256), device='cpu')
-    model.load_state_dict(torch.load('/workspace/stylegan2-ada-pytorch/CNN_trainings/melanoma_model_0_0.9672_16_12_onlysyn.pth'))
+
+    # model.load_state_dict(torch.load('/workspace/stylegan2-ada-pytorch/CNN_trainings/melanoma_model_0_0.9672_16_12_onlysyn.pth'))
+    model.load_state_dict(torch.load('/ISIC256/not_our_models/classifier_efficientnet-b2_onlyreal.pth'))
 
     model.eval()
     model.to(device)
+
+    model_eval = load_model()
+    model_eval.load_state_dict(torch.load('/ISIC256/not_our_models/classifier_efficientnet-b2_onlyreal.pth'))
+    model_eval.eval()
+
     images_pil = []
     metadata_f = [] 
     embeddings = []
@@ -84,23 +95,34 @@ if args.use_cnn:
                         break
     """
     # Repeat the process for randomly generated data
-    images = [str(f) for f in sorted(Path("/workspace/stylegan2-ada-pytorch/projector/00000").glob('*png')) if os.path.isfile(f)] 
+    images = [str(f) for f in sorted(Path("/ISIC256/train_set_synth/imgs/").glob('*.jpg')) if os.path.isfile(f)] 
     #labels = [2 if f.split('.jpg')[0][-1] == '0' else 3 for f in images]
     labels = []
     for f in images:
-        if "from" in f:
-            labels.append( f.split('.from.png')[0][-1] )
+        label = f.split('.')[0][-1]
+        if label == 'b':
+            labels.append('0')
         else:
-            labels.append( str( int(f.split('.to.png')[0][-1])+2 ) )
+            labels.append('1')
         
+    images = images[:5000]
+    labels = labels[:5000]
+    test_df = pd.DataFrame({'image_name':images, 'target':np.asarray(labels, dtype=int)})
 
+    testing_dataset = CustomDataset(df = test_df, train = True, transforms = testing_transforms ) 
+    test_loader = torch.utils.data.DataLoader(testing_dataset, batch_size=16, shuffle = False)                                                    
+    test_pred, _, _ = test(model_eval, test_loader)
+    # print(test_pred)
+    for i in range(len(images)):
+        labels[i] = labels[i] + '_' + str(test_pred[i])
 
+    # print(labels)
     with torch.no_grad():
         for img_dir, label in tqdm(zip(images, labels)):
             img_net = torch.tensor(testing_transforms(Image.open(img_dir)).unsqueeze(0), dtype=torch.float32).to(device)
             emb = model(img_net)
             embeddings.append(emb.cpu())                
-            metadata_f.append([label, img_dir.split('/')[-1]]) 
+            metadata_f.append([label, img_dir]) 
             if args.sprite:
                 img_pil = transform(Image.open(img_dir).resize((100, 100)))
                 images_pil.append(img_pil)
@@ -109,7 +131,10 @@ if args.use_cnn:
     if args.sprite:
         images_pil = torch.stack(images_pil)
     # default `log_dir` is "runs" - we'll be more specific here
-    writer = SummaryWriter('/workspace/stylegan2-ada-pytorch/CNN_embeddings_projector/projections_vs_reals_nosprite') 
+    # writer = SummaryWriter('/workspace/stylegan2-ada-pytorch/CNN_embeddings_projector/projections_vs_reals_nosprite') 
+    writer = SummaryWriter('/ISIC256/') 
+    # config = projector.ProjectorConfig()
+    # projector.visualize_embeddings('/ISIC256/events.out.tfevents.1650449027.74bb6f1815dd.14418.0', config)
         
 else:
     # This part can be used with G_mapping embeddings (vector w) - projections in the latent space
@@ -158,3 +183,6 @@ else:
                     metadata=metadata_f,
                     metadata_header=["label","image_name"])
 writer.close() 
+
+config = projector.ProjectorConfig()
+projector.visualize_embeddings(writer.log_dir(), config)

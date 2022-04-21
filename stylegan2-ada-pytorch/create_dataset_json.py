@@ -18,14 +18,15 @@ for n in range(len(train_df)):
 
 
 labels_list = []
-input_images = [str(f) for f in sorted(Path('/workspace/melanoma_isic_dataset/all_melanoma/SAM_Dataset').rglob('*')) if os.path.isfile(f)]
+# input_images = [str(f) for f in sorted(Path('/workspace/melanoma_isic_dataset/all_melanoma/SAM_Dataset').rglob('*')) if os.path.isfile(f)]
+input_images = [str(f) for f in sorted(Path('/ISIC256/train_set_synth/imgs/').rglob('*.jpg')) if os.path.isfile(f)]
 for img_path in input_images:
-    label = img_path.split('/')[-2]
-    if label == 'In_situ':
+    label = img_path.split('.')[0][-1]
+    if label == 'b':
         labels_list.append([img_path, '0'])
     else:
         labels_list.append([img_path, '1'])
 
 labels_list_dict = { "labels" : labels_list}
-with open("/workspace/melanoma_isic_dataset/all_melanoma/SAM_Dataset/labels.json", "w") as outfile:
+with open("/ISIC256/train_set_synth_ds.json", "w") as outfile:
     json.dump(labels_list_dict, outfile)

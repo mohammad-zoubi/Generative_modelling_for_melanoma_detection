@@ -109,7 +109,7 @@ plt.show()
 # plt.colorbar()
 # plt.show()
 
-fig.savefig('test.jpg', bbox_inches='tight')
+# fig.savefig('test.jpg', bbox_inches='tight')
 
 
 ### create train and val ###############################################

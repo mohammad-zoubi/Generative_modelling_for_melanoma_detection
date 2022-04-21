@@ -1,0 +1,25 @@
+845
+(845, 1)
+20000
+10000
+20000 845
+625 53
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.
+Starts training...
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 349, in <module>
+    model_path = train(model, train_loader, validate_loader, epochs=args.epochs, es_patience=args.es)
+  File "melanoma_classifier.py", line 109, in train
+    val_loss, val_auc_score, val_accuracy, val_f1 = val(model, validate_loader, criterion)
+  File "melanoma_classifier.py", line 194, in val
+    val_auc_score = roc_auc_score(val_gt, pred)
+  File "/usr/local/lib/python3.8/dist-packages/sklearn/metrics/_ranking.py", line 567, in roc_auc_score
+    return _average_binary_score(
+  File "/usr/local/lib/python3.8/dist-packages/sklearn/metrics/_base.py", line 75, in _average_binary_score
+    return binary_metric(y_true, y_score, sample_weight=sample_weight)
+  File "/usr/local/lib/python3.8/dist-packages/sklearn/metrics/_ranking.py", line 337, in _binary_roc_auc_score
+    raise ValueError(
+ValueError: Only one class present in y_true. ROC AUC score is not defined in that case.

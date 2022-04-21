@@ -1,0 +1,41 @@
+2022-04-13 10:47:28,867 INFO    MainThread:26454 [wandb_setup.py:_flush():75] Loading settings from /home/moh/.config/wandb/settings
+2022-04-13 10:47:28,867 INFO    MainThread:26454 [wandb_setup.py:_flush():75] Loading settings from /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/settings
+2022-04-13 10:47:28,868 INFO    MainThread:26454 [wandb_setup.py:_flush():75] Loading settings from environment variables: {}
+2022-04-13 10:47:28,868 INFO    MainThread:26454 [wandb_setup.py:_flush():75] Inferring run settings from compute environment: {'program_relpath': 'stylegan2-ada-pytorch/melanoma_classifier.py', 'program': 'melanoma_classifier.py'}
+2022-04-13 10:47:28,868 INFO    MainThread:26454 [wandb_init.py:_log_setup():438] Logging user logs to /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220413_104728-6rtkn2dv/logs/debug.log
+2022-04-13 10:47:28,868 INFO    MainThread:26454 [wandb_init.py:_log_setup():439] Logging internal logs to /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220413_104728-6rtkn2dv/logs/debug-internal.log
+2022-04-13 10:47:28,868 INFO    MainThread:26454 [wandb_init.py:init():472] calling init triggers
+2022-04-13 10:47:28,868 INFO    MainThread:26454 [wandb_init.py:init():475] wandb.init called with sweep_config: {}
+config: {'model': 'efficientnet-b2'}
+2022-04-13 10:47:28,869 INFO    MainThread:26454 [wandb_init.py:init():525] starting backend
+2022-04-13 10:47:28,869 INFO    MainThread:26454 [backend.py:_multiprocessing_setup():99] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2022-04-13 10:47:28,892 INFO    MainThread:26454 [backend.py:ensure_launched():219] starting backend process...
+2022-04-13 10:47:28,908 INFO    MainThread:26454 [backend.py:ensure_launched():224] started backend process with pid: 26756
+2022-04-13 10:47:28,910 INFO    MainThread:26454 [wandb_init.py:init():534] backend started and connected
+2022-04-13 10:47:28,920 INFO    MainThread:26454 [wandb_init.py:init():598] updated telemetry
+2022-04-13 10:47:28,965 INFO    MainThread:26454 [wandb_init.py:init():629] communicating run to backend with 30 second timeout
+2022-04-13 10:47:58,966 INFO    MainThread:26454 [interface_shared.py:_communicate_run():325] couldn't get run from backend
+2022-04-13 10:47:58,967 ERROR   MainThread:26454 [wandb_init.py:init():634] backend process timed out
+2022-04-13 10:47:58,967 ERROR   MainThread:26454 [wandb_init.py:init():645] encountered error: Error communicating with wandb process
+try: wandb.init(settings=wandb.Settings(start_method='fork'))
+or:  wandb.init(settings=wandb.Settings(start_method='thread'))
+For more info see: https://docs.wandb.ai/library/init#init-start-error
+2022-04-13 10:47:58,975 ERROR   MainThread:26454 [wandb_init.py:init():1023] error
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/wandb/sdk/wandb_init.py", line 996, in init
+    run = wi.init()
+  File "/usr/local/lib/python3.8/dist-packages/wandb/sdk/wandb_init.py", line 649, in init
+    backend.cleanup()
+  File "/usr/local/lib/python3.8/dist-packages/wandb/sdk/backend/backend.py", line 248, in cleanup
+    self.interface.join()
+  File "/usr/local/lib/python3.8/dist-packages/wandb/sdk/interface/interface_shared.py", line 474, in join
+    super().join()
+  File "/usr/local/lib/python3.8/dist-packages/wandb/sdk/interface/interface.py", line 652, in join
+    _ = self._communicate_shutdown()
+  File "/usr/local/lib/python3.8/dist-packages/wandb/sdk/interface/interface_shared.py", line 471, in _communicate_shutdown
+    _ = self._communicate(record)
+  File "/usr/local/lib/python3.8/dist-packages/wandb/sdk/interface/interface_shared.py", line 225, in _communicate
+    return self._communicate_async(rec, local=local).get(timeout=timeout)
+  File "/usr/local/lib/python3.8/dist-packages/wandb/sdk/interface/interface_shared.py", line 230, in _communicate_async
+    raise Exception("The wandb backend process has shutdown")
+Exception: The wandb backend process has shutdown

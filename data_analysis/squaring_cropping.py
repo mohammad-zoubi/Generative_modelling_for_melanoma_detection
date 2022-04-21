@@ -34,15 +34,15 @@ feature = csv.reader(data)
 feature_list = []
 for row in feature:
         feature_list.append(row)
-
+print(len(feature_list))
 # print(file_list)
 
 
-
+# exit()
 # want to add cropping if multiclassifier determines its a frame
 
 images = []
-for idx in tqdm(range(0,10)): #len(file_list))):
+for idx in tqdm(range(0,len(file_list))): #len(file_list))):
     img = cv2.imread(os.path.join(folder,file_list[idx]))
    
     if img is  None:
@@ -70,11 +70,11 @@ for idx in tqdm(range(0,10)): #len(file_list))):
         # print('current image ,',file_list[idx], ', row, ', feature_list[idx])
 
         gray = cv2.cvtColor( img, cv2.COLOR_RGB2GRAY )
-        gray[gray >= 100] = 255
+        gray[gray >= 20] = 255
         kernel = np.ones((5,5),np.float32)
         dst = cv2.filter2D(gray,-1,kernel)
         center = circle_center(gray)
-        pi = gray[np.average(gray, axis=0).argmax(), :].tolist().index(255)
+        pi = gray[np.average(gray, axis=0).argmax(), :].tolist().index(np.max(gray[:, np.average(gray, axis=1).argmax()]))
         piHalve = gray[:, np.average(gray, axis=1).argmax()].tolist().index(np.max(gray[:, np.average(gray, axis=1).argmax()]))
         zeroPi = len(gray[np.average(gray, axis=0).argmax(),:]) - 1 - gray[np.average(gray, axis=0).argmax(),:][::-1].tolist().index(255)
         onePiHalve = len(gray[np.average(gray, axis=1).argmax(),:]) - 1 - gray[np.average(gray, axis=1).argmax(),:][::-1].tolist().index(255)

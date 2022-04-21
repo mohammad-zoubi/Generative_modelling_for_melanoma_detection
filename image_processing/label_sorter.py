@@ -41,7 +41,7 @@ def move_imgs(file_path_list, target_folder):
 bias_df = pd.DataFrame(columns=["image_name"])
 tmp_list = []
 for i in range(1,6):
-    path_to_csv = f'/data/synth100k_mal/synth100k_anno{i}.csv'
+    path_to_csv = f'/ISIC256/ISIC256_ORIGINAL/synth100k_mal/synth100k_anno{i}.csv'
     df = pd.read_csv(path_to_csv, header=None)
     tmp = np.asarray(df[4])
     indices = np.where(tmp == 1)[0]
@@ -55,8 +55,7 @@ print(np.asarray(seed_number, dtype=int))
 print(len(tmp_list))
 bias_df['image_name'] = tmp_list
 # bias_df = pd.concat([bias_df['image_name'],df.iloc[indices][0]], axis=0)
+bias_df.to_csv('/ISIC256/ISIC256_ORIGINAL/synth100k_mal/frames_synth100k.csv')
 
-
-print(bias_df)
 def script_runner(list_of_seeds):
     pass
