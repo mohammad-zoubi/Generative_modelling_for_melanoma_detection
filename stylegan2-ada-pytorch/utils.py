@@ -317,14 +317,19 @@ def load_isic_test(path): # own
     print(len(input_images))
     print(np.ones((len(input_images), 1)).shape)
     y = np.ones((len(input_images))).tolist()
+    y = pd.read_csv('/ISIC256/ISIC256_ORIGINAL/synth100k_mal/no_shifted_frames_class_labels.csv').predicted_target.tolist()
+    print(y)
     test_df = pd.DataFrame({'image_name': input_images, 'target': y})
     return test_df
 
 def load_synthetic_data(syn_data_path, synt_n_imgs, only_syn=False):
     #Load all images and labels from path
-    input_images = [str(f) for f in sorted(Path(syn_data_path).rglob('*')) if os.path.isfile(f)]
-    y = [0 if f.split('.jpg')[0][-1] == '0' else 1 for f in input_images]
-    
+    if syn_data_path[-3:] == 'csv':
+        input_images = pd.read_csv(syn_data_path).image_name.tolist()
+        print(input_images)
+    else:
+        input_images = [str(f) for f in sorted(Path(syn_data_path).rglob('*')) if os.path.isfile(f)]
+    y = [0 if f.split('.jpg')[0][-3:] == 'ben' else 1 for f in input_images]
     ind_0, ind_1 = [], []
     for i, f in enumerate(input_images):
         if f.split('.')[0][-1] == '0':
@@ -356,44 +361,30 @@ def change_name(syn_data_path_file, target_class):
         
 
 
-def load_synth_images(syn_data_path_file_mal, syn_data_path_file_ben, synt_n_imgs, only_syn=True): # our
+def load_synth_images(syn_data_path_file_mal, syn_data_path_file_ben, synt_n_imgs, only_mel=True): # our
     #Load all images and labels from path
     input_images = []
-    synt_n_imgs = int(synt_n_imgs)
-    input_images_mal = [str(f) for f in sorted(Path(syn_data_path_file_mal).rglob('*.jpg')) if os.path.isfile(f)][:synt_n_imgs]
-    input_images_ben = [str(f) for f in sorted(Path(syn_data_path_file_ben).rglob('*.jpg')) if os.path.isfile(f)][:synt_n_imgs]
-    input_images = input_images_mal + input_images_ben
-    print(len(input_images))
+    if not only_mel:
+        input_images = []
+        synt_n_imgs = int(synt_n_imgs)
+        input_images_mal = [str(f) for f in sorted(Path(syn_data_path_file_mal).rglob('*.jpg')) if os.path.isfile(f)][:synt_n_imgs]
+        input_images_ben = [str(f) for f in sorted(Path(syn_data_path_file_ben).rglob('*.jpg')) if os.path.isfile(f)][:synt_n_imgs]
+        input_images = input_images_mal + input_images_ben
+        print(len(input_images))
+    else:
+        if syn_data_path_file_mal[-3:] == 'csv':
+            input_images = pd.read_csv(syn_data_path_file_mal).image_name.tolist()
+            print('input_images',input_images)
+
     # input_images_ben = [str(f) for f in sorted(Path(syn_data_path_ben_file).rglob('*.jpg')) if os.path.isfile(f)]
     # print(input_images[0])
     
     y = [0 if f.split('.jpg')[0][-3:] == 'ben' else 1 for f in input_images]
     tmp = np.asarray(y)
     print(len(np.where(tmp == 1)[0]))
-    # print(len(input_images))
-
-    # ind_0, ind_1 = [], []
-    # for i, f in enumerate(input_images):
-    #     if f.split('.')[0][-1] == '0':
-    #         ind_0.append(i)
-    #     else:
-    #         ind_1.append(i) 
-
-    # # Select number of melanomas and benign samples
-    # n_b, n_m = [int(i) for i in synt_n_imgs.split(',') ] if not only_syn else [1000,1000]
-    # ind_0=np.random.permutation(ind_0)[:n_b*1000]
-    # ind_1=np.random.permutation(ind_1)[:n_m*1000]
-
-    # id_list = np.append(ind_0, ind_1) 
-
-    # train_img = [input_images[int(i)] for i in id_list]
-    # train_gt = [y[int(i)] for i in id_list]
-    # train_img, test_img, train_gt, test_gt = train_test_split(input_images, y, stratify=y, test_size=0.2, random_state=3)
     df = pd.DataFrame({'image_name': input_images, 'target': y})
-    # train_split, valid_split = train_test_split(df, stratify=df.target, test_size = 0.20, random_state=42) 
-    # train_df=pd.DataFrame(train_split)
-    # validation_df=pd.DataFrame(valid_split)
     return df
+
 
 # print(load_synth_images("/ISIC256/ISIC256_ORIGINAL/synth100k_mal/img_dirs/", 10000, only_syn=True))
 

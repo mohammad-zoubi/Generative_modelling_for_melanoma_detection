@@ -39,6 +39,9 @@ def select_n_random(data, labels, n=100):
 parser = ArgumentParser()
 parser.add_argument("--use_cnn", action='store_true', help='retrieve features from the last layer of EfficientNet B2')
 parser.add_argument("--sprite", action='store_true')
+parser.add_argument("--classifier_path")
+parser.add_argument("--data_path")
+parser.add_argument("--csv", action='store_true')
 args = parser.parse_args()
 
 
@@ -61,13 +64,13 @@ if args.use_cnn:
     # summary(model, (3, 256, 256), device='cpu')
 
     # model.load_state_dict(torch.load('/workspace/stylegan2-ada-pytorch/CNN_trainings/melanoma_model_0_0.9672_16_12_onlysyn.pth'))
-    model.load_state_dict(torch.load('/ISIC256/not_our_models/classifier_efficientnet-b2_onlyreal.pth'))
+    model.load_state_dict(torch.load(args.classifier_path))
 
     model.eval()
     model.to(device)
 
     model_eval = load_model()
-    model_eval.load_state_dict(torch.load('/ISIC256/not_our_models/classifier_efficientnet-b2_onlyreal.pth'))
+    model_eval.load_state_dict(torch.load(args.classifier_path))
     model_eval.eval()
 
     images_pil = []
@@ -95,15 +98,20 @@ if args.use_cnn:
                         break
     """
     # Repeat the process for randomly generated data
-    images = [str(f) for f in sorted(Path("/ISIC256/train_set_synth/imgs/").glob('*.jpg')) if os.path.isfile(f)] 
+    df = pd.read_csv('/ISIC256/ISIC256_ORIGINAL/train_concat.csv')
+    df = df.sort_values(by=['image_name'])
+    images = [str(f) for f in sorted(Path(args.data_path).glob('*.jpg')) if os.path.isfile(f)] 
     #labels = [2 if f.split('.jpg')[0][-1] == '0' else 3 for f in images]
-    labels = []
-    for f in images:
-        label = f.split('.')[0][-1]
-        if label == 'b':
-            labels.append('0')
-        else:
-            labels.append('1')
+    if args.csv:
+        labels = np.asarray(df.target, dtype=str)
+    else:
+        labels = []
+        for f in images:
+            label = f.split('.')[0][-1]
+            if label == 'b':
+                labels.append('0')
+            else:
+                labels.append('1')
         
     images = images[:5000]
     labels = labels[:5000]
@@ -113,8 +121,11 @@ if args.use_cnn:
     test_loader = torch.utils.data.DataLoader(testing_dataset, batch_size=16, shuffle = False)                                                    
     test_pred, _, _ = test(model_eval, test_loader)
     # print(test_pred)
+    # add ground truth and the prediction 
+    print(test_pred)
+    print(labels)
     for i in range(len(images)):
-        labels[i] = labels[i] + '_' + str(test_pred[i])
+        labels[i] = labels[i] + '_' + str((test_pred[i]))
 
     # print(labels)
     with torch.no_grad():

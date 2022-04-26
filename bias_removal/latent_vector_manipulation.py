@@ -25,7 +25,7 @@ import torch
 
 #trained model path
 # model_path = "/ISIC256/not_our_models/network-snapshot-020000_all.pkl"
-def latent_manipulator(model_path, outdir, w_vector_path, classifier_path, threshold, steps, alpha, diff_direction, eigenvector):
+def latent_manipulator(model_path, outdir, w_vector_path, classifier_path, threshold, steps, alpha, diff_direction, eigenvector): # need binary classifier that draws a linear boundary in latent space
     
     with open(model_path, 'rb') as f:
         G = pickle.load(f)['G_ema'].cuda()

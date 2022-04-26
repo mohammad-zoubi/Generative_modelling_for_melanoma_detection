@@ -4,8 +4,9 @@ import os.path
 import sys
 from time import strftime
 from PIL import Image
+from tqdm import tqdm
 
-row_size = 30
+row_size = 20
 margin = 3
 # list_ish = os.listdir("/data/stylegan2-ada-pytorch/pres_imgs/")
 # list_ish = os.listdir("/ISIC256/ISIC_pool/malignant_all/RESIZED_IMAGES/")
@@ -14,8 +15,9 @@ margin = 3
 #                for img in os.listdir(image_folder)
 #                if (img.endswith(".jpg") and img[:5]=='fakes')]
 def generate_montage(source, output_fn):
-    filenames = os.listdir(source)
-    images = [Image.open(os.path.join(source, filename)) for filename in filenames]
+    # filenames = os.listdir(source)
+    # images = [Image.open(os.path.join(source, filename)) for filename in filenames]
+    images = [Image.open(x) for x in tqdm(source)]
 
     width = max(image.size[0] + margin for image in images)*row_size
     height = sum(image.size[1] + margin for image in images)

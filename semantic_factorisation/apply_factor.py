@@ -41,7 +41,7 @@ def generate_images(z, label, truncation_psi, noise_mode, direction, file_name):
     # img6 = G(z + 1.4*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
     # img8 = G(z + 1.6*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
     # img10 = G(z + 1.8*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
-    # img3 = G(z - direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
+    img3 = G(z - direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
     # img5 = G(z - 1.2*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
     # img7 = G(z - 1.4*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
     # img9 = G(z - 1.6*direction, label, truncation_psi=truncation_psi, noise_mode=noise_mode)
@@ -203,7 +203,7 @@ if __name__ == "__main__":
             direction = args.degree * current_eigvec
             image_group = generate_images(z, label, truncation_psi, noise_mode, direction, file_name)
             # image_group = generate_images(w, label, truncation_psi, noise_mode, direction, file_name)
-            generate_target_index(z, label, truncation_psi, noise_mode, direction, l, file_name1)
+            # generate_target_index(z, label, truncation_psi, noise_mode, direction, l, file_name1)
             image_grid_eigvec.append(image_group)
 
         # print("Saving image ", os.path.join(args.output, file_name))

@@ -1,5 +1,5 @@
-import image_similarity_measures
-from image_similarity_measures.quality_metrics import rmse, psnr
+# import image_similarity_measures
+# from image_similarity_measures.quality_metrics import rmse, psnr
 import pandas as pd
 import os, sys
 from pathlib import Path
@@ -25,7 +25,7 @@ syn_data_path_mal_file = "/ISIC256/ISIC256_ORIGINAL/synth100k_mal/imgs_dirs"
 shifted_data_path_mal_file = "/ISIC256/ISIC256_ORIGINAL/synth100k_mal/shifted_imgs"
 input_images = [str(f) for f in sorted(Path(syn_data_path_mal_file).rglob('*.jpg')) if os.path.isfile(f)]
 
-
-for i in range(len(input_images[:10])):
-    if int(input_images[i][-14:-8]) in shifted_list:
-        print(input_images[i][-14:-8])
+df = pd.DataFrame()
+# for i in range(len(input_images[:10])):
+#     if int(input_images[i][-14:-8]) in shifted_list:
+#         print(input_images[i][-14:-8])
