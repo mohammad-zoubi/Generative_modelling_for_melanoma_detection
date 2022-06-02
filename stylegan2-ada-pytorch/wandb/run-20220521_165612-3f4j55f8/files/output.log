@@ -1,0 +1,11 @@
+
+30118
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 287, in <module>
+    validation_df, test_df = load_test_val_isic(args.csv_path_to_test, args.path_real_imgs_test, test_size=0.25)
+  File "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/utils.py", line 463, in load_test_val_isic
+    val_path, test_path, val_gt, test_gt = train_test_split(image_name_list, gt_list, stratify=gt_list, test_size=test_size, shuffle=False, random_state=1)
+  File "/usr/local/lib/python3.8/dist-packages/sklearn/model_selection/_split.py", line 2439, in train_test_split
+    raise ValueError(
+ValueError: Stratified train/test split is not implemented for shuffle=False
+7530

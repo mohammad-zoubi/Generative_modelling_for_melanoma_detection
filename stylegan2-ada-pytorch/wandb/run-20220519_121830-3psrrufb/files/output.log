@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 316, in <module>
+    validation_dataset = CustomDataset(df = validation_df, train = True, transforms = training_transforms)
+NameError: name 'validation_df' is not defined
+40000
+20000

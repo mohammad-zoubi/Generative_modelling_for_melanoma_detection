@@ -1,3 +1,4 @@
+from cv2 import AKAZE
 import numpy as np
 import os 
 import cv2
@@ -232,7 +233,7 @@ def add_pr_curve_tensorboard(class_index, test_probs, test_label, writer, global
     writer.close()
 
 
-def confussion_matrix(test, test_pred, test_accuracy, writer_path):
+def confussion_matrix(test, test_pred, test_accuracy, writer_path, classification_task_name):
     pred = np.round(test_pred)
     cm = confusion_matrix(test, pred)
 
@@ -241,7 +242,7 @@ def confussion_matrix(test, test_pred, test_accuracy, writer_path):
                         columns = ['Benign','Malignant'])
 
     fig = plt.figure(figsize=(5.5,4))
-    sb.heatmap(cm_df, annot=True)
+    sb.heatmap(cm_df, annot=True, fmt='g')
     plt.title('Confusion Matrix \nAccuracy:{0:.3f}'.format(test_accuracy))
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
@@ -249,7 +250,7 @@ def confussion_matrix(test, test_pred, test_accuracy, writer_path):
 
     now=datetime.datetime.now()
     # writer.add_image('conf_matrix', fig)
-    plt.savefig(os.path.join(writer_path, f'conf_matrix_{test_accuracy:.4f}_{now.strftime("%d_%m_%H_%M")}.png'))
+    plt.savefig(os.path.join(writer_path, f'conf_matrix_{test_accuracy:.4f}_{now.strftime("%d_%m_%H_%M")}_{classification_task_name}.png'))
 
 
 def ShowImage(im, title='', ax=None):
@@ -311,16 +312,58 @@ def load_isic_data(path):
     # return train_df, validation_df
     return validation_df
 
-def load_isic_test(path): # own
+def load_isic_train(path, n_images): # own
     # ISIC dataset     
-    input_images = [str(f) for f in sorted(Path(path).rglob('*')) if os.path.isfile(f)]
-    print(len(input_images))
-    print(np.ones((len(input_images), 1)).shape)
-    y = np.ones((len(input_images))).tolist()
-    y = pd.read_csv('/ISIC256/ISIC256_ORIGINAL/synth100k_mal/no_shifted_frames_class_labels.csv').predicted_target.tolist()
-    print(y)
-    test_df = pd.DataFrame({'image_name': input_images, 'target': y})
-    return test_df
+    train_df = pd.read_csv("/ISIC256/ISIC256_ORIGINAL/train_concat.csv")
+    train_list_image_names = train_df.image_name.tolist()
+    list_of_trains = [str(f) for f in sorted(Path("/ISIC256/train_ISIC256_orig/imgs/").rglob('*.jpg')) if os.path.isfile(f)]
+    val_df = pd.read_csv("/ISIC256/real_val.csv")
+    val_list_image_names = val_df.image_name.tolist()
+
+    train_folder_list_image_names = [name[33:45] for name in list_of_trains]
+    gt = []
+    for i in range(len(train_folder_list_image_names)):
+        gt.append(train_df.loc[train_df['image_name'] == train_folder_list_image_names[i]].target)
+
+    gt = np.asarray(gt).squeeze()
+    # image_name_list = train_df.image_name.tolist()
+    # gt_list = np.asarray(train_df.target, dtype=int)
+    # print("image_name_list", len(image_name_list), "gt_list", len(gt_list))
+
+    # input_images = [str(f) for f in sorted(Path(path).rglob('*.jpg')) if os.path.isfile(f)]
+    # print(len(input_images))
+    # print(np.ones((len(input_images), 1)).shape)
+    # y = np.ones((len(input_images))).tolist()  
+    # y = np.asarray(pd.read_csv('/ISIC256/real_val.csv').target)
+    # train_list = []
+    # gt = []
+    # # print(list_of_val)
+    # for i in range(len(train_df)):
+    #     if train_df.image_name[i] in list_of_val:
+    #         continue
+    #     else:
+    #         gt.append(train_df.target[i])
+    # print("len(gt[gt==1])", len(gt[gt==1]))
+    # print("train_list", len(train_list), "gt", len(gt), len(image_name_list) - len(train_list))
+    label_1s = np.where(gt==1)[0]
+    label_0s = np.where(gt==0)[0]
+    print("label_1s" ,len(label_1s),"label_0s", len(label_0s ))
+    n_images = 1000
+    extra_imgs_1 = 8000
+    input_images_mal_syn = [str(f) for f in sorted(Path('/ISIC256/synth60k/img_dir/').rglob('*.jpg')) if os.path.isfile(f)][:extra_imgs_1]
+    input_images_mal_syn_gt = np.ones((extra_imgs_1))
+    input_images_1 = np.asarray(list_of_trains)[label_1s][:n_images]
+    input_images_0 = np.asarray(list_of_trains)[label_0s][:n_images+extra_imgs_1]
+    gt = np.concatenate((gt[label_1s][:n_images], gt[label_0s][:n_images+extra_imgs_1]), axis=None)
+    gt = np.concatenate((gt, input_images_mal_syn_gt), axis=None)
+    input_images = input_images_1.tolist() + input_images_0.tolist()
+    input_images = input_images + input_images_mal_syn
+    # print(y)
+    print("len(input_images), len(gt)", len(input_images), len(gt))
+    train_df = pd.DataFrame({'image_name': input_images, 'target': gt})
+    # train_df = pd.DataFrame({'image_name': input_images, 'target': gt})
+    print(train_df)
+    return train_df
 
 def load_synthetic_data(syn_data_path, synt_n_imgs, only_syn=False):
     #Load all images and labels from path
@@ -361,21 +404,29 @@ def change_name(syn_data_path_file, target_class):
         
 
 
-def load_synth_images(syn_data_path_file_mal, syn_data_path_file_ben, synt_n_imgs, only_mel=True): # our
+def load_synth_images(syn_data_path_file_mal, syn_data_path_file_ben, synt_n_imgs, anno_path, mode): # our
     #Load all images and labels from path
     input_images = []
-    if not only_mel:
+    if mode == "normal":
         input_images = []
         synt_n_imgs = int(synt_n_imgs)
         input_images_mal = [str(f) for f in sorted(Path(syn_data_path_file_mal).rglob('*.jpg')) if os.path.isfile(f)][:synt_n_imgs]
         input_images_ben = [str(f) for f in sorted(Path(syn_data_path_file_ben).rglob('*.jpg')) if os.path.isfile(f)][:synt_n_imgs]
         input_images = input_images_mal + input_images_ben
         print(len(input_images))
-    else:
+    elif mode =="csv":
         if syn_data_path_file_mal[-3:] == 'csv':
             input_images = pd.read_csv(syn_data_path_file_mal).image_name.tolist()
             print('input_images',input_images)
-
+    elif mode  == "biased":
+        input_images = []
+        synt_n_imgs = int(synt_n_imgs)
+        input_images_mal = load_non_biased_data(syn_data_path_file_mal, anno_path, synt_n_imgs, remove_biases='all')
+        input_images_ben = [str(f) for f in sorted(Path(syn_data_path_file_ben).rglob('*.jpg')) if os.path.isfile(f)][:synt_n_imgs]
+        input_images = input_images_mal + input_images_ben
+        print(len(input_images))
+        print("len(input_images_mal)",len(input_images_mal))
+        print("len(input_images_ben)",len(input_images_ben))
     # input_images_ben = [str(f) for f in sorted(Path(syn_data_path_ben_file).rglob('*.jpg')) if os.path.isfile(f)]
     # print(input_images[0])
     
@@ -385,6 +436,74 @@ def load_synth_images(syn_data_path_file_mal, syn_data_path_file_ben, synt_n_img
     df = pd.DataFrame({'image_name': input_images, 'target': y})
     return df
 
+def load_non_biased_data(data_path, anno_path, synt_n_imgs, remove_biases): # loads data without specific biases
+    anno_df = pd.read_csv(anno_path, header=None)
+    if remove_biases == 'all':
+        anno_array = np.sum(np.asarray(anno_df.iloc[:,1:]), axis=1)
+        anno_idx = np.where(anno_array == 0)[0]
+        input_images_mal = [str(f) for f in sorted(Path(data_path).rglob('*.jpg')) if os.path.isfile(f)]
+        print("len(input_images_mal)", len(input_images_mal))
+        # print(input_images_mal)
+        non_biased_images = np.asarray(anno_df.iloc[anno_idx][0])
+        # print("len(non_biased_images)", len(non_biased_images))
+        # print("len(non_biased_images)", (non_biased_images))
+        non_biased_paths = []
+        # print(np.asarray(non_biased_images))
+        for i in range(len(input_images_mal)):
+            # print(input_images_mal[i][-18:])
+            # print( np.asarray(non_biased_images)[i])
+            if input_images_mal[i][-18:] in np.asarray(non_biased_images):
+                # print(input_images_mal[i][-18:])
+                non_biased_paths.append(input_images_mal[i])
+        print("len(non_biased_paths)",len(non_biased_paths))
+    elif remove_biases == "frames":
+        anno_array = np.asarray(anno_df.iloc[:,4])
+        print(anno_array)
+        anno_idx = np.where(anno_array == 0)[0]
+        input_images_mal = [str(f) for f in sorted(Path(data_path).rglob('*.jpg')) if os.path.isfile(f)]
+        print("len(input_images_mal)", len(input_images_mal))
+        # print(input_images_mal)
+        non_biased_images = np.asarray(anno_df.iloc[anno_idx][0])
+        # print("len(non_biased_images)", len(non_biased_images))
+        # print("len(non_biased_images)", (non_biased_images))
+        non_biased_paths = []
+        # print(np.asarray(non_biased_images))
+        for i in range(len(input_images_mal)):
+            # print(input_images_mal[i][-18:])
+            # print( np.asarray(non_biased_images)[i])
+            if input_images_mal[i][-18:] in np.asarray(non_biased_images):
+                # print(input_images_mal[i][-18:])
+                non_biased_paths.append(input_images_mal[i])
+        print("len(non_biased_paths)",len(non_biased_paths))
+    return non_biased_paths[:synt_n_imgs]
+    
+def load_test_val_isic(csv_path, image_path, test_size): # returns df with image names and labels
+    
+    df = pd.read_csv(csv_path)
+    image_name_list = [image_path + i for i in df.image_name.tolist()]
+    gt_list = np.asarray(df.target)
+    val_path, test_path, val_gt, test_gt = train_test_split(image_name_list, gt_list, stratify=gt_list, test_size=test_size, shuffle=True, random_state=1)
+    # print("len(val_gt[val_gt==1]), len(test_gt[test_gt==1])",len(val_gt[val_gt==1]), len(test_gt[test_gt==1]))
+    label_1_idx_val = np.where(val_gt == 1)[0]
+    label_0_idx_val = np.where(val_gt == 0)[0]
+    label_1_idx_test = np.where(test_gt == 1)[0]
+    label_0_idx_test = np.where(test_gt == 0)[0]
+    number_of_1s_val = len(label_1_idx_val)
+    number_of_1s_test = len(label_1_idx_test)
+    label_0_idx_val = label_0_idx_val
+    label_0_idx_test = label_0_idx_test
+    # print(label_0_idx_val, label_1_idx_val)
+    labels_val = np.concatenate((label_0_idx_val, label_1_idx_val), axis=None)
+    labels_test = np.concatenate((label_0_idx_test, label_1_idx_test), axis=None)
+    val_path = np.asarray(val_path)[labels_val]
+    val_gt = np.asarray(val_gt)[labels_val]
+    test_path = np.asarray(test_path)[labels_test]
+    test_gt = np.asarray(test_gt)[labels_test]
+    print("label_0_idx_val", len(label_0_idx_val), "label_1_idx_val", len(label_1_idx_val))
+    print("label_0_idx_val", len(label_0_idx_test), "label_1_idx_val", len(label_1_idx_test))
+    test_df = pd.DataFrame({"image_name":test_path, "target":test_gt})
+    val_df = pd.DataFrame({"image_name":val_path, "target":val_gt})
+    return val_df, test_df
 
 # print(load_synth_images("/ISIC256/ISIC256_ORIGINAL/synth100k_mal/img_dirs/", 10000, only_syn=True))
 

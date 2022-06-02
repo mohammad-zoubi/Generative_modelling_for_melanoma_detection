@@ -1,0 +1,71 @@
+
+label_1s 4085 label_0s 26033
+len(input_images), len(gt) 18000 18000
+                                              image_name  target
+0      /ISIC256/train_ISIC256_orig/imgs/ISIC_0000002.jpg     1.0
+1      /ISIC256/train_ISIC256_orig/imgs/ISIC_0000004.jpg     1.0
+2      /ISIC256/train_ISIC256_orig/imgs/ISIC_0000013.jpg     1.0
+3      /ISIC256/train_ISIC256_orig/imgs/ISIC_0000022_...     1.0
+4      /ISIC256/train_ISIC256_orig/imgs/ISIC_0000026_...     1.0
+...                                                  ...     ...
+17995  /ISIC256/synth60k/img_dir/imgs1/seed107996_mal...     1.0
+17996  /ISIC256/synth60k/img_dir/imgs1/seed107997_mal...     1.0
+17997  /ISIC256/synth60k/img_dir/imgs1/seed107998_mal...     1.0
+17998  /ISIC256/synth60k/img_dir/imgs1/seed107999_mal...     1.0
+17999  /ISIC256/synth60k/img_dir/imgs1/seed108000_mal...     1.0
+[18000 rows x 2 columns]
+[1. 1. 1. ... 1. 1. 1.]
+label_0_idx_val 4881 label_1_idx_val 766
+label_0_idx_val 1628 label_1_idx_val 255
+                                             image_name  target
+0     /ISIC256/train_ISIC256_orig/val_set/ISIC_04675...       0
+1     /ISIC256/train_ISIC256_orig/val_set/ISIC_35982...       0
+2     /ISIC256/train_ISIC256_orig/val_set/ISIC_62554...       0
+3     /ISIC256/train_ISIC256_orig/val_set/ISIC_50112...       0
+4     /ISIC256/train_ISIC256_orig/val_set/ISIC_16316...       0
+...                                                 ...     ...
+1878  /ISIC256/train_ISIC256_orig/val_set/ISIC_00587...       1
+1879  /ISIC256/train_ISIC256_orig/val_set/ISIC_00716...       1
+1880  /ISIC256/train_ISIC256_orig/val_set/ISIC_00721...       1
+1881  /ISIC256/train_ISIC256_orig/val_set/ISIC_00652...       1
+1882  /ISIC256/train_ISIC256_orig/val_set/ISIC_00564...       1
+[1883 rows x 2 columns]
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.
+Starts training...
+Epoch: 1/20..  Training Loss: 0.072..  Training Accuracy: 0.974.. Validation Loss: 0.234..  Validation Accuracy: 0.968 Validation AUC Score: 0.966 Validation F1 Score: 0.871 Training Time: 0:01:31
+Saving model in training_classifiers_events/test_all_melanoma/5_26/./classifier_efficientnet-b2_0.9683_2022-05-26 23:55:27.841131.pth
+Epoch: 2/20..  Training Loss: 0.039..  Training Accuracy: 0.987.. Validation Loss: 0.139..  Validation Accuracy: 0.966 Validation AUC Score: 0.966 Validation F1 Score: 0.875 Training Time: 0:01:29
+Epoch: 3/20..  Training Loss: 0.024..  Training Accuracy: 0.992.. Validation Loss: 0.139..  Validation Accuracy: 0.970 Validation AUC Score: 0.968 Validation F1 Score: 0.882 Training Time: 0:01:29
+Saving model in training_classifiers_events/test_all_melanoma/5_26/./classifier_efficientnet-b2_0.9702_2022-05-26 23:58:27.210198.pth
+Epoch: 4/20..  Training Loss: 0.019..  Training Accuracy: 0.993.. Validation Loss: 0.268..  Validation Accuracy: 0.971 Validation AUC Score: 0.957 Validation F1 Score: 0.888 Training Time: 0:01:29
+Saving model in training_classifiers_events/test_all_melanoma/5_26/./classifier_efficientnet-b2_0.9710_2022-05-26 23:59:57.140375.pth
+Epoch: 5/20..  Training Loss: 0.017..  Training Accuracy: 0.994.. Validation Loss: 0.191..  Validation Accuracy: 0.974 Validation AUC Score: 0.961 Validation F1 Score: 0.899 Training Time: 0:01:31
+Saving model in training_classifiers_events/test_all_melanoma/5_26/./classifier_efficientnet-b2_0.9745_2022-05-27 00:01:28.301865.pth
+Epoch: 6/20..  Training Loss: 0.014..  Training Accuracy: 0.995.. Validation Loss: 0.192..  Validation Accuracy: 0.968 Validation AUC Score: 0.970 Validation F1 Score: 0.869 Training Time: 0:01:29
+Epoch: 7/20..  Training Loss: 0.010..  Training Accuracy: 0.996.. Validation Loss: 0.192..  Validation Accuracy: 0.978 Validation AUC Score: 0.962 Validation F1 Score: 0.914 Training Time: 0:01:30
+Saving model in training_classifiers_events/test_all_melanoma/5_26/./classifier_efficientnet-b2_0.9779_2022-05-27 00:04:27.876740.pth
+Epoch: 8/20..  Training Loss: 0.017..  Training Accuracy: 0.995.. Validation Loss: 0.238..  Validation Accuracy: 0.972 Validation AUC Score: 0.963 Validation F1 Score: 0.887 Training Time: 0:01:30
+Epoch: 9/20..  Training Loss: 0.008..  Training Accuracy: 0.997.. Validation Loss: 0.389..  Validation Accuracy: 0.968 Validation AUC Score: 0.943 Validation F1 Score: 0.871 Training Time: 0:01:30
+Epoch     9: reducing learning rate of group 0 to 1.0000e-04.
+Epoch: 10/20..  Training Loss: 0.003..  Training Accuracy: 0.999.. Validation Loss: 0.233..  Validation Accuracy: 0.976 Validation AUC Score: 0.973 Validation F1 Score: 0.907 Training Time: 0:01:31
+Epoch: 11/20..  Training Loss: 0.001..  Training Accuracy: 1.000.. Validation Loss: 0.266..  Validation Accuracy: 0.979 Validation AUC Score: 0.973 Validation F1 Score: 0.918 Training Time: 0:01:30
+Saving model in training_classifiers_events/test_all_melanoma/5_26/./classifier_efficientnet-b2_0.9787_2022-05-27 00:10:29.990724.pth
+Epoch: 12/20..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.274..  Validation Accuracy: 0.978 Validation AUC Score: 0.973 Validation F1 Score: 0.916 Training Time: 0:01:29
+Epoch: 13/20..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.289..  Validation Accuracy: 0.978 Validation AUC Score: 0.975 Validation F1 Score: 0.916 Training Time: 0:01:30
+Epoch    13: reducing learning rate of group 0 to 2.0000e-05.
+Epoch: 14/20..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.313..  Validation Accuracy: 0.978 Validation AUC Score: 0.975 Validation F1 Score: 0.913 Training Time: 0:01:30
+Epoch: 15/20..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.308..  Validation Accuracy: 0.978 Validation AUC Score: 0.975 Validation F1 Score: 0.916 Training Time: 0:01:30
+Epoch    15: reducing learning rate of group 0 to 4.0000e-06.
+Epoch: 16/20..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.309..  Validation Accuracy: 0.978 Validation AUC Score: 0.975 Validation F1 Score: 0.916 Training Time: 0:01:29
+Epoch: 17/20..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.310..  Validation Accuracy: 0.979 Validation AUC Score: 0.975 Validation F1 Score: 0.917 Training Time: 0:01:30
+Epoch    17: reducing learning rate of group 0 to 8.0000e-07.
+Epoch: 18/20..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.306..  Validation Accuracy: 0.979 Validation AUC Score: 0.975 Validation F1 Score: 0.918 Training Time: 0:01:30
+Saving model in training_classifiers_events/test_all_melanoma/5_26/./classifier_efficientnet-b2_0.9789_2022-05-27 00:21:00.909562.pth
+Epoch: 19/20..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.311..  Validation Accuracy: 0.979 Validation AUC Score: 0.975 Validation F1 Score: 0.917 Training Time: 0:01:31
+Epoch: 20/20..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.309..  Validation Accuracy: 0.979 Validation AUC Score: 0.974 Validation F1 Score: 0.917 Training Time: 0:01:30
+Epoch    20: reducing learning rate of group 0 to 1.6000e-07.
+Total Training Time: 0:30:06
+Test Accuracy: 0.97610, ROC_AUC_score: 0.96294, F1 score: 0.9061

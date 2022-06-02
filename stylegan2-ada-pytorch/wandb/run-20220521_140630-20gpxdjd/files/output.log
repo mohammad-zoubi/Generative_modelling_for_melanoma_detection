@@ -1,0 +1,23 @@
+20000
+10000
+label_0_idx_val 766 label_1_idx_val 766
+label_0_idx_val 255 label_1_idx_val 255
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.
+Starts training...
+Epoch: 1/15..  Training Loss: 0.027..  Training Accuracy: 0.991.. Validation Loss: 0.655..  Validation Accuracy: 0.775 Validation AUC Score: 0.864 Validation F1 Score: 0.744 Training Time: 0:01:36
+Saving model in training_classifiers_events/test_all_melanoma/5_21/./classifier_efficientnet-b2_0.7755_2022-05-21 14:08:42.921919.pth
+Epoch: 2/15..  Training Loss: 0.005..  Training Accuracy: 0.998.. Validation Loss: 2.517..  Validation Accuracy: 0.732 Validation AUC Score: 0.789 Validation F1 Score: 0.644 Training Time: 0:01:35
+Epoch: 3/15..  Training Loss: 0.003..  Training Accuracy: 0.999.. Validation Loss: 1.397..  Validation Accuracy: 0.709 Validation AUC Score: 0.875 Validation F1 Score: 0.595 Training Time: 0:01:36
+Epoch     3: reducing learning rate of group 0 to 1.0000e-04.
+Epoch: 4/15..  Training Loss: 0.001..  Training Accuracy: 1.000.. Validation Loss: 1.670..  Validation Accuracy: 0.719 Validation AUC Score: 0.884 Validation F1 Score: 0.609 Training Time: 0:01:35
+Epoch: 5/15..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 2.012..  Validation Accuracy: 0.713 Validation AUC Score: 0.871 Validation F1 Score: 0.599 Training Time: 0:01:36
+Epoch     5: reducing learning rate of group 0 to 2.0000e-05.
+Epoch: 6/15..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 2.048..  Validation Accuracy: 0.715 Validation AUC Score: 0.870 Validation F1 Score: 0.604 Training Time: 0:01:35
+Epoch: 7/15..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 1.939..  Validation Accuracy: 0.723 Validation AUC Score: 0.871 Validation F1 Score: 0.620 Training Time: 0:01:35
+Epoch     7: reducing learning rate of group 0 to 4.0000e-06.
+Early stopping. Best Val f1: 0.775
+Total Training Time: 0:11:11
+Test Accuracy: 0.76078, ROC_AUC_score: 0.88402, F1 score: 0.7289

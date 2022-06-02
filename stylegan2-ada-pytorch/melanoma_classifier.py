@@ -243,18 +243,21 @@ def test(model, test_loader):
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("--syn_data_path_ben", type=str, default='/workspace/generated-no-valset')
-    parser.add_argument("--syn_data_path_mal", type=str, default='/workspace/generated-no-valset')
-    parser.add_argument("--real_data_path", type=str, default='/workspace/melanoma_isic_dataset')
+    parser.add_argument("--syn_data_path_mal", type=str, default='/ISIC256/synth60k/img_dir/')
+    parser.add_argument("--syn_data_path_ben", type=str, default='/ISIC256/synth60k/img_dir_ben/')
+    parser.add_argument("--real_data_path", type=str, default='/ISIC256/train_ISIC256_orig/imgs/')
     parser.add_argument("--model", type=str, default='efficientnet-b2', choices=["efficientnet-b2", "googlenet", "resnet50"])
-    parser.add_argument("--epochs", type=int, default='30')
-    parser.add_argument("--es", type=int, default='4', help = "Iterations for Early Stopping")
+    parser.add_argument("--epochs", type=int, default='20')
+    parser.add_argument("--es", type=int, default='15', help = "Iterations for Early Stopping")
     parser.add_argument("--kfold", type=int, default='3', help='number of folds for stratisfied kfold')
     parser.add_argument("--unbalanced", action='store_true', help='train with 15% melanoma')
     parser.add_argument("--only_reals", action='store_true', help='train using only real images')
     parser.add_argument("--only_syn", action='store_true', help='train using only synthetic images')
     parser.add_argument("--tags", type=str, default='whole isic')
-    parser.add_argument("--synt_n_imgs",  type=str, default="0,15", help='n benign, n melanoma K synthetic images to add to the real data')
+    parser.add_argument("--n_imgs",  type=str, default="10000", help='n benign, n melanoma K synthetic images to add to the real data')
+    parser.add_argument("--csv_path_to_test",  type=str, default="/ISIC256/real_val_orig.csv", help='path to csv file for test set')
+    parser.add_argument("--path_real_imgs_test",  type=str, default="/ISIC256/train_ISIC256_orig/val_set/")
+    parser.add_argument("--anno_data_path", type=str, default="/ISIC256/synth60k/synth60k_anno_all.csv")
     args = parser.parse_args()
 
     # wandb.init(project="dai-healthcare" , entity='eyeforai', group='isic', tags=[args.tags], config={"model": args.model})
@@ -277,9 +280,18 @@ if __name__ == "__main__":
     """
     
     # test_df = load_isic_data(args.real_data_path)
-    test_df = load_isic_data(args.real_data_path)
-    validation_df = load_isic_test(args.real_data_path)
-    train_df = load_synth_images(args.syn_data_path_mal,args.syn_data_path_ben, args.synt_n_imgs, args.only_syn)
+
+
+    # train_df = load_synth_images(args.syn_data_path_mal,args.syn_data_path_ben, args.n_imgs, args.anno_data_path, "normal")
+
+    train_df = load_isic_train(args.real_data_path, args.n_imgs)
+    print(np.asarray(train_df.target)[train_df.target==1])
+    validation_df, test_df = load_test_val_isic(args.csv_path_to_test, args.path_real_imgs_test, test_size=0.25)
+
+    # splits = train_test_split(validation_df, )
+    # print("validation_df", len(validation_df))
+    # print("len(validation_df.target[validation_df.target==1])", len(validation_df.target[validation_df.target==1]))
+    # print("test_df", len(test_df))
     # if args.only_syn:
         # train_df = synt_train_df
     # elif args.only_reals:
@@ -302,22 +314,26 @@ if __name__ == "__main__":
     # training_dataset = Synth_Dataset(source_dir = args.syn_data_path, transform = training_transforms, id_list = None, unbalanced=args.unbalanced)  
     # CustomDataset(df = train_df_res, img_dir = train_img_dir,  train = True, transforms = training_transforms )
     # train_id, val_id = create_split(args.syn_data_path, unbalanced=args.unbalanced)
-    training_dataset = CustomDataset(df = train_df, train = True, transforms = training_transforms )
                         # Synth_Dataset(source_dir = args.syn_data_path, transform = training_transforms, id_list = train_id, unbalanced=args.unbalanced)  
                         # # CustomDataset(df = train_df_res, img_dir = train_img_dir,  train = True, transforms = training_transforms )
+    
+    training_dataset = CustomDataset(df = train_df, train = True, transforms = training_transforms )
     validation_dataset = CustomDataset(df = validation_df, train = True, transforms = training_transforms) 
 
     # validation_dataset = Synth_Dataset(source_dir = args.data_path, transform = testing_transforms, id_list = range(len(test_gt)), input_img=test_img)
     testing_dataset = CustomDataset(df = test_df, train = True, transforms = testing_transforms ) 
-                   
+    print(test_df)
 
     train_loader = torch.utils.data.DataLoader(training_dataset, batch_size=32, num_workers=4, worker_init_fn=seed_worker, shuffle=True)
     validate_loader = torch.utils.data.DataLoader(validation_dataset, batch_size=16, num_workers=4, worker_init_fn=seed_worker, shuffle = False)
+
     # validate_loader_real = torch.utils.data.DataLoader(validation_dataset, batch_size=16, num_workers=4, worker_init_fn=seed_worker, shuffle = False)
     test_loader = torch.utils.data.DataLoader(testing_dataset, batch_size=16, num_workers=4, worker_init_fn=seed_worker, shuffle = False)
-     
-    print(len(training_dataset), len(validation_dataset))
-    print(len(train_loader),len(validate_loader))
+    # test_df.to_csv('/ISIC256/test_loaders/test_33.csv')    
+    # train_df.to_csv('/ISIC256/test_loaders/train_1.csv')  
+    # validation_df.to_csv('/ISIC256/test_loaders/val_1.csv')  
+    # print(len(training_dataset), len(validation_dataset))
+    # print(len(train_loader),len(validate_loader))
 
     """
     # Visualizing some example images in Tensorboard
@@ -350,8 +366,6 @@ if __name__ == "__main__":
 
     del training_dataset, validation_dataset 
     gc.collect()
-
-    
     ### TESTING THE NETWORK ###
     #model_path = '/home/stylegan2-ada-pytorch/models_trained_with_synth/melanoma_model_unbal_0.9999899287601407.pth'
     model.load_state_dict(torch.load(model_path))
@@ -360,5 +374,6 @@ if __name__ == "__main__":
     test_pred, test_gt, test_accuracy = test(model, test_loader)  
 
     ### CONFUSSION MATRIX ###
-    confussion_matrix(test_gt, test_pred, test_accuracy, writer_path)
+    classification_task_name = "testing_no_bias"
+    confussion_matrix(test_gt, test_pred, test_accuracy, writer_path, classification_task_name)
     

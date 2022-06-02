@@ -1,0 +1,12 @@
+
+0
+25000
+len(input_images_mal) 0
+len(input_images_ben) 25000
+25000
+25000 5647
+782 353
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.

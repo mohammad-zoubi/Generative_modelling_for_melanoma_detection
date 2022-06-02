@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 283, in <module>
+    test_df = load_test_isic(args.csv_path_to_test, args.path_real_imgs_test, 5000, "test")
+  File "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/utils.py", line 399, in load_test_isic
+    test_df = pd.DataFrame({"image_name":image_name_list, "target":gt_list})
+  File "/usr/local/lib/python3.8/dist-packages/pandas/core/frame.py", line 636, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/usr/local/lib/python3.8/dist-packages/pandas/core/internals/construction.py", line 502, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/usr/local/lib/python3.8/dist-packages/pandas/core/internals/construction.py", line 120, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/usr/local/lib/python3.8/dist-packages/pandas/core/internals/construction.py", line 674, in _extract_index
+    raise ValueError("All arrays must be of the same length")
+ValueError: All arrays must be of the same length

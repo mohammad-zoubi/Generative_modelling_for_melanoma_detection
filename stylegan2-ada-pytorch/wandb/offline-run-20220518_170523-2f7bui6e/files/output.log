@@ -1,0 +1,6 @@
+40000
+20000
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 317, in <module>
+    testing_dataset = CustomDataset(df = test_df, train = True, transforms = testing_transforms )
+NameError: name 'test_df' is not defined

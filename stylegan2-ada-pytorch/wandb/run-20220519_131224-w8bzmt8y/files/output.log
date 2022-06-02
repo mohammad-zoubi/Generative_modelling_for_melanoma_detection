@@ -1,0 +1,3 @@
+40000
+20000
+len(val_gt[val_gt==1]), len(test_gt[test_gt==1]) 766 255

@@ -1,0 +1,75 @@
+20000
+10000
+                                              image_name  target
+0      /ISIC256/synth60k/img_dir/imgs1/seed100001_mal...       1
+1      /ISIC256/synth60k/img_dir/imgs1/seed100002_mal...       1
+2      /ISIC256/synth60k/img_dir/imgs1/seed100003_mal...       1
+3      /ISIC256/synth60k/img_dir/imgs1/seed100004_mal...       1
+4      /ISIC256/synth60k/img_dir/imgs1/seed100005_mal...       1
+...                                                  ...     ...
+19995  /ISIC256/synth60k/img_dir_ben/imgs1/seed109996...       0
+19996  /ISIC256/synth60k/img_dir_ben/imgs1/seed109997...       0
+19997  /ISIC256/synth60k/img_dir_ben/imgs1/seed109998...       0
+19998  /ISIC256/synth60k/img_dir_ben/imgs1/seed109999...       0
+19999  /ISIC256/synth60k/img_dir_ben/imgs1/seed110000...       0
+[20000 rows x 2 columns]
+image_name_list 37648 gt_list 37648
+30118
+len(gt[gt==1]) 4085
+train_list 0 gt 30118 37648
+                                              image_name  target
+0      /ISIC256/train_ISIC256_orig/imgs/ISIC_0000002.jpg       0
+1      /ISIC256/train_ISIC256_orig/imgs/ISIC_0000004.jpg       0
+2      /ISIC256/train_ISIC256_orig/imgs/ISIC_0000013.jpg       0
+3      /ISIC256/train_ISIC256_orig/imgs/ISIC_0000022_...       0
+4      /ISIC256/train_ISIC256_orig/imgs/ISIC_0000026_...       0
+...                                                  ...     ...
+30113  /ISIC256/train_ISIC256_orig/imgs/ISIC_9998965.jpg       1
+30114  /ISIC256/train_ISIC256_orig/imgs/ISIC_9999127.jpg       1
+30115  /ISIC256/train_ISIC256_orig/imgs/ISIC_9999134.jpg       1
+30116  /ISIC256/train_ISIC256_orig/imgs/ISIC_9999515.jpg       1
+30117  /ISIC256/train_ISIC256_orig/imgs/ISIC_9999806.jpg       1
+[30118 rows x 2 columns]
+[1 1 1 ... 1 1 1]
+label_0_idx_val 766 label_1_idx_val 766
+label_0_idx_val 255 label_1_idx_val 255
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.
+Starts training...
+[ WARN:0@186.263] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/ISIC256/train_ISIC256_orig/val_set/ISIC_0809467'): can't open/read file: check file path/integrity
+[ WARN:0@186.263] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/ISIC256/train_ISIC256_orig/val_set/ISIC_6081738'): can't open/read file: check file path/integrity
+[ WARN:0@186.264] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/ISIC256/train_ISIC256_orig/val_set/ISIC_1467583'): can't open/read file: check file path/integrity
+[ WARN:0@186.266] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/ISIC256/train_ISIC256_orig/val_set/ISIC_8192501'): can't open/read file: check file path/integrity
+[ WARN:0@186.267] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/ISIC256/train_ISIC256_orig/val_set/ISIC_4483719'): can't open/read file: check file path/integrity
+[ WARN:0@186.268] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/ISIC256/train_ISIC256_orig/val_set/ISIC_2256519'): can't open/read file: check file path/integrity
+[ WARN:0@186.269] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/ISIC256/train_ISIC256_orig/val_set/ISIC_6008380'): can't open/read file: check file path/integrity
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 363, in <module>
+    model_path = train(model, train_loader, validate_loader, epochs=args.epochs, es_patience=args.es)
+  File "melanoma_classifier.py", line 109, in train
+    val_loss, val_auc_score, val_accuracy, val_f1 = val(model, validate_loader, criterion)
+  File "melanoma_classifier.py", line 178, in val
+    for val_images, val_labels in validate_loader:
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/dataloader.py", line 1203, in _next_data
+    return self._process_data(data)
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/dataloader.py", line 1229, in _process_data
+    data.reraise()
+  File "/usr/local/lib/python3.8/dist-packages/torch/_utils.py", line 425, in reraise
+    raise self.exc_type(msg)
+TypeError: Caught TypeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/_utils/worker.py", line 287, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/utils.py", line 668, in __getitem__
+    rgb_img = cv2.imread(img_path, 1)[:, :, ::-1]
+TypeError: 'NoneType' object is not subscriptable
+[ WARN:0@186.320] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/ISIC256/train_ISIC256_orig/val_set/ISIC_4379788'): can't open/read file: check file path/integrity
+[ WARN:0@186.321] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/ISIC256/train_ISIC256_orig/val_set/ISIC_5799555'): can't open/read file: check file path/integrity

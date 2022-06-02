@@ -1,0 +1,19 @@
+40000
+20000
+32000 8000
+1000 500
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.
+Starts training...
+Epoch: 1/30..  Training Loss: 0.087..  Training Accuracy: 0.966.. Validation Loss: 0.030..  Validation Accuracy: 0.991 Validation AUC Score: 1.000 Validation F1 Score: 0.991 Training Time: 0:02:41
+Saving model in training_classifiers_events/test_all_melanoma/5_18/./classifier_efficientnet-b2_0.9912_2022-05-18 16:38:07.615298.pth
+Downloading: "https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b2-8bb594d6.pth" to /home/moh/.cache/torch/hub/checkpoints/efficientnet-b2-8bb594d6.pth
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 35.1M/35.1M [00:01<00:00, 27.5MB/s]
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 355, in <module>
+    model_path = train(model, train_loader, validate_loader, epochs=args.epochs, es_patience=args.es)
+  File "melanoma_classifier.py", line 97, in train
+    correct += (train_preds.cpu() == labels.cpu().unsqueeze(1)).sum().item()
+KeyboardInterrupt

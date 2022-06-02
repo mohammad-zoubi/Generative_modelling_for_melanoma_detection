@@ -1,0 +1,10 @@
+0
+label_0_idx_val 766 label_1_idx_val 766
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 324, in <module>
+    train_loader = torch.utils.data.DataLoader(training_dataset, batch_size=32, num_workers=4, worker_init_fn=seed_worker, shuffle=True)
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/dataloader.py", line 270, in __init__
+    sampler = RandomSampler(dataset, generator=generator)  # type: ignore[arg-type]
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/sampler.py", line 102, in __init__
+    raise ValueError("num_samples should be a positive integer "
+ValueError: num_samples should be a positive integer value, but got num_samples=0

@@ -1,0 +1,24 @@
+len(non_biased_paths) 0
+25000
+len(input_images_mal) 0
+len(input_images_ben) 25000
+0
+25000 5647
+782 353
+Loaded pretrained weights for efficientnet-b2
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 346, in <module>
+    model = load_model(args.model)
+  File "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/utils.py", line 673, in load_model
+    model = Net(arch=arch).to(device)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 852, in to
+    return self._apply(convert)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 530, in _apply
+    module._apply(fn)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 530, in _apply
+    module._apply(fn)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 552, in _apply
+    param_applied = fn(param)
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 850, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+KeyboardInterrupt

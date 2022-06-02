@@ -1,0 +1,13 @@
+
+image_name_list 37648 gt_list 37648
+30118
+train_list 30118 gt 30118 7530
+label_0_idx_val 766 label_1_idx_val 766
+label_0_idx_val 255 label_1_idx_val 255
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.
+Starts training...
+Epoch: 1/15..  Training Loss: 0.104..  Training Accuracy: 0.981.. Validation Loss: 2.090..  Validation Accuracy: 0.500 Validation AUC Score: 0.398 Validation F1 Score: 0.000 Training Time: 0:02:11
+Saving model in training_classifiers_events/test_all_melanoma/5_21/./classifier_efficientnet-b2_0.5000_2022-05-21 17:10:29.152427.pth

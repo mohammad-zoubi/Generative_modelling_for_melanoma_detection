@@ -1,0 +1,38 @@
+50000
+25000
+label_0_idx_val 766 label_1_idx_val 766
+50000 1532
+1563 96
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.
+Starts training...
+Epoch: 1/15..  Training Loss: 0.065..  Training Accuracy: 0.975.. Validation Loss: 0.728..  Validation Accuracy: 0.854 Validation AUC Score: 0.953 Validation F1 Score: 0.832 Training Time: 0:03:49
+Saving model in training_classifiers_events/test_all_melanoma/5_20/./classifier_efficientnet-b2_0.8544_2022-05-20 10:59:10.437105.pth
+Epoch: 2/15..  Training Loss: 0.016..  Training Accuracy: 0.995.. Validation Loss: 0.683..  Validation Accuracy: 0.847 Validation AUC Score: 0.953 Validation F1 Score: 0.824 Training Time: 0:03:47
+Epoch: 3/15..  Training Loss: 0.011..  Training Accuracy: 0.996.. Validation Loss: 0.841..  Validation Accuracy: 0.832 Validation AUC Score: 0.945 Validation F1 Score: 0.803 Training Time: 0:03:50
+Epoch     3: reducing learning rate of group 0 to 1.0000e-04.
+Epoch: 4/15..  Training Loss: 0.002..  Training Accuracy: 0.999.. Validation Loss: 0.845..  Validation Accuracy: 0.838 Validation AUC Score: 0.934 Validation F1 Score: 0.814 Training Time: 0:03:48
+Epoch: 5/15..  Training Loss: 0.001..  Training Accuracy: 1.000.. Validation Loss: 0.867..  Validation Accuracy: 0.850 Validation AUC Score: 0.941 Validation F1 Score: 0.830 Training Time: 0:03:45
+Epoch     5: reducing learning rate of group 0 to 2.0000e-05.
+Epoch: 6/15..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.956..  Validation Accuracy: 0.844 Validation AUC Score: 0.940 Validation F1 Score: 0.823 Training Time: 0:03:45
+Epoch: 7/15..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.879..  Validation Accuracy: 0.854 Validation AUC Score: 0.943 Validation F1 Score: 0.837 Training Time: 0:03:40
+Epoch     7: reducing learning rate of group 0 to 4.0000e-06.
+Early stopping. Best Val f1: 0.854
+Total Training Time: 0:26:26
+Test Accuracy: 0.86078, ROC_AUC_score: 0.95509, F1 score: 0.8383
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 375, in <module>
+    confussion_matrix(test_gt, test_pred, test_accuracy, writer_path, classification_task_name)
+  File "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/utils.py", line 252, in confussion_matrix
+    plt.savefig(os.path.join(writer_path, f'conf_matrix_{test_accuracy:.4f}_{now.strftime("%d_%m_%H_%M")}.png')+ classification_task_name)
+  File "/usr/local/lib/python3.8/dist-packages/matplotlib/pyplot.py", line 979, in savefig
+    res = fig.savefig(*args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/matplotlib/figure.py", line 3046, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/matplotlib/backend_bases.py", line 2259, in print_figure
+    canvas = self._get_output_canvas(backend, format)
+  File "/usr/local/lib/python3.8/dist-packages/matplotlib/backend_bases.py", line 2188, in _get_output_canvas
+    raise ValueError(
+ValueError: Format 'pngbaseline' is not supported (supported formats: eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff)

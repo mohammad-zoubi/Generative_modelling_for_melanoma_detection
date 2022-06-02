@@ -1,0 +1,82 @@
+20000
+10000
+                                              image_name  target
+0      /ISIC256/synth60k/img_dir/imgs1/seed100001_mal...       1
+1      /ISIC256/synth60k/img_dir/imgs1/seed100002_mal...       1
+2      /ISIC256/synth60k/img_dir/imgs1/seed100003_mal...       1
+3      /ISIC256/synth60k/img_dir/imgs1/seed100004_mal...       1
+4      /ISIC256/synth60k/img_dir/imgs1/seed100005_mal...       1
+...                                                  ...     ...
+19995  /ISIC256/synth60k/img_dir_ben/imgs1/seed109996...       0
+19996  /ISIC256/synth60k/img_dir_ben/imgs1/seed109997...       0
+19997  /ISIC256/synth60k/img_dir_ben/imgs1/seed109998...       0
+19998  /ISIC256/synth60k/img_dir_ben/imgs1/seed109999...       0
+19999  /ISIC256/synth60k/img_dir_ben/imgs1/seed110000...       0
+[20000 rows x 2 columns]
+image_name_list 37648 gt_list 37648
+30118
+len(gt[gt==1]) 4085
+train_list 0 gt 30118 37648
+label_1s [   1    2    7 ... 7513 7515 7525] label_0s [   0    3    4 ... 7527 7528 7529]
+                                             image_name  target
+0     /ISIC256/train_ISIC256_orig/imgs/ISIC_0000004.jpg       1
+1     /ISIC256/train_ISIC256_orig/imgs/ISIC_0000013.jpg       1
+2     /ISIC256/train_ISIC256_orig/imgs/ISIC_0000031_...       1
+3     /ISIC256/train_ISIC256_orig/imgs/ISIC_0000036_...       1
+4     /ISIC256/train_ISIC256_orig/imgs/ISIC_0000046_...       1
+...                                                 ...     ...
+5016  /ISIC256/train_ISIC256_orig/imgs/ISIC_0485881.jpg       0
+5017  /ISIC256/train_ISIC256_orig/imgs/ISIC_0485914.jpg       0
+5018  /ISIC256/train_ISIC256_orig/imgs/ISIC_0485996.jpg       0
+5019  /ISIC256/train_ISIC256_orig/imgs/ISIC_0486498.jpg       0
+5020  /ISIC256/train_ISIC256_orig/imgs/ISIC_0486516.jpg       0
+[5021 rows x 2 columns]
+[1 1 1 ... 1 1 1]
+label_0_idx_val 766 label_1_idx_val 766
+label_0_idx_val 255 label_1_idx_val 255
+                                             image_name  target
+0     /ISIC256/train_ISIC256_orig/val_set/ISIC_08094...       0
+1     /ISIC256/train_ISIC256_orig/val_set/ISIC_41628...       0
+2     /ISIC256/train_ISIC256_orig/val_set/ISIC_32822...       0
+3     /ISIC256/train_ISIC256_orig/val_set/ISIC_08080...       0
+4     /ISIC256/train_ISIC256_orig/val_set/ISIC_25326...       0
+...                                                 ...     ...
+1527  /ISIC256/train_ISIC256_orig/val_set/ISIC_89519...       1
+1528  /ISIC256/train_ISIC256_orig/val_set/ISIC_00329...       1
+1529  /ISIC256/train_ISIC256_orig/val_set/ISIC_00328...       1
+1530  /ISIC256/train_ISIC256_orig/val_set/ISIC_00271...       1
+1531  /ISIC256/train_ISIC256_orig/val_set/ISIC_00646...       1
+[1532 rows x 2 columns]
+                                             image_name  target
+0     /ISIC256/train_ISIC256_orig/imgs/ISIC_0000004.jpg       1
+1     /ISIC256/train_ISIC256_orig/imgs/ISIC_0000013.jpg       1
+2     /ISIC256/train_ISIC256_orig/imgs/ISIC_0000031_...       1
+3     /ISIC256/train_ISIC256_orig/imgs/ISIC_0000036_...       1
+4     /ISIC256/train_ISIC256_orig/imgs/ISIC_0000046_...       1
+...                                                 ...     ...
+5016  /ISIC256/train_ISIC256_orig/imgs/ISIC_0485881.jpg       0
+5017  /ISIC256/train_ISIC256_orig/imgs/ISIC_0485914.jpg       0
+5018  /ISIC256/train_ISIC256_orig/imgs/ISIC_0485996.jpg       0
+5019  /ISIC256/train_ISIC256_orig/imgs/ISIC_0486498.jpg       0
+5020  /ISIC256/train_ISIC256_orig/imgs/ISIC_0486516.jpg       0
+[5021 rows x 2 columns]
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.
+Starts training...
+Epoch: 1/15..  Training Loss: 0.525..  Training Accuracy: 0.786.. Validation Loss: 1.079..  Validation Accuracy: 0.298 Validation AUC Score: 0.093 Validation F1 Score: 0.044 Training Time: 0:00:25
+Saving model in training_classifiers_events/test_all_melanoma/5_21/./classifier_efficientnet-b2_0.2977_2022-05-21 18:55:28.621747.pth
+Epoch: 2/15..  Training Loss: 0.464..  Training Accuracy: 0.793.. Validation Loss: 1.215..  Validation Accuracy: 0.476 Validation AUC Score: 0.262 Validation F1 Score: 0.000 Training Time: 0:00:25
+Saving model in training_classifiers_events/test_all_melanoma/5_21/./classifier_efficientnet-b2_0.4758_2022-05-21 18:55:53.913540.pth
+Epoch: 3/15..  Training Loss: 0.417..  Training Accuracy: 0.811.. Validation Loss: 1.193..  Validation Accuracy: 0.464 Validation AUC Score: 0.259 Validation F1 Score: 0.028 Training Time: 0:00:25
+Epoch: 4/15..  Training Loss: 0.352..  Training Accuracy: 0.841.. Validation Loss: 1.248..  Validation Accuracy: 0.422 Validation AUC Score: 0.337 Validation F1 Score: 0.274 Training Time: 0:00:25
+Epoch     4: reducing learning rate of group 0 to 1.0000e-04.
+Epoch: 5/15..  Training Loss: 0.171..  Training Accuracy: 0.939.. Validation Loss: 3.306..  Validation Accuracy: 0.373 Validation AUC Score: 0.210 Validation F1 Score: 0.113 Training Time: 0:00:25
+Epoch: 6/15..  Training Loss: 0.062..  Training Accuracy: 0.977.. Validation Loss: 4.062..  Validation Accuracy: 0.423 Validation AUC Score: 0.268 Validation F1 Score: 0.089 Training Time: 0:00:25
+Epoch     6: reducing learning rate of group 0 to 2.0000e-05.
+Epoch: 7/15..  Training Loss: 0.038..  Training Accuracy: 0.989.. Validation Loss: 3.631..  Validation Accuracy: 0.398 Validation AUC Score: 0.264 Validation F1 Score: 0.119 Training Time: 0:00:25
+Epoch: 8/15..  Training Loss: 0.036..  Training Accuracy: 0.990.. Validation Loss: 3.779..  Validation Accuracy: 0.397 Validation AUC Score: 0.263 Validation F1 Score: 0.123 Training Time: 0:00:26
+Epoch     8: reducing learning rate of group 0 to 4.0000e-06.
+Early stopping. Best Val f1: 0.476
+Total Training Time: 0:03:24

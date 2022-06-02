@@ -1,0 +1,33 @@
+20000
+10000
+                                              image_name  target
+0      /ISIC256/synth60k/img_dir/imgs1/seed100001_mal...       1
+1      /ISIC256/synth60k/img_dir/imgs1/seed100002_mal...       1
+2      /ISIC256/synth60k/img_dir/imgs1/seed100003_mal...       1
+3      /ISIC256/synth60k/img_dir/imgs1/seed100004_mal...       1
+4      /ISIC256/synth60k/img_dir/imgs1/seed100005_mal...       1
+...                                                  ...     ...
+19995  /ISIC256/synth60k/img_dir_ben/imgs1/seed109996...       0
+19996  /ISIC256/synth60k/img_dir_ben/imgs1/seed109997...       0
+19997  /ISIC256/synth60k/img_dir_ben/imgs1/seed109998...       0
+19998  /ISIC256/synth60k/img_dir_ben/imgs1/seed109999...       0
+19999  /ISIC256/synth60k/img_dir_ben/imgs1/seed110000...       0
+[20000 rows x 2 columns]
+image_name_list 37648 gt_list 37648
+30118
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 287, in <module>
+    train_df = load_isic_train(args.real_data_path, args.n_imgs)
+  File "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/utils.py", line 349, in load_isic_train
+    train_df = pd.DataFrame({'image_name': input_images, 'target': gt})
+  File "/usr/local/lib/python3.8/dist-packages/pandas/core/frame.py", line 636, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/usr/local/lib/python3.8/dist-packages/pandas/core/internals/construction.py", line 502, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/usr/local/lib/python3.8/dist-packages/pandas/core/internals/construction.py", line 120, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/usr/local/lib/python3.8/dist-packages/pandas/core/internals/construction.py", line 674, in _extract_index
+    raise ValueError("All arrays must be of the same length")
+ValueError: All arrays must be of the same length
+len(gt[gt==1]) 4085
+train_list 0 gt 30118 37648

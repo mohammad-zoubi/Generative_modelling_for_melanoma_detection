@@ -1,0 +1,19 @@
+2022-05-26 19:23:20,869 INFO    MainThread:199001 [internal.py:wandb_internal():90] W&B internal server running at pid: 199001, started at: 2022-05-26 19:23:20.868454
+2022-05-26 19:23:20,871 DEBUG   HandlerThread:199001 [handler.py:handle_request():141] handle_request: run_start
+2022-05-26 19:23:20,871 INFO    WriterThread:199001 [datastore.py:open_for_write():75] open: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/offline-run-20220526_192320-pgv7wk3o/run-pgv7wk3o.wandb
+2022-05-26 19:23:20,876 DEBUG   HandlerThread:199001 [meta.py:__init__():35] meta init
+2022-05-26 19:23:20,876 DEBUG   HandlerThread:199001 [meta.py:__init__():49] meta init done
+2022-05-26 19:23:20,876 DEBUG   HandlerThread:199001 [meta.py:probe():209] probe
+2022-05-26 19:23:20,889 DEBUG   HandlerThread:199001 [meta.py:_setup_git():199] setup git
+2022-05-26 19:23:25,580 DEBUG   HandlerThread:199001 [meta.py:_setup_git():206] setup git done
+2022-05-26 19:23:25,581 DEBUG   HandlerThread:199001 [meta.py:_save_pip():53] save pip
+2022-05-26 19:23:25,583 DEBUG   HandlerThread:199001 [meta.py:_save_pip():67] save pip done
+2022-05-26 19:23:25,583 DEBUG   HandlerThread:199001 [meta.py:probe():247] probe done
+2022-05-26 19:24:02,920 DEBUG   HandlerThread:199001 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-26 19:25:10,258 DEBUG   HandlerThread:199001 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-26 19:25:39,281 DEBUG   HandlerThread:199001 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-26 19:25:40,090 DEBUG   HandlerThread:199001 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-26 19:25:55,434 WARNING MainThread:199001 [internal.py:wandb_internal():153] Internal process interrupt: 1
+2022-05-26 19:25:55,916 WARNING MainThread:199001 [internal.py:wandb_internal():153] Internal process interrupt: 2
+2022-05-26 19:25:55,916 ERROR   MainThread:199001 [internal.py:wandb_internal():156] Internal process interrupted.
+2022-05-26 19:25:56,234 INFO    MainThread:199001 [internal.py:handle_exit():80] Internal process exited

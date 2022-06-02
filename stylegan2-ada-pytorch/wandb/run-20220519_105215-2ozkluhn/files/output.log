@@ -1,0 +1,18 @@
+40000
+20000
+                                             image_name  target
+0     /ISIC256/train_ISIC256_orig/val_set/ISIC_56176...       0
+1     /ISIC256/train_ISIC256_orig/val_set/ISIC_00688...       1
+2     /ISIC256/train_ISIC256_orig/val_set/ISIC_00150...       1
+3     /ISIC256/train_ISIC256_orig/val_set/ISIC_47112...       0
+4     /ISIC256/train_ISIC256_orig/val_set/ISIC_89733...       0
+...                                                 ...     ...
+4995  /ISIC256/train_ISIC256_orig/val_set/ISIC_00255...       1
+4996  /ISIC256/train_ISIC256_orig/val_set/ISIC_95711...       0
+4997  /ISIC256/train_ISIC256_orig/val_set/ISIC_89143...       0
+4998  /ISIC256/train_ISIC256_orig/val_set/ISIC_81820...       0
+4999  /ISIC256/train_ISIC256_orig/val_set/ISIC_40595...       0
+[5000 rows x 2 columns]
+validation_df 5000
+len(test_df.target[test_df.target==1]) 0
+test_df 0

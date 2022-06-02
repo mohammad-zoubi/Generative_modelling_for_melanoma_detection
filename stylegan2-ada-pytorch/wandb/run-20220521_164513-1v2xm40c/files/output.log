@@ -1,0 +1,9 @@
+
+30118
+7530
+label_0_idx_val 766 label_1_idx_val 766
+label_0_idx_val 255 label_1_idx_val 255
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.

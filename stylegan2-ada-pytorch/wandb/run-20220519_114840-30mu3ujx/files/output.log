@@ -1,0 +1,19 @@
+      Unnamed: 0                    image_name   patient_id     sex  age_approx anatom_site_general_challenge  target
+0          18481              ISIC_5617604.jpg   IP_4387709    male        40.0               upper extremity       0
+1          37044              ISIC_0068850.jpg  BCN_0003311    male        75.0                anterior torso       1
+2          33642  ISIC_0015005_downsampled.jpg          NaN  female        55.0               posterior torso       1
+3          15396              ISIC_4711251.jpg   IP_1294580  female        55.0                         torso       0
+4          29675              ISIC_8973325.jpg   IP_8590096    male        75.0                         torso       0
+...          ...                           ...          ...     ...         ...                           ...     ...
+7525       37167              ISIC_0069821.jpg  BCN_0001954  female        50.0                anterior torso       1
+7526       28352              ISIC_8584089.jpg   IP_5768092  female        55.0                         torso       0
+7527       31693              ISIC_9578777.jpg   IP_0968880    male        60.0               upper extremity       0
+7528        7200              ISIC_2252651.jpg   IP_0078294    male        60.0                         torso       0
+7529       25018              ISIC_7595416.jpg   IP_2026598    male        20.0                     head/neck       0
+[7530 rows x 7 columns]
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 283, in <module>
+    test_df = load_test_val_isic(args.csv_path_to_test, args.path_real_imgs_test, 7530, "test")
+  File "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/utils.py", line 413, in load_test_val_isic
+    return test_df
+NameError: name 'test_df' is not defined

@@ -1,0 +1,11 @@
+
+30118
+7530
+label_0_idx_val 774 label_1_idx_val 774
+label_0_idx_val 247 label_1_idx_val 247
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.
+Starts training...
+Epoch: 1/15..  Training Loss: 0.104..  Training Accuracy: 0.981.. Validation Loss: 0.586..  Validation Accuracy: 0.863 Validation AUC Score: 0.398 Validation F1 Score: 0.000 Training Time: 0:02:22

@@ -7,7 +7,7 @@ from sklearn.decomposition import PCA
 from matplotlib import pyplot as plt
 from latent_vector_manipulation import latent_manipulator
 from tqdm import tqdm
-from make_video import make_video
+# from make_video import make_video
 
 ''' Input: many points in text format, make them as a matrix in the shape of [n_samples, n_features]
     Output: visualisations of how the data varys, principal direction eigenvectors '''
@@ -15,7 +15,8 @@ from make_video import make_video
 # Some paths
 # file_path = "/data/generated_imgs_SAM_inv/latent_code"
 # file_path = "/data/generated_uncond/generated_imgs_ISIC_ben/latent_code"
-file_path = "/data/generated_uncond/generated_imgs_ISIC_mal/latent_code"
+# file_path = "/data/generated_uncond/generated_imgs_ISIC_mal/latent_code"
+file_path = "/ISIC256/synth60k/w_latent_code/w_code1"
 
 # Import the w-vectors and place them in a matrix
 
@@ -29,8 +30,8 @@ vector_files = [os.path.join(file_path,vec)
 #     w_vector = np.transpose( np.loadtxt(vector_files[idx])[:, np.newaxis] ) 
 #     w_matrix[idx,:] = w_vector
 
-# np.save('/data/stylegan2-ada-pytorch/w_matrix.npy', w_matrix)
-w_matrix = np.load('/data/stylegan2-ada-pytorch/w_matrix.npy')
+# np.save('/ISIC256/synth60k/cw_matrix.npy', w_matrix)
+w_matrix = np.load('/ISIC256/synth60k/cw_matrix.npy')
 pca = PCA()
 
 pca_matrix = pca.fit(w_matrix).get_covariance()
@@ -51,7 +52,7 @@ fig = plt.figure(figsize=(15,15))
 #     plt.xlabel("principal component"+str(2*i+1))
 #     plt.ylabel("principal component"+str(2*i+2))
 plt.scatter(pca_data[:,0], pca_data[:,3], alpha=0.4, s=10)
-plt.savefig('pca_4_plts_mal_ISIC.png')
+plt.savefig('/ISIC256/synth60k/pca_4_plts_mal_ISIC.png')
 
 fig = plt.figure(figsize=(12,5))
 components = min(w_matrix.shape)
@@ -62,13 +63,13 @@ plt.semilogy(components, pca_eigenvalues[:512], '-o', linewidth=0, markersize=2)
 plt.xlabel("PCA components")
 plt.ylabel("Eigenvalues")
 plt.title("Scree plot")
-plt.savefig('eigenvals_mal_ISIC.png')
+plt.savefig('/ISIC256/synth60k/eigenvals_mal_ISIC.png')
 
 print("Number of components with eigenvalue > 1:", len(pca_eigenvalues[pca_eigenvalues>=1]))
 fig = plt.figure(figsize=(12,12))
 fig = sns.heatmap(pca_matrix[:30,:30])
 fig = fig.get_figure()
-fig.savefig("cov_mal_ISIC.png") 
+fig.savefig("/ISIC256/synth60k/cov_mal_ISIC.png") 
 
 latent_manipulator(model_path='/ISIC256/models/00001-ISIC256_malignant-auto2-bgcfnc-resumecustom/network-snapshot-007200.pkl',
                      outdir='/data/generated_uncond/generated_imgs_ISIC_mal/directed_imgs/', 
@@ -81,8 +82,8 @@ latent_manipulator(model_path='/ISIC256/models/00001-ISIC256_malignant-auto2-bgc
                      diff_direction=False, 
                      eigenvector=pca_eigenvectors[23,:])
 
-image_folder_path = '/data/generated_uncond/generated_imgs_ISIC_mal/directed_imgs/'
-# image_folder_path = '/data/generated_uncond/generated_imgs_ISIC_mal/tmp_img/'
-fps = 4
-outdir = '/data/stylegan2-ada-pytorch/directed_imgsf23_no_frames.mp4'
-make_video(image_folder_path, fps, outdir)
+# image_folder_path = '/data/generated_uncond/generated_imgs_ISIC_mal/directed_imgs/'
+# # image_folder_path = '/data/generated_uncond/generated_imgs_ISIC_mal/tmp_img/'
+# fps = 4
+# outdir = '/data/stylegan2-ada-pytorch/directed_imgsf23_no_frames.mp4'
+# make_video(image_folder_path, fps, outdir)

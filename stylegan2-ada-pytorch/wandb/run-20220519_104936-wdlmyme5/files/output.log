@@ -1,0 +1,22 @@
+40000
+20000
+validation_df 5000
+682
+test_df 0
+40000 5000
+1250 313
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.
+Starts training...
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 359, in <module>
+    model_path = train(model, train_loader, validate_loader, epochs=args.epochs, es_patience=args.es)
+  File "melanoma_classifier.py", line 88, in train
+    loss.backward()
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor.py", line 255, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py", line 147, in backward
+    Variable._execution_engine.run_backward(
+KeyboardInterrupt

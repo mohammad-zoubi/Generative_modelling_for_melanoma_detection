@@ -1,0 +1,23 @@
+20000
+10000
+                                              image_name  target
+0      /ISIC256/synth60k/img_dir/imgs1/seed100001_mal...       1
+1      /ISIC256/synth60k/img_dir/imgs1/seed100002_mal...       1
+2      /ISIC256/synth60k/img_dir/imgs1/seed100003_mal...       1
+3      /ISIC256/synth60k/img_dir/imgs1/seed100004_mal...       1
+4      /ISIC256/synth60k/img_dir/imgs1/seed100005_mal...       1
+...                                                  ...     ...
+19995  /ISIC256/synth60k/img_dir_ben/imgs1/seed109996...       0
+19996  /ISIC256/synth60k/img_dir_ben/imgs1/seed109997...       0
+19997  /ISIC256/synth60k/img_dir_ben/imgs1/seed109998...       0
+19998  /ISIC256/synth60k/img_dir_ben/imgs1/seed109999...       0
+19999  /ISIC256/synth60k/img_dir_ben/imgs1/seed110000...       0
+[20000 rows x 2 columns]
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 287, in <module>
+    train_df = load_isic_train(args.real_data_path, args.n_imgs)
+  File "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/utils.py", line 333, in load_isic_train
+    if image_name_train not in list_of_val:
+NameError: name 'image_name_train' is not defined
+image_name_list 37648 gt_list 37648
+30118

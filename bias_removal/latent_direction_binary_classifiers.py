@@ -23,7 +23,8 @@ import torch
     * Train a binary classifier to find the hyper plane that separates the two labels
     * '''
 
-file_path = '/data/generated_uncond/generated_imgs_ISIC_mal/annotations.csv'
+# file_path = '/data/generated_uncond/generated_imgs_ISIC_mal/annotations.csv'
+file_path = '/ISIC256/synth60k/synth60k_anno1.csv'
 # file_path = '/data/psuedoannotations/psudo_10k_imgs_tmp.csv'
 
 # assuming the csv and w/z_mat are in the same order
@@ -31,16 +32,17 @@ file_path = '/data/generated_uncond/generated_imgs_ISIC_mal/annotations.csv'
 # w_matrix_path = '/data/generated_imgs_smaller/w_mat.npy'
 
 # having one txt for w-vector file per image is better
-w_vectors_path = '/data/generated_uncond/generated_imgs_ISIC_mal/latent_code/'
+# w_vectors_path = '/data/generated_uncond/generated_imgs_ISIC_mal/latent_code/'
+w_vectors_path = '/ISIC256/synth60k/w_latent_code/w_code1/'
 
 csv_file = pd.read_csv(file_path, header=None)
 # print(csv_file[0])
 # z_matrix = np.load(z_matrix_path)
 # w_matrix = np.empty((csv_file.shape[0], 512))
 # w_matrix = np.zeros((csv_file.shape[0], 512))
-w_matrix = np.zeros((10000, 512))
+w_matrix = np.zeros((20000, 512))
 # labels = np.empty((csv_file.shape[0], 1), dtype=int)
-labels = np.empty((10000, 1), dtype=int)
+labels = np.empty((20000, 1), dtype=int)
 
 img_file_name = os.listdir(w_vectors_path)[0]
 print(img_file_name)
@@ -54,18 +56,19 @@ print(csv_file[0][0])
 # append the corresponding label from the 4th column (black frame)
 
 # for idx in tqdm(range(csv_file.shape[0])):
-for idx in tqdm(range(10000)):
+for idx in tqdm(range(20000)):
 # for idx in range(10):
     # image name without . 
     # image_name = csv_file[0][idx].split('.')[0].split('_')[0]
-    image_name = csv_file[0][idx].split('.')[0].split('_')[0]
+    image_name = csv_file[0][idx].split('.')[0][:10]
+
     # load vector (stupid to do it this way)
     # w_vector = np.transpose( np.loadtxt(w_vectors_path + image_name + '.class.None.txt')[:, np.newaxis] ) 
-    w_vector = np.transpose( np.loadtxt(w_vectors_path + image_name + '.class.None.txt')[:, np.newaxis] ) 
+    w_vector = np.transpose( np.loadtxt(w_vectors_path + image_name + '.w.1.txt')[:, np.newaxis] ) 
     # w_vector = torch.tensor(w_vector)
     # label =int(csv_file[csv_file[0] == (image_name + "_1.jpg")][4])
     # label =int(csv_file[csv_file[0] == (image_name + ".None.jpg")][4])
-    label =int(csv_file[csv_file[0] == (image_name + '_None.jpg')][4])
+    label =int(csv_file[csv_file[0] == (image_name + '_mal.jpg')][4])
     # 
     w_matrix[idx,:] = w_vector
     labels[idx] = label
@@ -94,7 +97,7 @@ print("SVM accuracy score", svm_mean_acc_score)
 
 print("Saving model...")
 # filename = 'svm_10k_imgs.sav'
-outfile = '/data/generated_uncond/generated_imgs_ISIC_mal/binary_classifiers/svm_30k_imgs_ISIC_MAL_200KIMG.joblib'
+outfile = '/ISIC256/synth60k/svm_30k_imgs.joblib'
 dump(svm, outfile)
 # with open(outfile, 'wb') as pickle_file:
 #     dump(svm, pickle_file)

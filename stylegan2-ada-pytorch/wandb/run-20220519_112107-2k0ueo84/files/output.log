@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 283, in <module>
+    test_df = load_test_val_isic(args.csv_path_to_test, args.path_real_imgs_test, 7530, "test")
+  File "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/utils.py", line 394, in load_test_val_isic
+    splits = train_test_split(image_name_list, gt_list, stratify=True)
+  File "/usr/local/lib/python3.8/dist-packages/sklearn/model_selection/_split.py", line 2445, in train_test_split
+    train, test = next(cv.split(X=arrays[0], y=stratify))
+  File "/usr/local/lib/python3.8/dist-packages/sklearn/model_selection/_split.py", line 2026, in split
+    y = check_array(y, input_name="y", ensure_2d=False, dtype=None)
+  File "/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py", line 903, in check_array
+    n_samples = _num_samples(array)
+  File "/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py", line 321, in _num_samples
+    raise TypeError(
+TypeError: Singleton array array(True) cannot be considered a valid collection.

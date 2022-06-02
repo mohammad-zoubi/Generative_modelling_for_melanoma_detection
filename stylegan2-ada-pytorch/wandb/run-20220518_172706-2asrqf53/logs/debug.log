@@ -1,0 +1,148 @@
+2022-05-18 17:27:06,395 INFO    MainThread:37912 [wandb_setup.py:_flush():76] Loading settings from /home/moh/.config/wandb/settings
+2022-05-18 17:27:06,395 INFO    MainThread:37912 [wandb_setup.py:_flush():76] Loading settings from /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/settings
+2022-05-18 17:27:06,395 INFO    MainThread:37912 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2022-05-18 17:27:06,395 INFO    MainThread:37912 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'stylegan2-ada-pytorch/melanoma_classifier.py', 'program': 'melanoma_classifier.py'}
+2022-05-18 17:27:06,396 INFO    MainThread:37912 [wandb_setup.py:_flush():76] Applying login settings: {'api_key': '***REDACTED***'}
+2022-05-18 17:27:06,396 INFO    MainThread:37912 [wandb_init.py:_log_setup():428] Logging user logs to /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220518_172706-2asrqf53/logs/debug.log
+2022-05-18 17:27:06,396 INFO    MainThread:37912 [wandb_init.py:_log_setup():429] Logging internal logs to /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220518_172706-2asrqf53/logs/debug-internal.log
+2022-05-18 17:27:06,396 INFO    MainThread:37912 [wandb_init.py:init():462] calling init triggers
+2022-05-18 17:27:06,396 INFO    MainThread:37912 [wandb_init.py:init():465] wandb.init called with sweep_config: {}
+config: {}
+2022-05-18 17:27:06,396 INFO    MainThread:37912 [wandb_init.py:init():515] starting backend
+2022-05-18 17:27:06,396 INFO    MainThread:37912 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2022-05-18 17:27:06,416 INFO    MainThread:37912 [backend.py:ensure_launched():217] starting backend process...
+2022-05-18 17:27:06,433 INFO    MainThread:37912 [backend.py:ensure_launched():222] started backend process with pid: 38119
+2022-05-18 17:27:06,434 INFO    MainThread:37912 [wandb_init.py:init():525] backend started and connected
+2022-05-18 17:27:06,441 INFO    MainThread:37912 [wandb_init.py:init():596] updated telemetry
+2022-05-18 17:27:06,481 INFO    MainThread:37912 [wandb_init.py:init():627] communicating run to backend with 30 second timeout
+2022-05-18 17:27:07,093 INFO    MainThread:37912 [wandb_run.py:_on_init():1924] communicating current version
+2022-05-18 17:27:07,171 INFO    MainThread:37912 [wandb_run.py:_on_init():1928] got version response 
+2022-05-18 17:27:07,171 INFO    MainThread:37912 [wandb_init.py:init():662] starting run threads in backend
+2022-05-18 17:27:07,243 INFO    MainThread:37912 [wandb_run.py:_console_start():1898] atexit reg
+2022-05-18 17:27:07,244 INFO    MainThread:37912 [wandb_run.py:_redirect():1771] redirect: SettingsConsole.REDIRECT
+2022-05-18 17:27:07,245 INFO    MainThread:37912 [wandb_run.py:_redirect():1776] Redirecting console.
+2022-05-18 17:27:07,246 INFO    MainThread:37912 [wandb_run.py:_redirect():1832] Redirects installed.
+2022-05-18 17:27:07,246 INFO    MainThread:37912 [wandb_init.py:init():688] run started, returning control to user process
+2022-05-18 17:27:07,248 INFO    MainThread:37912 [wandb_run.py:_config_callback():1136] config_cb None None {'syn_data_path_ben': '/ISIC256/synth60k/img_dir/', 'syn_data_path_mal': '/ISIC256/synth60k/img_dir_ben/', 'real_data_path': '/workspace/melanoma_isic_dataset', 'model': 'efficientnet-b2', 'epochs': 5, 'es': 4, 'kfold': 3, 'unbalanced': False, 'only_reals': False, 'only_syn': False, 'tags': 'whole isic', 'synt_n_imgs': '20000', 'csv_path_to_test': '/ISIC256/real_val.csv', 'path_real_imgs_test': '/ISIC256/train_ISIC256_orig/val_set/'}
+2022-05-18 17:43:13,573 INFO    MainThread:37912 [wandb_run.py:_atexit_cleanup():1867] got exitcode: 0
+2022-05-18 17:43:13,577 INFO    MainThread:37912 [wandb_run.py:_restore():1839] restore
+2022-05-18 17:43:16,159 INFO    MainThread:37912 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 830
+  total_bytes: 830
+}
+
+2022-05-18 17:43:16,267 INFO    MainThread:37912 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 830
+  total_bytes: 830
+}
+
+2022-05-18 17:43:16,520 INFO    MainThread:37912 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 830
+  total_bytes: 830
+}
+
+2022-05-18 17:43:16,937 INFO    MainThread:37912 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 830
+  total_bytes: 5472
+}
+
+2022-05-18 17:43:17,039 INFO    MainThread:37912 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 830
+  total_bytes: 5472
+}
+
+2022-05-18 17:43:17,142 INFO    MainThread:37912 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 830
+  total_bytes: 5472
+}
+
+2022-05-18 17:43:17,243 INFO    MainThread:37912 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 5472
+  total_bytes: 5472
+}
+
+2022-05-18 17:43:17,345 INFO    MainThread:37912 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 5472
+  total_bytes: 5472
+}
+
+2022-05-18 17:43:17,447 INFO    MainThread:37912 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 5472
+  total_bytes: 5472
+}
+
+2022-05-18 17:43:17,549 INFO    MainThread:37912 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 5472
+  total_bytes: 5472
+}
+
+2022-05-18 17:43:17,651 INFO    MainThread:37912 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 5472
+  total_bytes: 5472
+}
+
+2022-05-18 17:43:17,752 INFO    MainThread:37912 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 5472
+  total_bytes: 5472
+}
+
+2022-05-18 17:43:18,387 INFO    MainThread:37912 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 5472
+  total_bytes: 5472
+}
+
+2022-05-18 17:43:18,882 INFO    MainThread:37912 [wandb_run.py:_on_finish():1996] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 5472
+  total_bytes: 5472
+}
+local_info {
+}
+
+2022-05-18 17:43:19,986 INFO    MainThread:37912 [wandb_run.py:_footer_history_summary_info():3104] rendering history
+2022-05-18 17:43:19,986 INFO    MainThread:37912 [wandb_run.py:_footer_history_summary_info():3136] rendering summary
+2022-05-18 17:43:19,990 INFO    MainThread:37912 [wandb_run.py:_footer_sync_info():3060] logging synced files

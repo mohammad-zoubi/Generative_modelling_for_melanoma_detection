@@ -1,0 +1,26 @@
+{
+    "os": "Linux-5.4.0-89-generic-x86_64-with-glibc2.29",
+    "python": "3.8.10",
+    "heartbeatAt": "2022-05-21T15:08:03.558838",
+    "startedAt": "2022-05-21T15:08:02.541868",
+    "docker": null,
+    "gpu": "NVIDIA A100-SXM4-40GB",
+    "gpu_count": 1,
+    "cpu_count": 256,
+    "cuda": null,
+    "args": [
+        "--syn_data_path_mal=/ISIC256/ISIC256_ORIGINAL/synth100k_mal/shifted_imgs_dir/shifted_imgs/"
+    ],
+    "state": "running",
+    "program": "melanoma_classifier.py",
+    "codePath": "stylegan2-ada-pytorch/melanoma_classifier.py",
+    "git": {
+        "remote": "https://github.com/mohammad-zoubi/Generative_modelling_for_melanoma_detection.git",
+        "commit": "86365b2f1bc782117a7592255af6495b353e107c"
+    },
+    "email": null,
+    "root": "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection",
+    "host": "62b93725503b",
+    "username": "moh",
+    "executable": "/usr/bin/python3"
+}

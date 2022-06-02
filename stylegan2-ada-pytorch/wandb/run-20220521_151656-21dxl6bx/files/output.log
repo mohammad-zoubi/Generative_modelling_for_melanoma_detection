@@ -1,0 +1,8 @@
+
+30118
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 286, in <module>
+    train_df = load_isic_train(args.real_data_path, args.n_imgs)
+  File "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/utils.py", line 323, in load_isic_train
+    input_images_1 = np.asarray(input_images)[label_1s][:n_images]
+TypeError: slice indices must be integers or None or have an __index__ method

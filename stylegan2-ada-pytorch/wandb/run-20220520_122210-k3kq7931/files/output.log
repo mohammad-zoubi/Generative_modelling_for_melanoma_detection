@@ -1,0 +1,13 @@
+
+len(input_images_mal) 60000
+len(non_biased_paths) 23313
+33313
+len(input_images_mal) 23313
+len(input_images_ben) 10000
+23313
+label_0_idx_val 766 label_1_idx_val 766
+33313 1532
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.

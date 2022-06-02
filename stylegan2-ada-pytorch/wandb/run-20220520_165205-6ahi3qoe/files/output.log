@@ -1,0 +1,34 @@
+
+[0 0 1 ... 1 0 0]
+len(input_images_mal) 60000
+len(non_biased_paths) 37582
+20000
+len(input_images_mal) 10000
+len(input_images_ben) 10000
+10000
+label_0_idx_val 766 label_1_idx_val 766
+label_0_idx_val 255 label_1_idx_val 255
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.
+Starts training...
+Epoch: 1/15..  Training Loss: 0.122..  Training Accuracy: 0.953.. Validation Loss: 0.369..  Validation Accuracy: 0.881 Validation AUC Score: 0.937 Validation F1 Score: 0.879 Training Time: 0:01:28
+Saving model in training_classifiers_events/test_all_melanoma/5_20/./classifier_efficientnet-b2_0.8805_2022-05-20 16:54:49.909527.pth
+Epoch: 2/15..  Training Loss: 0.036..  Training Accuracy: 0.988.. Validation Loss: 0.582..  Validation Accuracy: 0.845 Validation AUC Score: 0.922 Validation F1 Score: 0.836 Training Time: 0:01:29
+Epoch: 3/15..  Training Loss: 0.020..  Training Accuracy: 0.993.. Validation Loss: 0.764..  Validation Accuracy: 0.794 Validation AUC Score: 0.942 Validation F1 Score: 0.744 Training Time: 0:01:29
+Epoch     3: reducing learning rate of group 0 to 1.0000e-04.
+Epoch: 4/15..  Training Loss: 0.005..  Training Accuracy: 0.998.. Validation Loss: 0.426..  Validation Accuracy: 0.901 Validation AUC Score: 0.963 Validation F1 Score: 0.897 Training Time: 0:01:28
+Saving model in training_classifiers_events/test_all_melanoma/5_20/./classifier_efficientnet-b2_0.9014_2022-05-20 16:59:16.384585.pth
+Epoch: 5/15..  Training Loss: 0.002..  Training Accuracy: 1.000.. Validation Loss: 0.511..  Validation Accuracy: 0.892 Validation AUC Score: 0.955 Validation F1 Score: 0.887 Training Time: 0:01:27
+Epoch: 6/15..  Training Loss: 0.001..  Training Accuracy: 1.000.. Validation Loss: 0.729..  Validation Accuracy: 0.872 Validation AUC Score: 0.954 Validation F1 Score: 0.860 Training Time: 0:01:28
+Epoch     6: reducing learning rate of group 0 to 2.0000e-05.
+Epoch: 7/15..  Training Loss: 0.001..  Training Accuracy: 1.000.. Validation Loss: 0.591..  Validation Accuracy: 0.888 Validation AUC Score: 0.951 Validation F1 Score: 0.884 Training Time: 0:01:30
+Epoch: 8/15..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.568..  Validation Accuracy: 0.890 Validation AUC Score: 0.952 Validation F1 Score: 0.886 Training Time: 0:01:28
+Epoch     8: reducing learning rate of group 0 to 4.0000e-06.
+Epoch: 9/15..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.587..  Validation Accuracy: 0.887 Validation AUC Score: 0.952 Validation F1 Score: 0.881 Training Time: 0:01:28
+Epoch: 10/15..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 0.614..  Validation Accuracy: 0.883 Validation AUC Score: 0.953 Validation F1 Score: 0.874 Training Time: 0:01:28
+Epoch    10: reducing learning rate of group 0 to 8.0000e-07.
+Early stopping. Best Val f1: 0.901
+Total Training Time: 0:14:47
+Test Accuracy: 0.88627, ROC_AUC_score: 0.96194, F1 score: 0.8811

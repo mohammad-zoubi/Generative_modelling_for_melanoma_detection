@@ -1,0 +1,52 @@
+2022-05-19 11:55:03,400 INFO    MainThread:85018 [internal.py:wandb_internal():90] W&B internal server running at pid: 85018, started at: 2022-05-19 11:55:03.398998
+2022-05-19 11:55:03,404 INFO    WriterThread:85018 [datastore.py:open_for_write():75] open: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/run-3a9w7noj.wandb
+2022-05-19 11:55:03,407 DEBUG   SenderThread:85018 [sender.py:send():232] send: header
+2022-05-19 11:55:03,407 DEBUG   SenderThread:85018 [sender.py:send():232] send: run
+2022-05-19 11:55:03,652 DEBUG   HandlerThread:85018 [handler.py:handle_request():141] handle_request: check_version
+2022-05-19 11:55:03,655 INFO    SenderThread:85018 [dir_watcher.py:__init__():197] watching files in: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files
+2022-05-19 11:55:03,656 INFO    SenderThread:85018 [sender.py:_start_run_threads():811] run started: 3a9w7noj with start time 1652954102
+2022-05-19 11:55:03,657 DEBUG   SenderThread:85018 [sender.py:send():232] send: summary
+2022-05-19 11:55:03,659 INFO    SenderThread:85018 [sender.py:_save_file():948] saving file wandb-summary.json with policy end
+2022-05-19 11:55:03,659 DEBUG   SenderThread:85018 [sender.py:send_request():246] send_request: check_version
+2022-05-19 11:55:03,739 DEBUG   HandlerThread:85018 [handler.py:handle_request():141] handle_request: run_start
+2022-05-19 11:55:03,751 DEBUG   HandlerThread:85018 [meta.py:__init__():35] meta init
+2022-05-19 11:55:03,752 DEBUG   HandlerThread:85018 [meta.py:__init__():49] meta init done
+2022-05-19 11:55:03,752 DEBUG   HandlerThread:85018 [meta.py:probe():209] probe
+2022-05-19 11:55:03,764 DEBUG   HandlerThread:85018 [meta.py:_setup_git():199] setup git
+2022-05-19 11:55:03,804 DEBUG   HandlerThread:85018 [meta.py:_setup_git():206] setup git done
+2022-05-19 11:55:03,805 DEBUG   HandlerThread:85018 [meta.py:_save_pip():53] save pip
+2022-05-19 11:55:03,807 DEBUG   HandlerThread:85018 [meta.py:_save_pip():67] save pip done
+2022-05-19 11:55:03,808 DEBUG   HandlerThread:85018 [meta.py:probe():247] probe done
+2022-05-19 11:55:03,860 DEBUG   SenderThread:85018 [sender.py:send():232] send: files
+2022-05-19 11:55:03,860 INFO    SenderThread:85018 [sender.py:_save_file():948] saving file wandb-metadata.json with policy now
+2022-05-19 11:55:03,868 DEBUG   HandlerThread:85018 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-19 11:55:03,869 DEBUG   SenderThread:85018 [sender.py:send_request():246] send_request: stop_status
+2022-05-19 11:55:04,058 DEBUG   SenderThread:85018 [sender.py:send():232] send: telemetry
+2022-05-19 11:55:04,059 DEBUG   SenderThread:85018 [sender.py:send():232] send: config
+2022-05-19 11:55:04,533 INFO    Thread-11 :85018 [upload_job.py:push():132] Uploaded file /tmp/tmp1awbkrfawandb/25ne47hb-wandb-metadata.json
+2022-05-19 11:55:04,659 INFO    Thread-7  :85018 [dir_watcher.py:_on_file_created():244] file/dir created: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files/wandb-metadata.json
+2022-05-19 11:55:04,660 INFO    Thread-7  :85018 [dir_watcher.py:_on_file_created():244] file/dir created: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files/wandb-summary.json
+2022-05-19 11:55:04,660 INFO    Thread-7  :85018 [dir_watcher.py:_on_file_created():244] file/dir created: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files/output.log
+2022-05-19 11:55:04,661 INFO    Thread-7  :85018 [dir_watcher.py:_on_file_created():244] file/dir created: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files/requirements.txt
+2022-05-19 11:55:06,660 INFO    Thread-7  :85018 [dir_watcher.py:_on_file_modified():257] file/dir modified: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files/output.log
+2022-05-19 11:55:15,971 WARNING MainThread:85018 [internal.py:wandb_internal():153] Internal process interrupt: 1
+2022-05-19 11:55:15,977 DEBUG   SenderThread:85018 [sender.py:send():232] send: telemetry
+2022-05-19 11:55:16,121 WARNING MainThread:85018 [internal.py:wandb_internal():153] Internal process interrupt: 2
+2022-05-19 11:55:16,121 ERROR   MainThread:85018 [internal.py:wandb_internal():156] Internal process interrupted.
+2022-05-19 11:55:16,978 INFO    WriterThread:85018 [datastore.py:close():279] close: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/run-3a9w7noj.wandb
+2022-05-19 11:55:16,978 INFO    SenderThread:85018 [sender.py:finish():1110] shutting down sender
+2022-05-19 11:55:16,978 INFO    HandlerThread:85018 [handler.py:finish():806] shutting down handler
+2022-05-19 11:55:16,979 INFO    SenderThread:85018 [dir_watcher.py:finish():312] shutting down directory watcher
+2022-05-19 11:55:17,663 INFO    SenderThread:85018 [dir_watcher.py:finish():342] scan: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files
+2022-05-19 11:55:17,664 INFO    SenderThread:85018 [dir_watcher.py:finish():356] scan save: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files/config.yaml config.yaml
+2022-05-19 11:55:17,664 INFO    SenderThread:85018 [dir_watcher.py:finish():356] scan save: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files/wandb-summary.json wandb-summary.json
+2022-05-19 11:55:17,665 INFO    SenderThread:85018 [dir_watcher.py:finish():356] scan save: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files/requirements.txt requirements.txt
+2022-05-19 11:55:17,671 INFO    SenderThread:85018 [dir_watcher.py:finish():356] scan save: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files/wandb-metadata.json wandb-metadata.json
+2022-05-19 11:55:17,671 INFO    SenderThread:85018 [dir_watcher.py:finish():356] scan save: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files/output.log output.log
+2022-05-19 11:55:17,674 INFO    SenderThread:85018 [file_pusher.py:finish():145] shutting down file pusher
+2022-05-19 11:55:17,675 INFO    SenderThread:85018 [file_pusher.py:join():150] waiting for file pusher
+2022-05-19 11:55:18,306 INFO    Thread-15 :85018 [upload_job.py:push():132] Uploaded file /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files/output.log
+2022-05-19 11:55:18,310 INFO    Thread-12 :85018 [upload_job.py:push():132] Uploaded file /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files/config.yaml
+2022-05-19 11:55:18,334 INFO    Thread-14 :85018 [upload_job.py:push():132] Uploaded file /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files/requirements.txt
+2022-05-19 11:55:18,663 INFO    Thread-13 :85018 [upload_job.py:push():132] Uploaded file /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220519_115502-3a9w7noj/files/wandb-summary.json
+2022-05-19 11:55:19,355 INFO    MainThread:85018 [internal.py:handle_exit():80] Internal process exited

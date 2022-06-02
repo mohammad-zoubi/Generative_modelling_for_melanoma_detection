@@ -1,0 +1,158 @@
+2022-05-21 19:01:20,402 INFO    MainThread:458298 [internal.py:wandb_internal():90] W&B internal server running at pid: 458298, started at: 2022-05-21 19:01:20.401541
+2022-05-21 19:01:20,404 INFO    WriterThread:458298 [datastore.py:open_for_write():75] open: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/run-24ax7g33.wandb
+2022-05-21 19:01:20,406 DEBUG   SenderThread:458298 [sender.py:send():232] send: header
+2022-05-21 19:01:20,406 DEBUG   SenderThread:458298 [sender.py:send():232] send: run
+2022-05-21 19:01:20,624 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: check_version
+2022-05-21 19:01:20,628 INFO    SenderThread:458298 [dir_watcher.py:__init__():197] watching files in: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files
+2022-05-21 19:01:20,628 INFO    SenderThread:458298 [sender.py:_start_run_threads():811] run started: 24ax7g33 with start time 1653152479
+2022-05-21 19:01:20,628 DEBUG   SenderThread:458298 [sender.py:send():232] send: summary
+2022-05-21 19:01:20,630 INFO    SenderThread:458298 [sender.py:_save_file():948] saving file wandb-summary.json with policy end
+2022-05-21 19:01:20,630 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: check_version
+2022-05-21 19:01:21,032 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: run_start
+2022-05-21 19:01:21,040 DEBUG   HandlerThread:458298 [meta.py:__init__():35] meta init
+2022-05-21 19:01:21,040 DEBUG   HandlerThread:458298 [meta.py:__init__():49] meta init done
+2022-05-21 19:01:21,040 DEBUG   HandlerThread:458298 [meta.py:probe():209] probe
+2022-05-21 19:01:21,049 DEBUG   HandlerThread:458298 [meta.py:_setup_git():199] setup git
+2022-05-21 19:01:21,632 INFO    Thread-7  :458298 [dir_watcher.py:_on_file_created():244] file/dir created: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/wandb-summary.json
+2022-05-21 19:01:26,443 DEBUG   HandlerThread:458298 [meta.py:_setup_git():206] setup git done
+2022-05-21 19:01:26,444 DEBUG   HandlerThread:458298 [meta.py:_save_pip():53] save pip
+2022-05-21 19:01:26,446 DEBUG   HandlerThread:458298 [meta.py:_save_pip():67] save pip done
+2022-05-21 19:01:26,446 DEBUG   HandlerThread:458298 [meta.py:probe():247] probe done
+2022-05-21 19:01:26,471 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-21 19:01:26,472 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: stop_status
+2022-05-21 19:01:26,636 INFO    Thread-7  :458298 [dir_watcher.py:_on_file_created():244] file/dir created: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/wandb-metadata.json
+2022-05-21 19:01:26,636 INFO    Thread-7  :458298 [dir_watcher.py:_on_file_created():244] file/dir created: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/requirements.txt
+2022-05-21 19:01:26,636 INFO    Thread-7  :458298 [dir_watcher.py:_on_file_created():244] file/dir created: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/output.log
+2022-05-21 19:01:26,676 DEBUG   SenderThread:458298 [sender.py:send():232] send: telemetry
+2022-05-21 19:01:26,676 DEBUG   SenderThread:458298 [sender.py:send():232] send: config
+2022-05-21 19:01:26,676 DEBUG   SenderThread:458298 [sender.py:send():232] send: files
+2022-05-21 19:01:26,676 INFO    SenderThread:458298 [sender.py:_save_file():948] saving file wandb-metadata.json with policy now
+2022-05-21 19:01:27,323 INFO    Thread-11 :458298 [upload_job.py:push():132] Uploaded file /tmp/tmp1xw24qbawandb/1gyol7l3-wandb-metadata.json
+2022-05-21 19:01:41,678 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-21 19:01:41,678 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: stop_status
+2022-05-21 19:01:49,191 DEBUG   SenderThread:458298 [sender.py:send():232] send: stats
+2022-05-21 19:01:51,658 INFO    Thread-7  :458298 [dir_watcher.py:_on_file_modified():257] file/dir modified: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/config.yaml
+2022-05-21 19:01:56,861 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-21 19:01:56,862 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: stop_status
+2022-05-21 19:02:00,666 INFO    Thread-7  :458298 [dir_watcher.py:_on_file_modified():257] file/dir modified: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/output.log
+2022-05-21 19:02:10,675 INFO    Thread-7  :458298 [dir_watcher.py:_on_file_modified():257] file/dir modified: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/output.log
+2022-05-21 19:02:12,070 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-21 19:02:12,070 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: stop_status
+2022-05-21 19:02:12,857 DEBUG   SenderThread:458298 [sender.py:send():232] send: telemetry
+2022-05-21 19:02:14,680 INFO    Thread-7  :458298 [dir_watcher.py:_on_file_modified():257] file/dir modified: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/output.log
+2022-05-21 19:02:15,651 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-21 19:02:15,651 DEBUG   SenderThread:458298 [sender.py:send():232] send: exit
+2022-05-21 19:02:15,651 INFO    SenderThread:458298 [sender.py:send_exit():368] handling exit code: 1
+2022-05-21 19:02:15,651 INFO    SenderThread:458298 [sender.py:send_exit():370] handling runtime: 54
+2022-05-21 19:02:15,654 INFO    SenderThread:458298 [sender.py:_save_file():948] saving file wandb-summary.json with policy end
+2022-05-21 19:02:15,654 INFO    SenderThread:458298 [sender.py:send_exit():376] send defer
+2022-05-21 19:02:15,654 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: poll_exit
+2022-05-21 19:02:15,656 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: defer
+2022-05-21 19:02:15,656 INFO    HandlerThread:458298 [handler.py:handle_request_defer():164] handle defer: 0
+2022-05-21 19:02:15,656 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: defer
+2022-05-21 19:02:15,656 INFO    SenderThread:458298 [sender.py:send_request_defer():385] handle sender defer: 0
+2022-05-21 19:02:15,656 INFO    SenderThread:458298 [sender.py:transition_state():389] send defer: 1
+2022-05-21 19:02:15,656 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: defer
+2022-05-21 19:02:15,656 INFO    HandlerThread:458298 [handler.py:handle_request_defer():164] handle defer: 1
+2022-05-21 19:02:15,681 INFO    Thread-7  :458298 [dir_watcher.py:_on_file_modified():257] file/dir modified: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/wandb-summary.json
+2022-05-21 19:02:15,681 INFO    Thread-7  :458298 [dir_watcher.py:_on_file_modified():257] file/dir modified: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/output.log
+2022-05-21 19:02:15,716 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: defer
+2022-05-21 19:02:15,716 INFO    SenderThread:458298 [sender.py:send_request_defer():385] handle sender defer: 1
+2022-05-21 19:02:15,717 INFO    SenderThread:458298 [sender.py:transition_state():389] send defer: 2
+2022-05-21 19:02:15,717 DEBUG   SenderThread:458298 [sender.py:send():232] send: stats
+2022-05-21 19:02:15,717 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: defer
+2022-05-21 19:02:15,717 INFO    HandlerThread:458298 [handler.py:handle_request_defer():164] handle defer: 2
+2022-05-21 19:02:15,717 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: defer
+2022-05-21 19:02:15,717 INFO    SenderThread:458298 [sender.py:send_request_defer():385] handle sender defer: 2
+2022-05-21 19:02:15,717 INFO    SenderThread:458298 [sender.py:transition_state():389] send defer: 3
+2022-05-21 19:02:15,718 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: defer
+2022-05-21 19:02:15,718 INFO    HandlerThread:458298 [handler.py:handle_request_defer():164] handle defer: 3
+2022-05-21 19:02:15,718 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: defer
+2022-05-21 19:02:15,718 INFO    SenderThread:458298 [sender.py:send_request_defer():385] handle sender defer: 3
+2022-05-21 19:02:15,718 INFO    SenderThread:458298 [sender.py:transition_state():389] send defer: 4
+2022-05-21 19:02:15,718 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: defer
+2022-05-21 19:02:15,718 INFO    HandlerThread:458298 [handler.py:handle_request_defer():164] handle defer: 4
+2022-05-21 19:02:15,718 DEBUG   SenderThread:458298 [sender.py:send():232] send: summary
+2022-05-21 19:02:15,720 INFO    SenderThread:458298 [sender.py:_save_file():948] saving file wandb-summary.json with policy end
+2022-05-21 19:02:15,721 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: defer
+2022-05-21 19:02:15,721 INFO    SenderThread:458298 [sender.py:send_request_defer():385] handle sender defer: 4
+2022-05-21 19:02:15,721 INFO    SenderThread:458298 [sender.py:transition_state():389] send defer: 5
+2022-05-21 19:02:15,721 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: defer
+2022-05-21 19:02:15,721 INFO    HandlerThread:458298 [handler.py:handle_request_defer():164] handle defer: 5
+2022-05-21 19:02:15,721 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: defer
+2022-05-21 19:02:15,721 INFO    SenderThread:458298 [sender.py:send_request_defer():385] handle sender defer: 5
+2022-05-21 19:02:15,756 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-21 19:02:15,931 INFO    SenderThread:458298 [sender.py:transition_state():389] send defer: 6
+2022-05-21 19:02:15,931 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: poll_exit
+2022-05-21 19:02:15,932 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: defer
+2022-05-21 19:02:15,932 INFO    HandlerThread:458298 [handler.py:handle_request_defer():164] handle defer: 6
+2022-05-21 19:02:15,932 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: defer
+2022-05-21 19:02:15,932 INFO    SenderThread:458298 [sender.py:send_request_defer():385] handle sender defer: 6
+2022-05-21 19:02:15,932 INFO    SenderThread:458298 [dir_watcher.py:finish():312] shutting down directory watcher
+2022-05-21 19:02:16,033 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-21 19:02:16,682 INFO    SenderThread:458298 [dir_watcher.py:_on_file_modified():257] file/dir modified: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/config.yaml
+2022-05-21 19:02:16,683 INFO    SenderThread:458298 [dir_watcher.py:_on_file_modified():257] file/dir modified: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/wandb-summary.json
+2022-05-21 19:02:16,683 INFO    SenderThread:458298 [dir_watcher.py:finish():342] scan: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files
+2022-05-21 19:02:16,683 INFO    SenderThread:458298 [dir_watcher.py:finish():356] scan save: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/config.yaml config.yaml
+2022-05-21 19:02:16,683 INFO    SenderThread:458298 [dir_watcher.py:finish():356] scan save: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/wandb-summary.json wandb-summary.json
+2022-05-21 19:02:16,686 INFO    SenderThread:458298 [dir_watcher.py:finish():356] scan save: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/output.log output.log
+2022-05-21 19:02:16,687 INFO    SenderThread:458298 [dir_watcher.py:finish():356] scan save: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/requirements.txt requirements.txt
+2022-05-21 19:02:16,695 INFO    SenderThread:458298 [dir_watcher.py:finish():356] scan save: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/wandb-metadata.json wandb-metadata.json
+2022-05-21 19:02:16,695 INFO    SenderThread:458298 [sender.py:transition_state():389] send defer: 7
+2022-05-21 19:02:16,695 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: poll_exit
+2022-05-21 19:02:16,696 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: defer
+2022-05-21 19:02:16,696 INFO    HandlerThread:458298 [handler.py:handle_request_defer():164] handle defer: 7
+2022-05-21 19:02:16,699 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: defer
+2022-05-21 19:02:16,699 INFO    SenderThread:458298 [sender.py:send_request_defer():385] handle sender defer: 7
+2022-05-21 19:02:16,699 INFO    SenderThread:458298 [file_pusher.py:finish():145] shutting down file pusher
+2022-05-21 19:02:16,797 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-21 19:02:16,797 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: poll_exit
+2022-05-21 19:02:16,898 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-21 19:02:16,898 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: poll_exit
+2022-05-21 19:02:16,999 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-21 19:02:16,999 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: poll_exit
+2022-05-21 19:02:17,100 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-21 19:02:17,100 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: poll_exit
+2022-05-21 19:02:17,201 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-21 19:02:17,201 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: poll_exit
+2022-05-21 19:02:17,293 INFO    Thread-15 :458298 [upload_job.py:push():132] Uploaded file /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/requirements.txt
+2022-05-21 19:02:17,299 INFO    Thread-12 :458298 [upload_job.py:push():132] Uploaded file /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/config.yaml
+2022-05-21 19:02:17,302 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-21 19:02:17,302 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: poll_exit
+2022-05-21 19:02:17,316 INFO    Thread-14 :458298 [upload_job.py:push():132] Uploaded file /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/output.log
+2022-05-21 19:02:17,325 INFO    Thread-13 :458298 [upload_job.py:push():132] Uploaded file /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/files/wandb-summary.json
+2022-05-21 19:02:17,403 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-21 19:02:17,403 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: poll_exit
+2022-05-21 19:02:17,504 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-21 19:02:17,504 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: poll_exit
+2022-05-21 19:02:17,525 INFO    Thread-6  :458298 [sender.py:transition_state():389] send defer: 8
+2022-05-21 19:02:17,526 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: defer
+2022-05-21 19:02:17,526 INFO    HandlerThread:458298 [handler.py:handle_request_defer():164] handle defer: 8
+2022-05-21 19:02:17,526 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: defer
+2022-05-21 19:02:17,526 INFO    SenderThread:458298 [sender.py:send_request_defer():385] handle sender defer: 8
+2022-05-21 19:02:17,605 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-21 19:02:17,782 INFO    SenderThread:458298 [sender.py:transition_state():389] send defer: 9
+2022-05-21 19:02:17,782 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: poll_exit
+2022-05-21 19:02:17,783 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: defer
+2022-05-21 19:02:17,783 INFO    HandlerThread:458298 [handler.py:handle_request_defer():164] handle defer: 9
+2022-05-21 19:02:17,783 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: defer
+2022-05-21 19:02:17,783 INFO    SenderThread:458298 [sender.py:send_request_defer():385] handle sender defer: 9
+2022-05-21 19:02:17,783 INFO    SenderThread:458298 [sender.py:transition_state():389] send defer: 10
+2022-05-21 19:02:17,784 DEBUG   SenderThread:458298 [sender.py:send():232] send: final
+2022-05-21 19:02:17,784 DEBUG   SenderThread:458298 [sender.py:send():232] send: footer
+2022-05-21 19:02:17,784 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: defer
+2022-05-21 19:02:17,784 INFO    HandlerThread:458298 [handler.py:handle_request_defer():164] handle defer: 10
+2022-05-21 19:02:17,784 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: defer
+2022-05-21 19:02:17,784 INFO    SenderThread:458298 [sender.py:send_request_defer():385] handle sender defer: 10
+2022-05-21 19:02:17,883 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-21 19:02:17,884 DEBUG   SenderThread:458298 [sender.py:send_request():246] send_request: poll_exit
+2022-05-21 19:02:17,884 INFO    SenderThread:458298 [file_pusher.py:join():150] waiting for file pusher
+2022-05-21 19:02:18,341 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: sampled_history
+2022-05-21 19:02:18,341 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: get_summary
+2022-05-21 19:02:18,342 DEBUG   HandlerThread:458298 [handler.py:handle_request():141] handle_request: shutdown
+2022-05-21 19:02:18,342 INFO    HandlerThread:458298 [handler.py:finish():806] shutting down handler
+2022-05-21 19:02:18,784 INFO    WriterThread:458298 [datastore.py:close():279] close: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/run-20220521_190119-24ax7g33/run-24ax7g33.wandb
+2022-05-21 19:02:19,240 INFO    SenderThread:458298 [sender.py:finish():1110] shutting down sender
+2022-05-21 19:02:19,240 INFO    SenderThread:458298 [file_pusher.py:finish():145] shutting down file pusher
+2022-05-21 19:02:19,240 INFO    SenderThread:458298 [file_pusher.py:join():150] waiting for file pusher
+2022-05-21 19:02:19,242 INFO    MainThread:458298 [internal.py:handle_exit():80] Internal process exited

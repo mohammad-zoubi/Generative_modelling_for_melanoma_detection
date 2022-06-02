@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 286, in <module>
+    train_df = load_isic_train(args.real_data_path, args.n_imgs)
+TypeError: load_isic_train() missing 1 required positional argument: 'csv_val'

@@ -1,0 +1,25 @@
+                                             image_name  target
+1     /ISIC256/train_ISIC256_orig/val_set/ISIC_00688...       1
+2     /ISIC256/train_ISIC256_orig/val_set/ISIC_00150...       1
+7     /ISIC256/train_ISIC256_orig/val_set/ISIC_00541...       1
+9     /ISIC256/train_ISIC256_orig/val_set/ISIC_00608...       1
+11    /ISIC256/train_ISIC256_orig/val_set/ISIC_00336...       1
+...                                                 ...     ...
+7503  /ISIC256/train_ISIC256_orig/val_set/ISIC_00145...       1
+7505  /ISIC256/train_ISIC256_orig/val_set/ISIC_00720...       1
+7513  /ISIC256/train_ISIC256_orig/val_set/ISIC_13885...       1
+7515  /ISIC256/train_ISIC256_orig/val_set/ISIC_39939...       1
+7525  /ISIC256/train_ISIC256_orig/val_set/ISIC_00698...       1
+[1021 rows x 2 columns]
+                                             image_name  target
+0     /ISIC256/train_ISIC256_orig/val_set/ISIC_56176...       0
+3     /ISIC256/train_ISIC256_orig/val_set/ISIC_47112...       0
+4     /ISIC256/train_ISIC256_orig/val_set/ISIC_89733...       0
+5     /ISIC256/train_ISIC256_orig/val_set/ISIC_42263...       0
+6     /ISIC256/train_ISIC256_orig/val_set/ISIC_58075...       0
+...                                                 ...     ...
+7524  /ISIC256/train_ISIC256_orig/val_set/ISIC_84094...       0
+7526  /ISIC256/train_ISIC256_orig/val_set/ISIC_85840...       0
+7527  /ISIC256/train_ISIC256_orig/val_set/ISIC_95787...       0
+7528  /ISIC256/train_ISIC256_orig/val_set/ISIC_22526...       0
+7529  /ISIC256/train_ISIC256_orig/val_set/ISIC_75954...       0

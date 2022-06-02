@@ -1,0 +1,27 @@
+
+len(input_images_mal) 60000
+len(non_biased_paths) 23313
+20000
+len(input_images_mal) 10000
+len(input_images_ben) 10000
+10000
+label_0_idx_val 766 label_1_idx_val 766
+Loaded pretrained weights for efficientnet-b2
+Model efficientnet-b2 loaded.
+8,405,995 total parameters.
+8,405,995 training parameters.
+Starts training...
+Epoch: 1/15..  Training Loss: 0.077..  Training Accuracy: 0.971.. Validation Loss: 0.621..  Validation Accuracy: 0.800 Validation AUC Score: 0.903 Validation F1 Score: 0.771 Training Time: 0:01:35
+Saving model in training_classifiers_events/test_all_melanoma/5_20/./classifier_efficientnet-b2_0.8003_2022-05-20 12:30:24.931347.pth
+Epoch: 2/15..  Training Loss: 0.021..  Training Accuracy: 0.993.. Validation Loss: 0.685..  Validation Accuracy: 0.800 Validation AUC Score: 0.886 Validation F1 Score: 0.785 Training Time: 0:01:35
+Epoch: 3/15..  Training Loss: 0.013..  Training Accuracy: 0.996.. Validation Loss: 1.259..  Validation Accuracy: 0.725 Validation AUC Score: 0.919 Validation F1 Score: 0.631 Training Time: 0:01:33
+Epoch     3: reducing learning rate of group 0 to 1.0000e-04.
+Epoch: 4/15..  Training Loss: 0.002..  Training Accuracy: 0.999.. Validation Loss: 1.183..  Validation Accuracy: 0.760 Validation AUC Score: 0.929 Validation F1 Score: 0.692 Training Time: 0:01:34
+Epoch: 5/15..  Training Loss: 0.001..  Training Accuracy: 1.000.. Validation Loss: 1.237..  Validation Accuracy: 0.764 Validation AUC Score: 0.932 Validation F1 Score: 0.699 Training Time: 0:01:36
+Epoch     5: reducing learning rate of group 0 to 2.0000e-05.
+Epoch: 6/15..  Training Loss: 0.001..  Training Accuracy: 1.000.. Validation Loss: 1.346..  Validation Accuracy: 0.758 Validation AUC Score: 0.932 Validation F1 Score: 0.688 Training Time: 0:01:36
+Epoch: 7/15..  Training Loss: 0.000..  Training Accuracy: 1.000.. Validation Loss: 1.340..  Validation Accuracy: 0.761 Validation AUC Score: 0.931 Validation F1 Score: 0.694 Training Time: 0:01:34
+Epoch     7: reducing learning rate of group 0 to 4.0000e-06.
+Early stopping. Best Val f1: 0.800
+Total Training Time: 0:11:08
+Test Accuracy: 0.83922, ROC_AUC_score: 0.93292, F1 score: 0.8194

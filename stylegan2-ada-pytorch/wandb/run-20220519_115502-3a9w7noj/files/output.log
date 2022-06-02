@@ -1,0 +1,13 @@
+      Unnamed: 0        image_name   patient_id     sex  age_approx anatom_site_general_challenge  target
+824         7873  ISIC_2454475.jpg   IP_7940004  female        75.0                         torso       0
+1718        2461  ISIC_0835067.jpg   IP_2026598    male        20.0               lower extremity       0
+433        27989  ISIC_8469584.jpg   IP_3281766  female        40.0                     head/neck       0
+3131        2559  ISIC_0869142.jpg   IP_5496141  female        35.0                         torso       0
+3920       32383  ISIC_9779272.jpg   IP_3650745    male        65.0               upper extremity       0
+...          ...               ...          ...     ...         ...                           ...     ...
+6531       34159  ISIC_0029909.jpg  HAM_0001266  female        75.0                     head/neck       1
+2726       35077  ISIC_0055309.jpg  BCN_0001231    male        50.0                anterior torso       1
+648        35903  ISIC_0060999.jpg  BCN_0005390    male        75.0                anterior torso       1
+1045       36862  ISIC_0067597.jpg  BCN_0000626    male        45.0               lower extremity       1
+901        35885  ISIC_0060883.jpg  BCN_0003213  female        60.0                   palms/soles       1
+[1076 rows x 7 columns]

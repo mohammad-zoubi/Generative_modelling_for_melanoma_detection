@@ -1,0 +1,35 @@
+2022-05-18 17:11:42,618 INFO    MainThread:27902 [internal.py:wandb_internal():90] W&B internal server running at pid: 27902, started at: 2022-05-18 17:11:42.616782
+2022-05-18 17:11:42,621 INFO    WriterThread:27902 [datastore.py:open_for_write():75] open: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/offline-run-20220518_171141-19hjkiuc/run-19hjkiuc.wandb
+2022-05-18 17:11:42,622 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: run_start
+2022-05-18 17:11:42,628 DEBUG   HandlerThread:27902 [meta.py:__init__():35] meta init
+2022-05-18 17:11:42,629 DEBUG   HandlerThread:27902 [meta.py:__init__():49] meta init done
+2022-05-18 17:11:42,629 DEBUG   HandlerThread:27902 [meta.py:probe():209] probe
+2022-05-18 17:11:42,639 DEBUG   HandlerThread:27902 [meta.py:_setup_git():199] setup git
+2022-05-18 17:11:42,678 DEBUG   HandlerThread:27902 [meta.py:_setup_git():206] setup git done
+2022-05-18 17:11:42,678 DEBUG   HandlerThread:27902 [meta.py:_save_pip():53] save pip
+2022-05-18 17:11:42,680 DEBUG   HandlerThread:27902 [meta.py:_save_pip():67] save pip done
+2022-05-18 17:11:42,680 DEBUG   HandlerThread:27902 [meta.py:probe():247] probe done
+2022-05-18 17:12:19,774 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:13:27,960 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:14:34,271 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:15:18,400 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:15:19,474 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:16:26,509 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:17:33,213 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:18:18,012 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:18:19,215 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:19:26,636 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:20:34,385 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:21:19,613 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:21:20,749 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:22:28,810 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:23:35,664 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:24:20,740 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:24:21,896 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:25:29,195 DEBUG   HandlerThread:27902 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-18 17:26:16,530 WARNING MainThread:27902 [internal.py:wandb_internal():153] Internal process interrupt: 1
+2022-05-18 17:26:16,675 WARNING MainThread:27902 [internal.py:wandb_internal():153] Internal process interrupt: 2
+2022-05-18 17:26:16,675 ERROR   MainThread:27902 [internal.py:wandb_internal():156] Internal process interrupted.
+2022-05-18 17:26:16,734 INFO    SenderThread:27902 [sender.py:finish():1110] shutting down sender
+2022-05-18 17:26:17,645 INFO    WriterThread:27902 [datastore.py:close():279] close: /ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/wandb/offline-run-20220518_171141-19hjkiuc/run-19hjkiuc.wandb
+2022-05-18 17:26:17,646 INFO    MainThread:27902 [internal.py:handle_exit():80] Internal process exited

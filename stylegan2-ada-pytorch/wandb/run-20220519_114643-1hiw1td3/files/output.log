@@ -1,0 +1,56 @@
+    Unnamed: 0                    image_name    patient_id     sex  age_approx anatom_site_general_challenge  target
+0        18481              ISIC_5617604.jpg    IP_4387709    male        40.0               upper extremity       0
+1        37044              ISIC_0068850.jpg   BCN_0003311    male        75.0                anterior torso       1
+2        33642  ISIC_0015005_downsampled.jpg           NaN  female        55.0               posterior torso       1
+3        15396              ISIC_4711251.jpg    IP_1294580  female        55.0                         torso       0
+4        29675              ISIC_8973325.jpg    IP_8590096    male        75.0                         torso       0
+5        13767              ISIC_4226395.jpg    IP_6247245    male        65.0                         torso       0
+6        19138              ISIC_5807597.jpg    IP_0768675    male        35.0               upper extremity       0
+7        34907              ISIC_0054194.jpg   BCN_0003910  female        75.0               upper extremity       1
+8        10094              ISIC_3128414.jpg    IP_1179846    male        60.0               lower extremity       0
+9        35887              ISIC_0060893.jpg   BCN_0004066    male        65.0                anterior torso       1
+10       32858              ISIC_9917640.jpg    IP_3466191  female        45.0               upper extremity       0
+11       34643              ISIC_0033662.jpg   HAM_0006376  female        70.0               lower extremity       1
+12       11093              ISIC_3419626.jpg    IP_9712836  female        45.0               lower extremity       0
+13       35335              ISIC_0057019.jpg   BCN_0005681  female        75.0                anterior torso       1
+14         361              ISIC_0224295.jpg    IP_9826072    male        70.0                         torso       0
+15       14272              ISIC_4373429.jpg    IP_7141746    male        75.0               upper extremity       0
+16       33366              ISIC_0011390.jpg           NaN    male        70.0                anterior torso       1
+17       29373              ISIC_8880180.jpg    IP_8794667    male        55.0               lower extremity       0
+18       24717              ISIC_7505254.jpg    IP_4080851    male        50.0               upper extremity       0
+19       21933              ISIC_6639525.jpg    IP_1969685    male        50.0                         torso       0
+20       20047              ISIC_6090770.jpg    IP_9147454  female        55.0               lower extremity       0
+21       15993              ISIC_4893602.jpg    IP_0038545  female        55.0               lower extremity       0
+22       24424              ISIC_7413014.jpg    IP_8702124  female        50.0                         torso       0
+23       24183              ISIC_7342658.jpg    IP_8791409  female        55.0               lower extremity       0
+24       19918              ISIC_6050515.jpg    IP_5294508    male        60.0               upper extremity       0
+25          16              ISIC_0078712.jpg    IP_2189124    male        40.0               lower extremity       0
+26       33464  ISIC_0013762_downsampled.jpg  MSK4_0010014    male        80.0                anterior torso       1
+27       26910              ISIC_8155787.jpg    IP_5972253    male        75.0                     head/neck       0
+28       13536              ISIC_4155780.jpg    IP_9563768  female        50.0                         torso       0
+29       12669              ISIC_3902917.jpg    IP_1559100    male        65.0               lower extremity       0
+30       24831              ISIC_7539588.jpg    IP_5805281    male        50.0               upper extremity       0
+31       12724              ISIC_3918592.jpg    IP_7908565    male        45.0                         torso       0
+32       36409              ISIC_0064337.jpg   BCN_0004654  female        45.0                anterior torso       1
+33       23801              ISIC_7228822.jpg    IP_4292424    male        50.0                   palms/soles       0
+34        6987              ISIC_2186123.jpg    IP_4667127  female        40.0               lower extremity       0
+35       14346              ISIC_4393733.jpg    IP_2455242  female        55.0                     head/neck       0
+36        7961              ISIC_2481408.jpg    IP_7743588    male        40.0               lower extremity       0
+37       17727              ISIC_5405889.jpg    IP_7386073    male        55.0                         torso       0
+38       10526              ISIC_3253098.jpg    IP_5350484    male        30.0                         torso       0
+39       26821              ISIC_8129907.jpg    IP_3048629    male        55.0               upper extremity       0
+40       30648              ISIC_9262162.jpg    IP_1051664    male        35.0                         torso       0
+41        3307              ISIC_1102075.jpg    IP_0656529    male        60.0                         torso       0
+42       36671              ISIC_0066154.jpg   BCN_0002016  female        35.0                     head/neck       1
+43       30147              ISIC_9107094.jpg    IP_9826072    male        70.0                         torso       0
+44       11202              ISIC_3447311.jpg    IP_3714517    male        45.0                         torso       0
+45       21538              ISIC_6535502.jpg    IP_1139701  female        45.0                         torso       0
+46       10222              ISIC_3165765.jpg    IP_3729287    male        55.0                         torso       0
+47       19436              ISIC_5901919.jpg    IP_7824066    male        65.0               upper extremity       0
+48       33124              ISIC_9999666.jpg    IP_7702038    male        50.0               lower extremity       0
+49        6847              ISIC_2145943.jpg    IP_7207550    male        55.0                         torso       0
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 283, in <module>
+    test_df = load_test_val_isic(args.csv_path_to_test, args.path_real_imgs_test, 7530, "test")
+  File "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/utils.py", line 413, in load_test_val_isic
+    return test_df

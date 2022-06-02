@@ -1,0 +1,1 @@
+{"train/training_loss": 1.1175870007207322e-08, "epoch": 6, "_timestamp": 1653036552, "_runtime": 1769, "_step": 34, "train/Training acc": 0.99994, "val/Validation Acc": 0.8537859007832899, "val/Validation Auc": 0.943041911799794, "val/Validation Loss": 0.8790326575534285, "best_auc_score": 0.9526361894893277, "best_acc_score": 0.8544386422976501, "_wandb": {"runtime": 1777}}

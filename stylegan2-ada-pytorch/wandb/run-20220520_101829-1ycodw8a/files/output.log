@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "melanoma_classifier.py", line 286, in <module>
+    validation_df, test_df = load_test_val_isic(args.csv_path_to_test, args.path_real_imgs_test, test_size=0.25)
+  File "/ISIC256/project_scripts/GITHUB_REPO/Generative_modelling_for_melanoma_detection/stylegan2-ada-pytorch/utils.py", line 432, in load_test_val_isic
+    labels_val = np.concatenate(label_0_idx_val, label_1_idx_val, axis=0)
+  File "<__array_function__ internals>", line 179, in concatenate
+TypeError: concatenate() got multiple values for argument 'axis'
+50000
+25000

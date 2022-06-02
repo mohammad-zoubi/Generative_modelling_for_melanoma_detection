@@ -1,0 +1,73 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.12.16
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.8.10
+    start_time: 1653145289
+    t:
+      1:
+      - 1
+      - 5
+      - 41
+      - 53
+      - 55
+      2:
+      - 1
+      - 5
+      - 41
+      - 53
+      - 55
+      4: 3.8.10
+      5: 0.12.16
+      8:
+      - 5
+anno_data_path:
+  desc: null
+  value: /ISIC256/synth60k/synth60k_anno_all.csv
+csv_path_to_test:
+  desc: null
+  value: /ISIC256/real_val.csv
+epochs:
+  desc: null
+  value: 15
+es:
+  desc: null
+  value: 6
+kfold:
+  desc: null
+  value: 3
+model:
+  desc: null
+  value: efficientnet-b2
+n_imgs:
+  desc: null
+  value: '10000'
+only_reals:
+  desc: null
+  value: false
+only_syn:
+  desc: null
+  value: false
+path_real_imgs_test:
+  desc: null
+  value: /ISIC256/train_ISIC256_orig/val_set/
+real_data_path:
+  desc: null
+  value: /ISIC256/train_ISIC256_orig/imgs/
+syn_data_path_ben:
+  desc: null
+  value: /ISIC256/synth60k/img_dir_ben/
+syn_data_path_mal:
+  desc: null
+  value: /ISIC256/ISIC256_ORIGINAL/synth100k_mal/shifted_imgs_dir/shifted_imgs/
+tags:
+  desc: null
+  value: whole isic
+unbalanced:
+  desc: null
+  value: false

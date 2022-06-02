@@ -1,0 +1,56 @@
+                                           image_name  target
+1   /ISIC256/train_ISIC256_orig/val_set/ISIC_00688...       1
+2   /ISIC256/train_ISIC256_orig/val_set/ISIC_00150...       1
+7   /ISIC256/train_ISIC256_orig/val_set/ISIC_00541...       1
+9   /ISIC256/train_ISIC256_orig/val_set/ISIC_00608...       1
+11  /ISIC256/train_ISIC256_orig/val_set/ISIC_00336...       1
+13  /ISIC256/train_ISIC256_orig/val_set/ISIC_00570...       1
+16  /ISIC256/train_ISIC256_orig/val_set/ISIC_00113...       1
+26  /ISIC256/train_ISIC256_orig/val_set/ISIC_00137...       1
+32  /ISIC256/train_ISIC256_orig/val_set/ISIC_00643...       1
+42  /ISIC256/train_ISIC256_orig/val_set/ISIC_00661...       1
+                                           image_name  target
+0   /ISIC256/train_ISIC256_orig/val_set/ISIC_56176...       0
+3   /ISIC256/train_ISIC256_orig/val_set/ISIC_47112...       0
+4   /ISIC256/train_ISIC256_orig/val_set/ISIC_89733...       0
+5   /ISIC256/train_ISIC256_orig/val_set/ISIC_42263...       0
+6   /ISIC256/train_ISIC256_orig/val_set/ISIC_58075...       0
+8   /ISIC256/train_ISIC256_orig/val_set/ISIC_31284...       0
+10  /ISIC256/train_ISIC256_orig/val_set/ISIC_99176...       0
+12  /ISIC256/train_ISIC256_orig/val_set/ISIC_34196...       0
+14  /ISIC256/train_ISIC256_orig/val_set/ISIC_02242...       0
+15  /ISIC256/train_ISIC256_orig/val_set/ISIC_43734...       0
+17  /ISIC256/train_ISIC256_orig/val_set/ISIC_88801...       0
+18  /ISIC256/train_ISIC256_orig/val_set/ISIC_75052...       0
+19  /ISIC256/train_ISIC256_orig/val_set/ISIC_66395...       0
+20  /ISIC256/train_ISIC256_orig/val_set/ISIC_60907...       0
+21  /ISIC256/train_ISIC256_orig/val_set/ISIC_48936...       0
+22  /ISIC256/train_ISIC256_orig/val_set/ISIC_74130...       0
+23  /ISIC256/train_ISIC256_orig/val_set/ISIC_73426...       0
+24  /ISIC256/train_ISIC256_orig/val_set/ISIC_60505...       0
+25  /ISIC256/train_ISIC256_orig/val_set/ISIC_00787...       0
+27  /ISIC256/train_ISIC256_orig/val_set/ISIC_81557...       0
+28  /ISIC256/train_ISIC256_orig/val_set/ISIC_41557...       0
+29  /ISIC256/train_ISIC256_orig/val_set/ISIC_39029...       0
+30  /ISIC256/train_ISIC256_orig/val_set/ISIC_75395...       0
+31  /ISIC256/train_ISIC256_orig/val_set/ISIC_39185...       0
+33  /ISIC256/train_ISIC256_orig/val_set/ISIC_72288...       0
+34  /ISIC256/train_ISIC256_orig/val_set/ISIC_21861...       0
+35  /ISIC256/train_ISIC256_orig/val_set/ISIC_43937...       0
+36  /ISIC256/train_ISIC256_orig/val_set/ISIC_24814...       0
+37  /ISIC256/train_ISIC256_orig/val_set/ISIC_54058...       0
+38  /ISIC256/train_ISIC256_orig/val_set/ISIC_32530...       0
+39  /ISIC256/train_ISIC256_orig/val_set/ISIC_81299...       0
+40  /ISIC256/train_ISIC256_orig/val_set/ISIC_92621...       0
+41  /ISIC256/train_ISIC256_orig/val_set/ISIC_11020...       0
+43  /ISIC256/train_ISIC256_orig/val_set/ISIC_91070...       0
+44  /ISIC256/train_ISIC256_orig/val_set/ISIC_34473...       0
+45  /ISIC256/train_ISIC256_orig/val_set/ISIC_65355...       0
+46  /ISIC256/train_ISIC256_orig/val_set/ISIC_31657...       0
+47  /ISIC256/train_ISIC256_orig/val_set/ISIC_59019...       0
+48  /ISIC256/train_ISIC256_orig/val_set/ISIC_99996...       0
+49  /ISIC256/train_ISIC256_orig/val_set/ISIC_21459...       0
+[['/ISIC256/train_ISIC256_orig/val_set/ISIC_5617604.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_0054194.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_0060893.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_3419626.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_6050515.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_2145943.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_8973325.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_1102075.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_0011390.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_3447311.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_3253098.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_3128414.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_4711251.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_6090770.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_0013762_downsampled.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_5807597.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_4373429.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_9262162.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_3165765.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_8880180.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_5901919.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_3918592.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_3902917.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_9917640.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_0015005_downsampled.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_6639525.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_4393733.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_0066154.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_7413014.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_7539588.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_4155780.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_4893602.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_0224295.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_6535502.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_0064337.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_4226395.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_2186123.jpg'], ['/ISIC256/train_ISIC256_orig/val_set/ISIC_7505254.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_8155787.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_0057019.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_2481408.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_0033662.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_5405889.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_9999666.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_9107094.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_8129907.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_7228822.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_0068850.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_0078712.jpg', '/ISIC256/train_ISIC256_orig/val_set/ISIC_7342658.jpg'], array([0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0]), array([0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0])]
+40000
+20000
